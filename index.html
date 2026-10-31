@@ -1,0 +1,651 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Transporte Maywill</title>
+<meta name="description" content="Transporte Maywill C.A. — transporte de personal, empresarial, eventos y equipos deportivos en autobuses ejecutivos en toda Venezuela. Más de 25 años de servicio.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;1,700;1,800&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: noche de carretera — fondo asfalto, rojo de la marca como única señal, tipografía condensada itálica como el logo */
+:root{
+  color-scheme: dark;
+  --asfalto:#0e0f11;
+  --asfalto-2:#16181b;
+  --linea:#2a2d31;
+  --texto:#f2f0ec;
+  --suave:#a6a8ab;
+  --rojo:#e3262b;
+  --rojo-hover:#ff3a3f;
+  --vinotinto:#6e1423;
+  --vinotinto-2:#8c1d2f;
+  --dorado:#d9b56b;
+  --f-display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
+  --f-body:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+  --r:14px;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--asfalto);color:var(--texto);font-family:var(--f-body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--asfalto)}
+a{color:inherit}
+img{display:block;max-width:100%}
+.wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--f-display);font-weight:700;line-height:1.02;margin:0;text-wrap:balance}
+h2{font-size:clamp(2.2rem,5vw,3.4rem);font-style:italic;text-transform:uppercase;letter-spacing:.01em}
+p{margin:0}
+.eyebrow{font-family:var(--f-display);font-weight:600;text-transform:uppercase;letter-spacing:.16em;font-size:.82rem;color:var(--rojo)}
+.lead{color:var(--suave);max-width:60ch}
+section{padding-block:clamp(64px,9vw,112px)}
+.sec-head{display:grid;gap:14px;margin-bottom:44px;max-width:720px}
+
+/* Botones */
+.btn{display:inline-flex;align-items:center;gap:10px;font-family:var(--f-display);font-weight:700;font-size:1.08rem;text-transform:uppercase;letter-spacing:.06em;text-decoration:none;padding:15px 24px;border-radius:999px;border:2px solid transparent;transition:background .2s,border-color .2s,transform .2s;cursor:pointer}
+.btn:focus-visible{outline:3px solid var(--dorado);outline-offset:3px}
+.btn-rojo{background:var(--rojo);color:#fff}
+.btn-rojo:hover{background:var(--rojo-hover);transform:translateY(-1px)}
+.btn-linea{border-color:var(--linea);color:var(--texto)}
+.btn-linea:hover{border-color:var(--texto)}
+.btn svg{width:20px;height:20px;flex:none}
+
+/* Cabecera */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:color-mix(in srgb,var(--asfalto) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--linea)}
+.top .wrap{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;padding-block:10px}
+.marca{display:flex;align-items:center;gap:12px;text-decoration:none}
+.top .marca{grid-column:2;justify-self:center}
+.marca img{height:84px;width:auto;border-radius:10px}
+.top .marca img{animation:logo-in .9s cubic-bezier(.2,.8,.2,1) both}
+@keyframes logo-in{from{opacity:.2;transform:translateY(-14px) scale(.92)}to{opacity:1;transform:none}}
+.nav-izq{grid-column:1;justify-self:start}
+.nav-der{grid-column:3;justify-self:end}
+@media (max-width:860px){.top .wrap{grid-template-columns:1fr auto 1fr}.marca img{height:62px}}
+.marca b{font-family:var(--f-display);font-style:italic;font-weight:800;font-size:1.45rem;letter-spacing:.02em;text-transform:uppercase;line-height:1}
+.marca small{display:block;font-family:var(--f-display);font-size:.72rem;letter-spacing:.2em;color:var(--suave);text-transform:uppercase}
+.nav{display:flex;gap:26px;align-items:center}
+.nav a{text-decoration:none;font-family:var(--f-display);font-weight:600;text-transform:uppercase;letter-spacing:.08em;font-size:.95rem;color:var(--suave)}
+.nav a:hover{color:var(--texto)}
+.nav .btn{padding:10px 18px;font-size:.95rem;color:#fff}
+@media (max-width:860px){.nav a:not(.btn){display:none}}
+
+/* Portada */
+.portada{position:relative;background:#0a0b0c;border-bottom:1px solid var(--linea)}
+.portada img{width:100%;height:clamp(220px,46vw,600px);object-fit:cover;object-position:center}
+.portada::after{content:"";position:absolute;left:0;right:0;bottom:0;height:22%;background:linear-gradient(180deg,transparent,var(--asfalto))}
+
+/* Hero */
+.hero{padding-block:clamp(40px,6vw,72px) clamp(48px,7vw,88px)}
+.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(28px,5vw,64px);align-items:center}
+.hero h1{font-size:clamp(2.9rem,7.2vw,5.6rem);font-style:italic;font-weight:800;text-transform:uppercase;letter-spacing:-.005em}
+.hero h1 em{font-style:inherit;color:var(--rojo)}
+.hero-txt{display:grid;gap:22px;min-width:0}
+.hero-txt .lead{font-size:1.12rem}
+.ctas{display:flex;flex-wrap:wrap;gap:12px}
+.hero-foto{position:relative;border-radius:var(--r);overflow:hidden;aspect-ratio:4/3.2;max-width:100%}
+.hero-foto img{width:100%;height:100%;object-fit:cover}
+.hero-foto::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(10,10,12,.75))}
+.placa{position:absolute;left:16px;bottom:16px;z-index:2;display:flex;gap:10px;align-items:center;background:var(--asfalto);border:1px solid var(--linea);border-radius:10px;padding:10px 14px}
+.placa .dot{width:9px;height:9px;border-radius:50%;background:#2ecc71;box-shadow:0 0 0 4px rgba(46,204,113,.18)}
+.placa span{font-family:var(--f-display);font-weight:600;letter-spacing:.06em;text-transform:uppercase;font-size:.92rem}
+@media (max-width:860px){.hero .wrap{grid-template-columns:1fr}}
+
+/* Franja de confianza */
+.confianza{border-block:1px solid var(--linea);background:var(--asfalto-2)}
+.confianza .wrap{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));padding-block:0}
+.dato{padding:26px 20px;display:grid;gap:4px;min-width:0;border-left:1px solid var(--linea)}
+.dato:first-child{border-left:0;padding-left:0}
+.dato b{font-family:var(--f-display);font-style:italic;font-weight:800;font-size:2.1rem;line-height:1;text-transform:uppercase}
+.dato b i{color:var(--rojo);font-style:inherit}
+.dato span{color:var(--suave);font-size:.95rem}
+@media (max-width:860px){.confianza .wrap{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.dato{padding:20px 14px}.dato b{font-size:clamp(1.4rem,6.5vw,2.1rem)}.dato:nth-child(3){border-left:0;padding-left:0}.dato:nth-child(n+3){border-top:1px solid var(--linea)}}
+
+/* Servicios */
+.servicios{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.serv{display:grid;grid-template-rows:auto 1fr auto;gap:14px;padding:30px;border:1px solid var(--linea);border-radius:var(--r);background:var(--asfalto-2);transition:border-color .25s}
+.serv:hover{border-color:var(--rojo)}
+.serv-top{display:flex;justify-content:space-between;align-items:flex-start;gap:16px}
+.serv h3{font-size:1.9rem;font-style:italic;text-transform:uppercase}
+.serv svg{width:38px;height:38px;color:var(--rojo);flex:none}
+.serv p{color:var(--suave);min-width:0}
+.serv ul{margin:0;padding:0;list-style:none;display:flex;flex-wrap:wrap;gap:8px}
+.serv li{font-size:.85rem;border:1px solid var(--linea);border-radius:999px;padding:4px 12px;color:var(--texto)}
+.serv a{justify-self:start;font-family:var(--f-display);font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--rojo);text-decoration:none;font-size:1rem}
+.serv a:hover{color:var(--rojo-hover);text-decoration:underline;text-underline-offset:4px}
+.serv-dest{background:linear-gradient(135deg,var(--asfalto-2),#1d1012);border-color:#3a2023}
+@media (max-width:760px){.servicios{grid-template-columns:1fr}.serv{padding:24px}}
+
+/* Vinotinto */
+.vinotinto{background:var(--vinotinto);position:relative;overflow:hidden}
+.vinotinto::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(-55deg,transparent 0 46px,rgba(255,255,255,.035) 46px 92px)}
+.vinotinto .wrap{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,64px);align-items:center}
+.escudo{width:clamp(130px,18vw,190px);aspect-ratio:1;border-radius:50%;border:3px solid var(--dorado);display:grid;place-items:center;text-align:center;background:var(--vinotinto-2)}
+.escudo b{font-family:var(--f-display);font-style:italic;font-weight:800;font-size:clamp(2.2rem,4vw,3rem);line-height:.9;color:var(--dorado);text-transform:uppercase}
+.escudo span{display:block;font-family:var(--f-display);letter-spacing:.2em;font-size:.72rem;text-transform:uppercase;margin-top:6px}
+.vino-foto{margin:0;min-width:0}
+.vino-foto img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:var(--r);border:3px solid var(--dorado);box-shadow:0 24px 50px rgba(0,0,0,.45)}
+.vino-foto figcaption{margin-top:10px;font-size:.88rem;color:#ecd9db}
+.vinotinto .eyebrow{color:var(--dorado)}
+.vinotinto h2{font-size:clamp(2.4rem,5.6vw,4rem)}
+.vinotinto .lead{color:#ecd9db;margin-top:16px}
+.vinotinto .txt{min-width:0}
+@media (max-width:700px){.vinotinto .wrap{grid-template-columns:1fr}}
+
+/* Flota */
+.flota{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.unidad{border:1px solid var(--linea);border-radius:var(--r);overflow:hidden;background:var(--asfalto-2);display:grid;grid-template-rows:auto 1fr}
+.galeria{position:relative;background:#0a0b0c}
+.pista{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;aspect-ratio:4/3;max-width:100%}
+.pista::-webkit-scrollbar{display:none}
+.pista:focus-visible{outline:3px solid var(--dorado);outline-offset:-3px}
+.slide{flex:0 0 100%;margin:0;scroll-snap-align:start;overflow:hidden}
+.slide img{width:100%;height:100%;object-fit:cover}
+.ficha-slide{background:#0a0b0c}
+.ficha-slide img{object-fit:contain}
+.flecha{position:absolute;top:50%;translate:0 -50%;width:42px;height:42px;border-radius:50%;border:0;background:rgba(14,15,17,.75);color:#fff;font-size:1.6rem;line-height:1;cursor:pointer;display:grid;place-items:center;transition:background .2s}
+.flecha:hover{background:var(--rojo)}
+.flecha:focus-visible{outline:3px solid var(--dorado)}
+.flecha.prev{left:10px}.flecha.next{right:10px}
+.flecha[disabled]{opacity:0;pointer-events:none}
+.contador{position:absolute;top:10px;right:10px;font-family:var(--f-mono);font-size:.78rem;background:rgba(14,15,17,.75);padding:3px 9px;border-radius:999px}
+.pista-hint{position:absolute;top:10px;left:10px;font-family:var(--f-display);font-weight:700;text-transform:uppercase;letter-spacing:.1em;font-size:.8rem;background:var(--rojo);color:#fff;padding:4px 10px;border-radius:999px;transition:opacity .3s}
+.galeria.movida .pista-hint{opacity:0}
+.puntos{position:absolute;bottom:10px;left:0;right:0;display:flex;justify-content:center;gap:6px}
+.puntos i{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.45);transition:background .2s,width .2s}
+.puntos i.on{background:#fff;width:18px;border-radius:4px}
+@media (hover:none){.flecha{display:none}}
+.slide img{cursor:zoom-in}
+.ampliar{position:absolute;left:50%;bottom:30px;translate:-50% 0;font-family:var(--f-display);font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:.85rem;background:var(--rojo);color:#fff;padding:7px 14px;border-radius:999px;pointer-events:none;white-space:nowrap;opacity:0;transition:opacity .25s}
+.galeria.en-ficha .ampliar{opacity:1}
+.visor{position:fixed;inset:0;z-index:90;background:rgba(6,6,8,.96);display:flex;flex-direction:column;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+.visor-top{display:flex;justify-content:space-between;align-items:center;padding:10px max(14px,env(safe-area-inset-right,0px)) 10px max(14px,env(safe-area-inset-left,0px))}
+.visor-top span{font-family:var(--f-mono);font-size:.85rem;color:var(--suave)}
+.visor-cerrar{width:44px;height:44px;border-radius:50%;border:1px solid var(--linea);background:var(--asfalto-2);color:#fff;font-size:1.5rem;cursor:pointer}
+.visor-cerrar:focus-visible{outline:3px solid var(--dorado)}
+.visor-pista{flex:1;display:flex;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;min-height:0}
+.visor-pista::-webkit-scrollbar{display:none}
+.visor-pista figure{flex:0 0 100%;margin:0;scroll-snap-align:start;overflow:auto;display:flex;align-items:center;justify-content:center;padding:8px}
+.visor-pista img{max-width:100%;max-height:100%;object-fit:contain;border-radius:8px}
+.visor .flecha{top:50%}
+
+
+.unidad .foto img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.unidad:hover .foto img{transform:scale(1.04)}
+.unidad .info{padding:22px;display:grid;gap:12px;align-content:start}
+.unidad h3{font-size:1.65rem;font-style:italic;text-transform:uppercase}
+.unidad .tipo{font-family:var(--f-display);text-transform:uppercase;letter-spacing:.14em;font-size:.78rem;color:var(--suave)}
+.ficha{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;margin:0;font-size:.93rem}
+.ficha dt{color:var(--suave)}
+.ficha dd{margin:0}
+.pend{color:var(--dorado)}
+.interior{margin-top:18px;display:grid;grid-template-columns:1.3fr 1fr;border:1px solid var(--linea);border-radius:var(--r);overflow:hidden;background:var(--asfalto-2)}
+.interior img{width:100%;height:100%;object-fit:cover;min-height:260px}
+.interior .txt{padding:clamp(24px,4vw,44px);display:grid;gap:14px;align-content:center;min-width:0}
+.interior h3{font-size:2rem;font-style:italic;text-transform:uppercase}
+.checks{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.checks li{display:flex;gap:10px;align-items:baseline}
+.checks li::before{content:"";width:8px;height:8px;background:var(--rojo);transform:skewX(-16deg);flex:none;translate:0 -2px}
+
+@media (max-width:640px){.flota,.interior{grid-template-columns:1fr}}
+
+/* Tablero de salidas */
+.tablero{border:1px solid var(--linea);border-radius:var(--r);overflow:hidden;background:#0a0b0c}
+.tab-head,.tab-row{display:grid;grid-template-columns:1.2fr 1.4fr 1fr .8fr;gap:16px;padding:16px 22px;align-items:center}
+.tab-head{background:var(--asfalto-2);font-family:var(--f-display);text-transform:uppercase;letter-spacing:.14em;font-size:.78rem;color:var(--suave)}
+.tab-row{border-top:1px solid var(--linea);font-family:var(--f-mono);font-size:.92rem}
+.tab-row b{font-family:var(--f-display);font-weight:700;font-size:1.15rem;text-transform:uppercase;letter-spacing:.04em}
+.estado{justify-self:start;font-family:var(--f-display);font-weight:600;text-transform:uppercase;letter-spacing:.1em;font-size:.82rem;padding:4px 10px;border-radius:6px;background:rgba(46,204,113,.12);color:#5fe08f}
+.tablero-scroll{overflow-x:auto}
+.tablero-scroll .tablero{min-width:640px}
+.cobertura-nota{margin-top:16px;color:var(--suave);font-size:.95rem}
+
+.mapa{display:grid;grid-template-columns:1.7fr 1fr;gap:22px;margin-bottom:28px}
+.mapa-fig{margin:0;border:1px solid var(--linea);border-radius:var(--r);background:#0a0b0c;padding:14px;min-width:0}
+.mapa-svg{width:100%;height:auto;display:block}
+.tierra{fill:#1b1d21;stroke:#3a3d42;stroke-width:1.2}
+.ruta{fill:none;stroke:var(--rojo);stroke-width:2;stroke-dasharray:6 6;opacity:.85;animation:ruta 1.6s linear infinite}
+@keyframes ruta{to{stroke-dashoffset:-24}}
+.punto circle{fill:var(--texto)}
+.punto .halo{fill:rgba(242,240,236,.12)}
+.punto text,.sede text{fill:var(--texto);font-family:var(--f-display);font-weight:600;font-size:15px;letter-spacing:.03em}
+.sede circle{fill:var(--rojo)}
+.sede .pulso{fill:rgba(227,38,43,.25);transform-origin:center;transform-box:fill-box;animation:pulso 2s ease-out infinite}
+@keyframes pulso{from{transform:scale(.6);opacity:1}to{transform:scale(2.4);opacity:0}}
+.sede text{font-size:19px;font-weight:700;font-style:italic;text-transform:uppercase}
+.sede text.sub{font-size:12px;font-style:normal;font-weight:600;fill:var(--dorado);letter-spacing:.1em}
+.mapa-ley{display:flex;flex-wrap:wrap;gap:16px;margin-top:10px;font-size:.85rem;color:var(--suave)}
+.mapa-ley span{display:flex;align-items:center;gap:7px}
+.mapa-ley i{display:inline-block}
+.l-sede{width:11px;height:11px;border-radius:50%;background:var(--rojo)}
+.l-pto{width:9px;height:9px;border-radius:50%;background:var(--texto)}
+.l-ruta{width:22px;border-top:2px dashed var(--rojo)}
+.mapa-rutas{border:1px solid var(--linea);border-radius:var(--r);background:var(--asfalto);padding:24px;display:grid;gap:16px;align-content:start;min-width:0}
+.mapa-rutas h3{font-size:1.7rem;font-style:italic;text-transform:uppercase}
+.mapa-rutas ul{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.mapa-rutas li{display:grid;gap:2px;padding-bottom:12px;border-bottom:1px solid var(--linea)}
+.mapa-rutas li b{font-family:var(--f-display);text-transform:uppercase;letter-spacing:.1em;font-size:.85rem;color:var(--rojo)}
+.mapa-rutas .btn{justify-self:start}
+.mapa-nota{font-family:var(--f-mono);font-size:.72rem;color:var(--suave)}
+@media (max-width:860px){.mapa{grid-template-columns:1fr}}
+
+/* Pasos */
+.pasos{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;counter-reset:p}
+.paso{padding:28px;border-top:3px solid var(--rojo);background:var(--asfalto-2);border-radius:0 0 var(--r) var(--r);display:grid;gap:10px;align-content:start}
+.paso::before{counter-increment:p;content:"Paso " counter(p);font-family:var(--f-display);text-transform:uppercase;letter-spacing:.16em;font-size:.8rem;color:var(--rojo)}
+.paso h3{font-size:1.6rem;font-style:italic;text-transform:uppercase}
+.paso p{color:var(--suave)}
+@media (max-width:760px){.pasos{grid-template-columns:1fr}}
+
+/* Cotizar */
+.cotizar .wrap{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(28px,5vw,64px);align-items:start}
+.cotizar .txt{display:grid;gap:18px;min-width:0}
+.contacto{display:grid;gap:6px;margin-top:8px;padding:20px;border:1px solid var(--linea);border-radius:var(--r)}
+.contacto span{color:var(--suave);font-size:.88rem}
+.contacto strong{font-family:var(--f-mono);font-size:1.15rem;user-select:all}
+form{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:clamp(22px,3vw,32px);border:1px solid var(--linea);border-radius:var(--r);background:var(--asfalto-2)}
+.campo{display:grid;gap:6px;min-width:0}
+.campo.full{grid-column:1/-1}
+label{font-family:var(--f-display);text-transform:uppercase;letter-spacing:.1em;font-size:.82rem;color:var(--suave)}
+input,select,textarea{width:100%;font:inherit;font-size:1rem;color:var(--texto);background:var(--asfalto);border:1px solid var(--linea);border-radius:10px;padding:12px 14px}
+input:focus,select:focus,textarea:focus{outline:2px solid var(--rojo);outline-offset:1px;border-color:transparent}
+textarea{resize:vertical;min-height:84px}
+form .btn{grid-column:1/-1;justify-content:center}
+.resultado{grid-column:1/-1;display:grid;gap:10px;padding:16px;border-radius:10px;background:var(--asfalto);border:1px dashed var(--linea)}
+.resultado p{font-size:.92rem;color:var(--suave)}
+@media (max-width:860px){.cotizar .wrap{grid-template-columns:1fr}}
+@media (max-width:520px){form{grid-template-columns:1fr}}
+
+/* Pie */
+footer{border-top:1px solid var(--linea);padding-block:44px 110px;background:#0a0b0c}
+footer .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:28px}
+footer h4{font-family:var(--f-display);text-transform:uppercase;letter-spacing:.14em;font-size:.82rem;color:var(--suave);margin:0 0 10px}
+footer p,footer a{color:var(--texto);font-size:.95rem;text-decoration:none}
+footer a:hover{color:var(--rojo)}
+.legal{font-family:var(--f-mono);font-size:.82rem;color:var(--suave)}
+@media (max-width:760px){footer .wrap{grid-template-columns:1fr}}
+
+/* WhatsApp flotante */
+.wa-float{position:fixed;right:calc(18px + env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:70;width:62px;height:62px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 10px 30px rgba(0,0,0,.45);transition:transform .2s}
+.wa-float:hover{transform:scale(1.07)}
+.wa-float:focus-visible{outline:3px solid var(--dorado);outline-offset:3px}
+.wa-float svg{width:32px;height:32px;color:#fff}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+<link rel="icon" href="img/logo-maywill.jpg">
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2Zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24 4.54 0 8.24 3.7 8.24 8.24 0 4.54-3.69 8.24-8.23 8.24Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28Z"/></symbol>
+</svg>
+
+<header class="top">
+  <div class="wrap">
+    <nav class="nav nav-izq" aria-label="Secciones">
+      <a href="#servicios">Servicios</a>
+      <a href="#vinotinto">Vinotinto</a>
+      <a href="#flota">Flota</a>
+    </nav>
+    <a class="marca" href="#inicio" aria-label="Transporte Maywill, inicio">
+      <img src="img/logo-maywill.jpg" alt="Transporte Maywill C.A.">
+    </a>
+    <nav class="nav nav-der" aria-label="Contacto">
+      <a href="#cobertura">Cobertura</a>
+      <a href="#cotizar">Cotizar</a>
+    </nav>
+  </div>
+</header>
+
+<main id="inicio">
+  <div class="portada"><img src="img/portada.jpg" alt="Transporte Maywill C.A."></div>
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-txt">
+        <p class="eyebrow">Transporte de personal · Unidades ejecutivas</p>
+        <h1>Tu gente llega. <em>Siempre a tiempo.</em></h1>
+        <p class="lead">Transporte privado en autobuses para empresas, eventos y equipos deportivos en toda Venezuela. Más de 25 años moviendo personas con responsabilidad y calidad.</p>
+        <div class="ctas">
+          <a class="btn btn-rojo" href="https://wa.me/584147658628?text=Hola%20Transporte%20Maywill%2C%20quiero%20una%20cotizaci%C3%B3n" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Cotizar por WhatsApp</a>
+          <a class="btn btn-linea" href="#servicios">Ver servicios</a>
+        </div>
+      </div>
+      <div class="hero-foto">
+        <img src="img/hero.jpg" alt="Microbús ejecutivo Toyota Coaster de Transporte Maywill">
+        <div class="placa"><i class="dot" aria-hidden="true"></i><span>Unidades disponibles · toda Venezuela</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="confianza">
+    <div class="wrap">
+      <div class="dato"><b>+25 <i>años</i></b><span>de servicio continuo</span></div>
+      <div class="dato"><b>Vinotinto</b><span>transportamos a la Selección</span></div>
+      <div class="dato"><b>Nacional</b><span>rutas entre regiones del país</span></div>
+      <div class="dato"><b>Ejecutivas</b><span>unidades con aire y asientos acolchados</span></div>
+    </div>
+  </div>
+
+  <section id="servicios">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Servicios</p>
+        <h2>Un autobús para cada necesidad</h2>
+        <p class="lead">Desde la ruta diaria de tu personal hasta el traslado de un equipo profesional. Tú nos dices cuántos son y a dónde van; nosotros ponemos la unidad y el conductor.</p>
+      </div>
+      <div class="servicios">
+        <article class="serv serv-dest">
+          <div class="serv-top">
+            <h3>Traslado de personal</h3>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="8" cy="7" r="3"/><circle cx="16.5" cy="8" r="2.5"/><path d="M2.5 20c0-3.3 2.5-6 5.5-6s5.5 2.7 5.5 6M13.5 14.3c.9-.5 1.9-.8 3-.8 2.8 0 5 2.3 5 5.5"/></svg>
+          </div>
+          <p>Rutas fijas diarias para que tus empleados lleguen a la planta, la oficina o la obra. Contratos mensuales, horarios por turnos y un responsable de contacto.</p>
+          <ul><li>Rutas diarias</li><li>Turnos</li><li>Contrato mensual</li></ul>
+          <a href="https://wa.me/584147658628?text=Hola%2C%20necesito%20transporte%20de%20personal%20para%20mi%20empresa" target="_blank" rel="noopener">Cotizar ruta de personal →</a>
+        </article>
+        <article class="serv">
+          <div class="serv-top">
+            <h3>Empresarial y ejecutivos</h3>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/></svg>
+          </div>
+          <p>Traslados de directivos, clientes y delegaciones a reuniones, aeropuertos, visitas de obra y viajes de negocio entre ciudades.</p>
+          <ul><li>Aeropuertos</li><li>Delegaciones</li><li>Viajes de negocio</li></ul>
+          <a href="https://wa.me/584147658628?text=Hola%2C%20necesito%20transporte%20ejecutivo" target="_blank" rel="noopener">Cotizar traslado ejecutivo →</a>
+        </article>
+        <article class="serv">
+          <div class="serv-top">
+            <h3>Eventos</h3>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M8 15h3"/></svg>
+          </div>
+          <p>Bodas, congresos, conciertos, excursiones y actividades corporativas. Coordinamos ida y vuelta para que tus invitados no tengan que preocuparse por nada.</p>
+          <ul><li>Bodas</li><li>Congresos</li><li>Excursiones</li></ul>
+          <a href="https://wa.me/584147658628?text=Hola%2C%20necesito%20transporte%20para%20un%20evento" target="_blank" rel="noopener">Cotizar evento →</a>
+        </article>
+        <article class="serv">
+          <div class="serv-top">
+            <h3>Equipos deportivos</h3>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m12 7 4 3-1.5 4.5h-5L8 10l4-3ZM12 3v4M21 10.5l-5-.5M18 19l-3.5-4.5M6 19l3.5-4.5M3 10.5l5-.5"/></svg>
+          </div>
+          <p>Clubes, selecciones y academias. Puntualidad para la concentración, el entrenamiento y el partido, con experiencia trasladando a la Vinotinto.</p>
+          <ul><li>Fútbol</li><li>Concentraciones</li><li>Giras</li></ul>
+          <a href="https://wa.me/584147658628?text=Hola%2C%20necesito%20transporte%20para%20un%20equipo%20deportivo" target="_blank" rel="noopener">Cotizar para tu equipo →</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="vinotinto" id="vinotinto">
+    <div class="wrap">
+      <figure class="vino-foto"><img src="img/vinotinto.jpg" alt="Microbuses de Transporte Maywill en caravana junto al autobús de la Vinotinto al atardecer" loading="lazy"><figcaption>Nuestras unidades en caravana con el autobús de la Selección</figcaption></figure>
+      <div class="txt">
+        <p class="eyebrow">Confianza al más alto nivel</p>
+        <h2>Llevamos a la Vinotinto</h2>
+        <p class="lead">Cuando la Selección necesitó moverse, confió en nuestras unidades y en nuestros conductores. Esa misma seriedad y puntualidad es la que ponemos en cada traslado de tu empresa, tu evento o tu equipo.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="flota">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Nuestra flota</p>
+        <h2>Unidades reales, listas para salir</h2>
+        <p class="lead">Estas son nuestras unidades, fotografiadas en nuestro patio. Desliza cada una para ver su ficha y más fotos. Elegimos la más adecuada según el número de pasajeros y el tipo de viaje.</p>
+      </div>
+      <div class="flota">
+        <article class="unidad">
+          <div class="galeria">
+            <div class="pista" tabindex="0" aria-label="Galería de Hino · Incarven"><figure class="slide"><img src="img/g/b1-1.jpg" alt="Hino · Incarven de Transporte Maywill, foto 1"></figure><figure class="slide ficha-slide"><img src="img/g/b1-2.jpg" alt="Ficha técnica de la unidad Hino · Incarven" loading="lazy"></figure><figure class="slide"><img src="img/g/b1-3.jpg" alt="Hino · Incarven de Transporte Maywill, foto 3" loading="lazy"></figure><figure class="slide"><img src="img/g/b1-4.jpg" alt="Hino · Incarven de Transporte Maywill, foto 4" loading="lazy"></figure><figure class="slide"><img src="img/g/b1-5.jpg" alt="Hino · Incarven de Transporte Maywill, foto 5" loading="lazy"></figure><figure class="slide"><img src="img/g/b1-6.jpg" alt="Hino · Incarven de Transporte Maywill, foto 6" loading="lazy"></figure></div>
+            <button class="flecha prev" type="button" aria-label="Foto anterior">‹</button>
+            <button class="flecha next" type="button" aria-label="Foto siguiente">›</button>
+            <span class="contador">1 / 6</span>
+            <span class="pista-hint">Desliza →</span>
+            <span class="ampliar">Toca para ver la ficha</span>
+            <div class="puntos" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+          <div class="info">
+            <p class="tipo">Autobús</p>
+            <h3>Hino · Incarven</h3>
+            <dl class="ficha"><dt>Ideal para</dt><dd>Personal y grupos grandes</dd><dt>Capacidad</dt><dd class="pend">[confirmar puestos]</dd></dl>
+          </div>
+        </article>
+        <article class="unidad">
+          <div class="galeria">
+            <div class="pista" tabindex="0" aria-label="Galería de Hino · Intercar"><figure class="slide"><img src="img/g/b2-1.jpg" alt="Hino · Intercar de Transporte Maywill, foto 1"></figure><figure class="slide ficha-slide"><img src="img/g/b2-2.jpg" alt="Ficha técnica de la unidad Hino · Intercar" loading="lazy"></figure><figure class="slide"><img src="img/g/b2-3.jpg" alt="Hino · Intercar de Transporte Maywill, foto 3" loading="lazy"></figure><figure class="slide"><img src="img/g/b2-4.jpg" alt="Hino · Intercar de Transporte Maywill, foto 4" loading="lazy"></figure><figure class="slide"><img src="img/g/b2-5.jpg" alt="Hino · Intercar de Transporte Maywill, foto 5" loading="lazy"></figure><figure class="slide"><img src="img/g/b2-6.jpg" alt="Hino · Intercar de Transporte Maywill, foto 6" loading="lazy"></figure></div>
+            <button class="flecha prev" type="button" aria-label="Foto anterior">‹</button>
+            <button class="flecha next" type="button" aria-label="Foto siguiente">›</button>
+            <span class="contador">1 / 6</span>
+            <span class="pista-hint">Desliza →</span>
+            <span class="ampliar">Toca para ver la ficha</span>
+            <div class="puntos" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+          <div class="info">
+            <p class="tipo">Minibús</p>
+            <h3>Hino · Intercar</h3>
+            <dl class="ficha"><dt>Ideal para</dt><dd>Rutas de personal y eventos</dd><dt>Capacidad</dt><dd class="pend">[confirmar puestos]</dd></dl>
+          </div>
+        </article>
+        <article class="unidad">
+          <div class="galeria">
+            <div class="pista" tabindex="0" aria-label="Galería de Toyota Coaster"><figure class="slide"><img src="img/g/b3-1.jpg" alt="Toyota Coaster de Transporte Maywill, foto 1"></figure><figure class="slide ficha-slide"><img src="img/g/b3-2.jpg" alt="Ficha técnica de la unidad Toyota Coaster" loading="lazy"></figure><figure class="slide"><img src="img/g/b3-3.jpg" alt="Toyota Coaster de Transporte Maywill, foto 3" loading="lazy"></figure><figure class="slide"><img src="img/g/b3-4.jpg" alt="Toyota Coaster de Transporte Maywill, foto 4" loading="lazy"></figure><figure class="slide"><img src="img/g/b3-5.jpg" alt="Toyota Coaster de Transporte Maywill, foto 5" loading="lazy"></figure><figure class="slide"><img src="img/g/b3-6.jpg" alt="Toyota Coaster de Transporte Maywill, foto 6" loading="lazy"></figure><figure class="slide"><img src="img/g/b3-7.jpg" alt="Toyota Coaster de Transporte Maywill, foto 7" loading="lazy"></figure><figure class="slide"><img src="img/g/b3-8.jpg" alt="Toyota Coaster de Transporte Maywill, foto 8" loading="lazy"></figure></div>
+            <button class="flecha prev" type="button" aria-label="Foto anterior">‹</button>
+            <button class="flecha next" type="button" aria-label="Foto siguiente">›</button>
+            <span class="contador">1 / 8</span>
+            <span class="pista-hint">Desliza →</span>
+            <span class="ampliar">Toca para ver la ficha</span>
+            <div class="puntos" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+          <div class="info">
+            <p class="tipo">Microbús ejecutivo</p>
+            <h3>Toyota Coaster</h3>
+            <dl class="ficha"><dt>Ideal para</dt><dd>Ejecutivos, equipos y delegaciones</dd><dt>Capacidad</dt><dd class="pend">[confirmar puestos]</dd></dl>
+          </div>
+        </article>
+        <article class="unidad">
+          <div class="galeria">
+            <div class="pista" tabindex="0" aria-label="Galería de Toyota Coaster · Grupos"><figure class="slide"><img src="img/g/b4-1.jpg" alt="Toyota Coaster · Grupos de Transporte Maywill, foto 1"></figure><figure class="slide ficha-slide"><img src="img/g/b4-2.jpg" alt="Ficha técnica de la unidad Toyota Coaster · Grupos" loading="lazy"></figure><figure class="slide"><img src="img/g/b4-3.jpg" alt="Toyota Coaster · Grupos de Transporte Maywill, foto 3" loading="lazy"></figure><figure class="slide"><img src="img/g/b4-4.jpg" alt="Toyota Coaster · Grupos de Transporte Maywill, foto 4" loading="lazy"></figure><figure class="slide"><img src="img/g/b4-5.jpg" alt="Toyota Coaster · Grupos de Transporte Maywill, foto 5" loading="lazy"></figure></div>
+            <button class="flecha prev" type="button" aria-label="Foto anterior">‹</button>
+            <button class="flecha next" type="button" aria-label="Foto siguiente">›</button>
+            <span class="contador">1 / 5</span>
+            <span class="pista-hint">Desliza →</span>
+            <span class="ampliar">Toca para ver la ficha</span>
+            <div class="puntos" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+          </div>
+          <div class="info">
+            <p class="tipo">Microbús</p>
+            <h3>Toyota Coaster · Grupos</h3>
+            <dl class="ficha"><dt>Ideal para</dt><dd>Rutas de personal y excursiones</dd><dt>Capacidad</dt><dd class="pend">[confirmar puestos]</dd></dl>
+          </div>
+        </article>
+      </div>
+      <div class="interior">
+        <img src="img/interior.jpg" alt="Interior de microbús Toyota Coaster con asientos acolchados y cortinas" loading="lazy">
+        <div class="txt">
+          <p class="eyebrow">Por dentro</p>
+          <h3>Viajar cómodo también es llegar bien</h3>
+          <ul class="checks">
+            <li>Asientos acolchados con apoyacabezas</li>
+            <li>Aire acondicionado con salidas individuales</li>
+            <li>Cortinas y vidrios ahumados</li>
+            <li>Conductores profesionales</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cobertura" style="background:var(--asfalto-2)">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Cobertura</p>
+        <h2>Salimos hacia cualquier región del país</h2>
+        <p class="lead">Rutas fijas para empresas y viajes a medida entre ciudades. Si tu destino está en Venezuela, lo cotizamos.</p>
+      </div>
+      <div class="mapa">
+        <figure class="mapa-fig">
+          <svg class="mapa-svg" viewBox="0 0 800 600" role="img" aria-labelledby="mapa-tit"><title id="mapa-tit">Mapa de Venezuela con las rutas de Transporte Maywill</title>
+<path class="tierra" d="M679.255,169.556L673.511,171.171L673.511,169.896L675.078,167.601L678.036,167.006L679.255,166.155L681.169,165.645L682.213,165.73L683.432,166.411L680.647,167.686ZM532.883,71.76L534.45,78.174L533.927,79.371L529.576,83.73L525.921,83.987L522.963,83.901L520.7,83.046L517.741,80.226L514.957,81.081L507.995,80.055L506.08,79.114L508.691,75.609L513.564,74.24L515.305,73.898L516.697,76.036L520.178,77.917L524.181,78.088L525.225,74.839L530.795,69.964ZM466.92,82.79L464.31,83.901L459.61,82.79L457.174,81.252L458.74,79.456L462.569,79.456L466.224,81.593ZM670.727,182.812L667.768,183.831L667.246,178.904L668.116,177.63L673.337,173.636L674.73,172.956L675.774,173.721L675.426,174.826L677.862,176.61L677.34,178.819L674.556,181.283ZM718.067,198.435L727.117,210.313L727.291,211.585L726.247,213.112L720.677,215.91L719.459,217.352L717.37,222.608L710.409,225.574L705.535,229.133L702.229,232.353L700.488,233.624L694.049,234.386L691.96,236.335L689.523,242.432L687.609,244.888L684.128,247.851L684.128,249.714L688.827,256.316L689.697,258.346L688.131,261.477L688.305,263.761L690.742,266.384L693.7,266.976L696.485,265.876L699.966,265.961L702.229,266.722L703.273,267.483L703.447,269.513L701.881,273.826L699.792,276.701L690.568,280.928L686.565,283.464L684.302,285.323L679.255,284.309L676.644,284.393L674.73,285.83L673.511,287.013L670.204,287.351L665.505,288.027L663.591,288.873L662.024,290.985L660.806,294.027L661.85,297.659L663.243,300.954L663.243,303.909L664.287,312.269L662.895,314.21L659.762,316.405L655.933,320.288L651.756,325.604L652.452,327.207L662.546,338.511L672.815,349.979L683.084,361.443L684.476,361.949L686.391,363.297L688.305,367.257L689.697,371.47L689.697,373.66L688.653,376.44L686.042,379.641L683.084,382.168L678.733,384.357L675.078,386.463L672.293,391.852L670.378,393.788L668.812,394.546L665.679,395.303L660.458,395.135L656.977,394.63L652.8,398.755L647.405,400.27L643.75,405.741L630.87,410.202L618.339,413.568L614.858,414.998L602.327,412.137L599.368,412.979L595.887,415.671L592.754,417.69L590.144,417.775L587.881,418.868L586.489,422.654L585.271,435.608L580.745,439.392L575.35,439.392L571.695,434.935L567.344,431.571L559.686,423.496L557.597,422.486L555.509,422.486L548.373,424.841L545.066,423.832L542.282,422.57L537.756,422.991L529.75,423.075L524.529,423.159L522.092,420.972L519.656,416.513L518.089,414.914L516.175,413.568L513.216,412.894L500.163,412.979L497.726,412.979L495.812,412.053L493.375,408.266L490.59,406.415L487.457,406.33L486.065,408.434L491.635,415.419L493.201,419.121L498.074,424.589L512.172,436.112L514.782,439.728L514.608,444.353L514.434,451.5L514.957,458.225L518.611,467.891L523.659,477.807L525.051,484.025L524.181,488.646L523.137,491.166L523.311,492.258L524.355,493.266L529.228,494.694L539.497,495.534L545.588,495.534L555.161,496.626L555.857,500.07L554.813,505.782L553.072,509.057L551.506,509.981L546.285,510.737L540.889,514.264L533.057,517.708L528.532,518.127L526.792,518.799L525.225,519.891L523.833,521.151L522.266,527.616L520.004,535.005L515.653,539.287L510.779,542.897L505.906,543.317L502.077,543.065L500.163,544.073L497.378,547.011L493.375,550.705L490.242,552.636L486.065,552.468L481.54,554.315L475.971,557.253L472.142,559.687L469.009,563.884L464.484,568.249L459.784,571.271L457.522,575.048L454.389,579.832L450.386,580L450.038,577.146L451.952,572.53L449.864,568.501L446.035,566.318L444.294,565.731L442.554,565.983L438.029,567.913L432.459,571.523L428.978,574.125L426.02,575.3L419.58,576.391L414.359,576.894L412.096,576.139L408.093,573.537L398.869,565.311L386.512,554.147L385.641,550.873L386.163,547.599L383.901,542.729L382.509,537.608L381.464,535.845L381.116,532.067L378.331,525.097L376.243,519.471L374.154,516.532L375.025,514.096L374.154,511.661L372.588,509.645L370.151,503.262L371.022,500.49L370.325,497.718L368.237,495.786L365.452,493.77L361.623,489.486L356.924,485.453L354.661,483.773L353.095,483.185L351.703,479.319L350.658,478.143L348.222,477.807L343.522,476.21L338.997,478.143L338.823,475.202L340.216,473.353L355.706,459.066L363.364,452.509L364.234,451.584L364.93,450.071L365.452,448.053L363.712,445.699L356.402,434.683L353.791,432.664L351.355,430.898L348.57,426.272L345.089,415.503L342.652,410.117L341.956,405.994L342.13,401.28L341.086,397.661L339.171,395.135L339.171,387.473L341.086,374.587L341.608,364.814L340.564,358.072L342.478,353.014L347.003,349.474L349.44,344.077L349.962,336.825L352.747,330.751L357.62,326.026L359.361,321.385L357.794,316.827L357.272,313.873L353.095,310.918L345.437,308.807L338.997,308.554L335.168,310.918L325.248,313.029L309.41,315.055L296.53,315.055L286.784,313.029L279.474,313.704L274.427,317.08L270.946,317.84L268.857,315.983L266.595,315.477L263.114,316.658L262.592,316.068L255.108,307.034L248.146,298.588L240.14,288.619L230.916,277.039L229.175,276.278L226.39,276.363L222.561,276.532L216.818,275.348L212.815,273.657L209.508,272.05L203.765,269.936L199.762,269.598L196.281,270.19L186.534,274.249L180.965,274.672L176.614,274.756L164.953,272.727L157.121,272.388L147.896,273.741L144.067,274.502L138.498,272.388L134.669,269.259L131.188,261.816L128.751,255.977L124.4,254.792L119.701,253.777L117.438,251.83L116.046,248.444L115.698,244.126L116.046,237.012L116.568,234.556L117.264,226.93L119.875,222.947L121.441,220.997L121.267,217.775L119.875,211.246L118.657,206.581L113.435,201.32L106.648,194.615L103.689,183.746L100.208,171.001L97.597,169.726L94.987,170.406L92.376,169.726L89.939,164.625L87.677,163.69L83.848,165.475L81.063,166.836L74.101,168.111L72.709,166.836L73.231,165.22L76.19,160.628L79.671,154.673L83.674,149.227L87.329,143.609L90.113,137.649L92.028,125.891L93.246,117.707L96.727,103.204L102.993,91.591L105.429,86.294L111.173,79.285L113.784,75.523L117.264,72.53L126.837,68.509L138.15,48.475L140.76,45.305L152.421,42.305L161.298,39.99L167.737,37.59L170,36.218L171.74,35.617L170.174,38.018L167.041,40.933L163.56,42.733L145.112,47.276L143.197,48.218L140.934,50.103L140.934,54.386L141.283,57.725L146.852,68.766L148.941,71.503L156.076,77.49L154.51,78.345L151.725,78.43L153.814,86.294L158.165,91.676L158.339,95.007L155.032,105.508L148.766,111.822L144.415,119.157L140.934,122.055L133.277,136.371L139.194,144.971L139.89,149.227L144.938,155.439L148.244,157.396L150.333,159.948L149.289,164.115L151.377,169.811L153.988,172.786L157.121,173.976L161.124,173.976L172.785,170.236L175.395,168.536L177.136,165.475L183.053,159.267L183.401,151.355L184.62,141.736L183.227,135.519L177.136,126.658L174.525,120.265L168.434,114.381L164.779,104.313L163.212,101.155L162.168,96.801L160.776,89.028L164.779,86.294L164.431,79.969L174.351,78.174L195.759,67.91L209.16,65.258L224.302,59.78L227.783,57.04L230.742,52.587L233.178,51.987L241.01,56.27L244.839,54.814L246.406,51.473L244.317,45.048L239.792,45.048L226.216,47.361L224.824,44.619L224.824,42.133L221.691,34.502L223.606,28.669L225.694,23.949L229.523,22.06L235.267,20L239.618,23.176L242.228,26.18L243.621,29.012L244.665,36.904L246.928,44.876L249.364,50.36L253.367,54.557L256.326,54.214L258.415,53.529L272.512,52.587L281.214,55.413L292.179,56.869L302.448,62.947L312.891,70.22L315.501,75.609L316.546,80.653L318.982,84.072L316.546,87.576L317.764,93.47L320.897,99.362L325.422,103.118L338.301,104.143L352.399,101.582L374.154,99.277L381.116,97.313L416.969,96.288L423.757,99.106L424.453,101.923L424.453,104.143L436.114,114.722L445.513,116.087L453.519,119.498L461.873,121.373L470.923,123.931L476.145,123.59L479.974,122.652L484.499,122.482L516.523,104.825L533.579,105.337L536.19,104.143L538.453,102.606L532.187,99.874L517.915,98.85L513.564,100.643L511.128,96.118L515.827,96.288L531.665,94.751L549.94,95.691L564.733,92.445L572.217,91.933L576.394,92.616L588.229,90.48L610.507,92.958L628.086,90.908L625.997,93.812L620.254,95.605L611.029,96.203L603.893,100.472L588.751,99.704L578.135,101.24L581.442,102.435L581.442,106.788L583.008,107.727L584.4,107.727L588.055,110.969L589.1,113.102L590.318,117.622L588.577,122.396L586.489,124.613L590.84,123.846L593.277,121.629L592.929,119.327L593.277,116.684L595.713,117.537L597.28,118.73L602.849,131.345L606.678,137.989L607.722,137.734L608.593,137.478L609.811,136.201L611.551,133.134L613.118,135.093L613.988,135.86L614.858,136.116L613.988,133.219L615.032,129.641L614.684,128.363L616.425,128.107L618.513,128.533L621.472,129.556L626.693,133.731L630.174,138.075L630.348,140.459L631.741,141.821L633.829,143.184L635.047,145.397L635.221,141.907L633.829,139.352L633.481,136.456L640.443,136.371L642.183,132.538L645.838,134.838L655.585,145.312L659.24,147.1L670.03,149.142L676.644,154.163L680.647,158.672L678.21,163.434L671.945,165.815L669.508,168.791L667.942,171.681L667.942,174.656L666.027,178.055L665.853,179.244L664.635,184.001L662.024,189.776L658.717,195.889L640.617,196.058L645.142,198.52L649.145,200.387L655.933,205.223L661.154,201.405L668.812,201.151L677.166,196.992L680.299,196.313L695.615,198.52L699.444,195.464L702.403,194.53L710.757,195.125Z"/><path class="ruta" d="M565.2 139.6 Q481.7 89.3 385.4 103.8"/><path class="ruta" d="M565.2 139.6 Q532.0 117.2 492.2 121"/><path class="ruta" d="M565.2 139.6 Q547.4 113.8 517.3 105.2"/><path class="ruta" d="M565.2 139.6 Q563.5 179.1 587.4 210.6"/><path class="ruta" d="M385.4 103.8 Q356.0 102.1 332.2 119.5"/><path class="ruta" d="M332.2 119.5 Q299.5 110.2 268.4 123.9"/><path class="ruta" d="M268.4 123.9 Q217.4 89.5 156.2 95.4"/><path class="ruta" d="M268.4 123.9 Q211.3 144.3 180.4 196.4"/><path class="ruta" d="M180.4 196.4 Q147.1 207.1 128.2 236.5"/><path class="ruta" d="M156.2 95.4 Q200.6 82.2 226.3 43.7"/><g class="punto"><circle class="halo" cx="385.4" cy="103.8" r="9"/><circle cx="385.4" cy="103.8" r="4.5"/><text x="385.4" y="89.8" text-anchor="middle">Caracas</text></g><g class="punto"><circle class="halo" cx="332.2" cy="119.5" r="9"/><circle cx="332.2" cy="119.5" r="4.5"/><text x="332.2" y="105.5" text-anchor="middle">Valencia</text></g><g class="punto"><circle class="halo" cx="268.4" cy="123.9" r="9"/><circle cx="268.4" cy="123.9" r="4.5"/><text x="268.4" y="147.9" text-anchor="middle">Barquisimeto</text></g><g class="punto"><circle class="halo" cx="156.2" cy="95.4" r="9"/><circle cx="156.2" cy="95.4" r="4.5"/><text x="145.2" y="100.4" text-anchor="end">Maracaibo</text></g><g class="punto"><circle class="halo" cx="492.2" cy="121" r="9"/><circle cx="492.2" cy="121" r="4.5"/><text x="492.2" y="146" text-anchor="middle">Barcelona</text></g><g class="punto"><circle class="halo" cx="517.3" cy="105.2" r="9"/><circle cx="517.3" cy="105.2" r="4.5"/><text x="517.3" y="91.2" text-anchor="middle">Cumaná</text></g><g class="punto"><circle class="halo" cx="587.4" cy="210.6" r="9"/><circle cx="587.4" cy="210.6" r="4.5"/><text x="599.4" y="215.6" text-anchor="start">Ciudad Guayana</text></g><g class="punto"><circle class="halo" cx="180.4" cy="196.4" r="9"/><circle cx="180.4" cy="196.4" r="4.5"/><text x="169.4" y="201.4" text-anchor="end">Mérida</text></g><g class="punto"><circle class="halo" cx="128.2" cy="236.5" r="9"/><circle cx="128.2" cy="236.5" r="4.5"/><text x="117.19999999999999" y="241.5" text-anchor="end">San Cristóbal</text></g><g class="punto"><circle class="halo" cx="226.3" cy="43.7" r="9"/><circle cx="226.3" cy="43.7" r="4.5"/><text x="237.3" y="48.7" text-anchor="start">Punto Fijo</text></g><g class="sede"><circle class="pulso" cx="565.2" cy="139.6" r="12"/><circle cx="565.2" cy="139.6" r="8"/><text x="581.2" y="145.6">Maturín</text><text class="sub" x="581.2" y="163.6">Sede · patio de unidades</text></g></svg>
+          <figcaption class="mapa-ley"><span><i class="l-sede"></i>Sede</span><span><i class="l-pto"></i>Destino frecuente</span><span><i class="l-ruta"></i>Ruta</span></figcaption>
+        </figure>
+        <div class="mapa-rutas">
+          <h3>Rutas frecuentes</h3>
+          <ul>
+            <li><b>Oriente</b><span>Maturín · Barcelona · Cumaná · Puerto La Cruz</span></li>
+            <li><b>Centro</b><span>Caracas · Maracay · Valencia</span></li>
+            <li><b>Occidente</b><span>Barquisimeto · Maracaibo · Punto Fijo</span></li>
+            <li><b>Andes</b><span>Mérida · San Cristóbal</span></li>
+            <li><b>Guayana</b><span>Ciudad Guayana · Puerto Ordaz</span></li>
+          </ul>
+          <a class="btn btn-rojo" href="https://wa.me/584147658628?text=Hola%2C%20quiero%20cotizar%20una%20ruta" target="_blank" rel="noopener">Cotizar mi ruta</a>
+          <p class="mapa-nota">Mapa de ejemplo · rutas por confirmar con el cliente</p>
+        </div>
+      </div>
+      <div class="tablero-scroll">
+        <div class="tablero" role="table" aria-label="Tipos de salida">
+          <div class="tab-head" role="row"><span role="columnheader">Servicio</span><span role="columnheader">Recorrido</span><span role="columnheader">Frecuencia</span><span role="columnheader">Estado</span></div>
+          <div class="tab-row" role="row"><b role="cell">Personal</b><span role="cell">Casa → planta / oficina</span><span role="cell">Diaria</span><span role="cell" class="estado">Disponible</span></div>
+          <div class="tab-row" role="row"><b role="cell">Ejecutivo</b><span role="cell">Aeropuerto ↔ hotel ↔ reunión</span><span role="cell">A demanda</span><span role="cell" class="estado">Disponible</span></div>
+          <div class="tab-row" role="row"><b role="cell">Eventos</b><span role="cell">Punto de encuentro ↔ evento</span><span role="cell">Por fecha</span><span role="cell" class="estado">Disponible</span></div>
+          <div class="tab-row" role="row"><b role="cell">Deportivo</b><span role="cell">Hotel ↔ estadio, entre ciudades</span><span role="cell">Por calendario</span><span role="cell" class="estado">Disponible</span></div>
+        </div>
+      </div>
+      <p class="cobertura-nota">Si tu destino no aparece en el mapa, también lo cubrimos: escríbenos y lo cotizamos.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Cómo funciona</p>
+        <h2>Cotizar toma un minuto</h2>
+      </div>
+      <div class="pasos">
+        <div class="paso"><h3>Escríbenos</h3><p>Por WhatsApp o con el formulario: origen, destino, fecha y número de pasajeros.</p></div>
+        <div class="paso"><h3>Recibe tu precio</h3><p>Te respondemos con la unidad recomendada y la cotización.</p></div>
+        <div class="paso"><h3>Confirma y listo</h3><p>Reservamos la unidad y el conductor. El día del viaje, nosotros nos encargamos.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cotizar" id="cotizar">
+    <div class="wrap">
+      <div class="txt">
+        <p class="eyebrow">Cotización</p>
+        <h2>¿A dónde vamos?</h2>
+        <p class="lead">Rellena los datos y se abre WhatsApp con tu mensaje listo para enviar. Si prefieres, escríbenos o llámanos directamente.</p>
+        <div class="contacto">
+          <span>WhatsApp y teléfono</span>
+          <strong>0414-765.86.28</strong>
+          <span>Instagram: @transpmaywill.ca</span>
+        </div>
+      </div>
+      <form id="form-cotizar" novalidate>
+        <div class="campo"><label for="origen">Origen</label><input id="origen" name="origen" placeholder="Ciudad o dirección" required></div>
+        <div class="campo"><label for="destino">Destino</label><input id="destino" name="destino" placeholder="Ciudad o dirección" required></div>
+        <div class="campo"><label for="fecha">Fecha</label><input id="fecha" name="fecha" type="date"></div>
+        <div class="campo"><label for="pasajeros">Pasajeros</label><input id="pasajeros" name="pasajeros" type="number" min="1" placeholder="Ej. 25"></div>
+        <div class="campo full"><label for="servicio">Tipo de servicio</label>
+          <select id="servicio" name="servicio">
+            <option>Traslado de personal</option>
+            <option>Empresarial / ejecutivos</option>
+            <option>Evento</option>
+            <option>Equipo deportivo</option>
+            <option>Otro</option>
+          </select>
+        </div>
+        <div class="campo full"><label for="nota">Detalles (opcional)</label><textarea id="nota" name="nota" placeholder="Hora de salida, ida y vuelta, paradas…"></textarea></div>
+        <button class="btn btn-rojo" type="submit"><svg aria-hidden="true"><use href="#i-wa"/></svg>Preparar mensaje de WhatsApp</button>
+        <div class="resultado" id="resultado" hidden>
+          <p>Tu mensaje está listo. Toca el botón para abrirlo en WhatsApp y enviarlo.</p>
+          <a class="btn btn-rojo" id="wa-link" href="#" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Abrir WhatsApp</a>
+        </div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <a class="marca" href="#inicio"><img src="img/logo-maywill.jpg" alt="Transporte Maywill C.A." style="height:auto;width:220px;max-width:100%;border-radius:12px"></a>
+      <p style="margin-top:14px;color:var(--suave)">Responsabilidad y calidad, nuestro norte. Más de 25 años de servicio.</p>
+    </div>
+    <div>
+      <h4>Contacto</h4>
+      <p>0414-765.86.28</p>
+      <p><a href="https://www.instagram.com/transpmaywill.ca/" target="_blank" rel="noopener">@transpmaywill.ca</a></p>
+      <p class="pend">[ciudad base]</p>
+    </div>
+    <div>
+      <h4>Empresa</h4>
+      <p class="legal">Transporte Maywill C.A.<br>RIF J-30150173-0</p>
+    </div>
+  </div>
+</footer>
+
+<div class="visor" id="visor" hidden role="dialog" aria-modal="true" aria-label="Fotos ampliadas">
+  <div class="visor-top"><span id="visor-cont">1 / 1</span><button class="visor-cerrar" id="visor-cerrar" type="button" aria-label="Cerrar">×</button></div>
+  <div class="visor-pista" id="visor-pista"></div>
+  <button class="flecha prev" id="visor-prev" type="button" aria-label="Foto anterior">‹</button>
+  <button class="flecha next" id="visor-next" type="button" aria-label="Foto siguiente">›</button>
+</div>
+
+<a class="wa-float" href="https://wa.me/584147658628?text=Hola%20Transporte%20Maywill%2C%20quiero%20una%20cotizaci%C3%B3n" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><svg aria-hidden="true"><use href="#i-wa"/></svg></a>
+
+<script>
+var visor=document.getElementById('visor'),vp=document.getElementById('visor-pista'),vc=document.getElementById('visor-cont'),vprev=document.getElementById('visor-prev'),vnext=document.getElementById('visor-next'),vlast=null;
+function vIdx(){return Math.round(vp.scrollLeft/vp.clientWidth);}
+function vUpd(){var i=vIdx(),n=vp.children.length;vc.textContent=(i+1)+' / '+n;vprev.disabled=i===0;vnext.disabled=i===n-1;}
+function abrirVisor(pista,j){
+  vlast=document.activeElement;vp.innerHTML='';
+  pista.querySelectorAll('img').forEach(function(im){var f=document.createElement('figure');var c=document.createElement('img');c.src=im.src;c.alt=im.alt;f.appendChild(c);vp.appendChild(f);});
+  visor.hidden=false;document.body.style.overflow='hidden';
+  requestAnimationFrame(function(){vp.style.scrollBehavior='auto';vp.scrollLeft=j*vp.clientWidth;vp.style.scrollBehavior='smooth';vUpd();document.getElementById('visor-cerrar').focus();});
+}
+function cerrarVisor(){visor.hidden=true;document.body.style.overflow='';if(vlast)vlast.focus();}
+document.getElementById('visor-cerrar').addEventListener('click',cerrarVisor);
+vprev.addEventListener('click',function(){vp.scrollBy({left:-vp.clientWidth});});
+vnext.addEventListener('click',function(){vp.scrollBy({left:vp.clientWidth});});
+var vt;vp.addEventListener('scroll',function(){clearTimeout(vt);vt=setTimeout(vUpd,60);},{passive:true});
+document.addEventListener('keydown',function(e){if(visor.hidden)return;if(e.key==='Escape')cerrarVisor();if(e.key==='ArrowRight')vnext.click();if(e.key==='ArrowLeft')vprev.click();});
+</script>
+<script>
+document.querySelectorAll('.galeria').forEach(function(g){
+  var p=g.querySelector('.pista'),n=p.children.length,dots=g.querySelectorAll('.puntos i'),c=g.querySelector('.contador'),pr=g.querySelector('.prev'),nx=g.querySelector('.next');
+  function idx(){return Math.round(p.scrollLeft/p.clientWidth);}
+  function upd(){var i=idx();c.textContent=(i+1)+' / '+n;dots.forEach(function(d,j){d.classList.toggle('on',j===i);});pr.disabled=i===0;nx.disabled=i===n-1;if(i>0)g.classList.add('movida');g.classList.toggle('en-ficha',!!p.children[i]&&p.children[i].classList.contains('ficha-slide'));}
+  p.querySelectorAll('img').forEach(function(im,j){im.addEventListener('click',function(){abrirVisor(p,j);});});
+  pr.addEventListener('click',function(){p.scrollBy({left:-p.clientWidth});});
+  nx.addEventListener('click',function(){p.scrollBy({left:p.clientWidth});});
+  p.addEventListener('keydown',function(e){if(e.key==='ArrowRight'){e.preventDefault();nx.click();}if(e.key==='ArrowLeft'){e.preventDefault();pr.click();}});
+  var t;p.addEventListener('scroll',function(){clearTimeout(t);t=setTimeout(upd,60);},{passive:true});
+  upd();
+});
+</script>
+<script>
+(function(){
+  var form=document.getElementById('form-cotizar');
+  var res=document.getElementById('resultado');
+  var link=document.getElementById('wa-link');
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var v=function(id){return (document.getElementById(id).value||'').trim();};
+    if(!v('origen')||!v('destino')){
+      (v('origen')?document.getElementById('destino'):document.getElementById('origen')).focus();
+      return;
+    }
+    var msg='Hola Transporte Maywill, quiero una cotización:\n'+
+      '• Servicio: '+v('servicio')+'\n'+
+      '• Origen: '+v('origen')+'\n'+
+      '• Destino: '+v('destino')+'\n'+
+      (v('fecha')?'• Fecha: '+v('fecha')+'\n':'')+
+      (v('pasajeros')?'• Pasajeros: '+v('pasajeros')+'\n':'')+
+      (v('nota')?'• Detalles: '+v('nota'):'');
+    link.href='https://wa.me/584147658628?text='+encodeURIComponent(msg);
+    res.hidden=false;
+    link.focus();
+  });
+})();
+</script>
+</body>
+</html>
