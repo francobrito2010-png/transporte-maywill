@@ -75,6 +75,11 @@ section{padding-block:clamp(64px,9vw,112px)}
 .portada img{width:100%;height:clamp(220px,46vw,600px);object-fit:cover;object-position:center}
 .portada::after{content:"";position:absolute;left:0;right:0;bottom:0;height:22%;background:linear-gradient(180deg,transparent,var(--asfalto))}
 
+.fiscal{background:var(--asfalto-2);border-bottom:1px solid var(--linea)}
+.fiscal .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px 22px;padding-block:14px;text-align:center}
+.fiscal-rif{font-family:var(--f-mono);font-size:.95rem;background:var(--asfalto);border:1px solid var(--linea);padding:5px 12px;border-radius:999px}
+.fiscal-dir{color:var(--suave);font-size:.95rem;min-width:0}
+.fiscal-nac{font-family:var(--f-display);font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--rojo);font-size:.95rem}
 /* Hero */
 .hero{padding-block:clamp(40px,6vw,72px) clamp(48px,7vw,88px)}
 .hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(28px,5vw,64px);align-items:center}
@@ -127,7 +132,7 @@ section{padding-block:clamp(64px,9vw,112px)}
 .vino-foto img{width:100%;aspect-ratio:1;object-fit:cover;border-radius:var(--r);border:3px solid var(--dorado);box-shadow:0 24px 50px rgba(0,0,0,.45)}
 .vino-foto figcaption{margin-top:10px;font-size:.88rem;color:#ecd9db}
 .vinotinto .eyebrow{color:var(--dorado)}
-.vinotinto h2{font-size:clamp(2.4rem,5.6vw,4rem)}
+.vinotinto h2{font-size:clamp(2.1rem,4.6vw,3.4rem)}
 .vinotinto .lead{color:#ecd9db;margin-top:16px}
 .vinotinto .txt{min-width:0}
 @media (max-width:700px){.vinotinto .wrap{grid-template-columns:1fr}}
@@ -189,6 +194,24 @@ section{padding-block:clamp(64px,9vw,112px)}
 
 @media (max-width:640px){.flota,.interior{grid-template-columns:1fr}}
 
+.flota-total{margin-top:18px;border:1px solid var(--linea);border-radius:var(--r);background:var(--asfalto-2);padding:clamp(20px,3vw,32px);display:grid;gap:18px}
+.ft-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px 20px}
+.ft-head h3{font-size:2rem;font-style:italic;text-transform:uppercase}
+.ft-head p{color:var(--suave);min-width:0}
+.ft-scroll{overflow-x:auto}
+.flota-total table{width:100%;border-collapse:collapse;min-width:420px}
+.flota-total th{font-family:var(--f-display);text-transform:uppercase;letter-spacing:.12em;font-size:.8rem;color:var(--suave);text-align:left;padding:10px 12px;border-bottom:1px solid var(--linea)}
+.flota-total td{padding:12px;border-bottom:1px solid var(--linea)}
+.flota-total td:first-child{font-family:var(--f-display);font-weight:700;font-size:1.15rem;text-transform:uppercase;letter-spacing:.02em}
+.flota-total .num{text-align:right;font-variant-numeric:tabular-nums;font-family:var(--f-mono)}
+.flota-total tfoot td{border-bottom:0;color:var(--dorado);font-family:var(--f-display);font-weight:700;text-transform:uppercase;letter-spacing:.06em}
+.flota-total tfoot .num{font-family:var(--f-mono)}
+@media (max-width:560px){.flota-total th:nth-child(2),.flota-total td:nth-child(2){display:none}.flota-total table{min-width:0}.flota-total td:first-child{font-size:1.02rem}}
+.grua{display:flex;flex-wrap:wrap;align-items:center;gap:14px 18px;padding:18px;border:1px dashed var(--linea);border-radius:12px;background:var(--asfalto)}
+.grua svg{width:44px;height:44px;color:var(--rojo);flex:none}
+.grua div{flex:1 1 240px;display:grid;gap:2px;min-width:0}
+.grua b{font-family:var(--f-display);font-weight:700;font-size:1.4rem;font-style:italic;text-transform:uppercase}
+.grua span{color:var(--suave)}
 /* Tablero de salidas */
 .tablero{border:1px solid var(--linea);border-radius:var(--r);overflow:hidden;background:#0a0b0c}
 .tab-head,.tab-row{display:grid;grid-template-columns:1.2fr 1.4fr 1fr .8fr;gap:16px;padding:16px 22px;align-items:center}
@@ -299,6 +322,13 @@ footer a:hover{color:var(--rojo)}
 
 <main id="inicio">
   <div class="portada"><img src="img/portada.jpg" alt="Transporte Maywill C.A."></div>
+  <div class="fiscal">
+    <div class="wrap">
+      <span class="fiscal-rif">RIF J-30150173-0</span>
+      <span class="fiscal-dir">Carretera vía La Pica, galpón s/n, sector Pararisito · Maturín, Monagas</span>
+      <span class="fiscal-nac">Servicio a nivel nacional</span>
+    </div>
+  </div>
   <section class="hero">
     <div class="wrap">
       <div class="hero-txt">
@@ -320,7 +350,7 @@ footer a:hover{color:var(--rojo)}
   <div class="confianza">
     <div class="wrap">
       <div class="dato"><b>+25 <i>años</i></b><span>de servicio continuo</span></div>
-      <div class="dato"><b>Vinotinto</b><span>transportamos a la Selección</span></div>
+      <div class="dato"><b>FVF</b><span>al servicio de la Federación Venezolana de Fútbol</span></div>
       <div class="dato"><b>Nacional</b><span>rutas entre regiones del país</span></div>
       <div class="dato"><b>Ejecutivas</b><span>unidades con aire y asientos acolchados</span></div>
     </div>
@@ -366,7 +396,7 @@ footer a:hover{color:var(--rojo)}
             <h3>Equipos deportivos</h3>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m12 7 4 3-1.5 4.5h-5L8 10l4-3ZM12 3v4M21 10.5l-5-.5M18 19l-3.5-4.5M6 19l3.5-4.5M3 10.5l5-.5"/></svg>
           </div>
-          <p>Clubes, selecciones y academias. Puntualidad para la concentración, el entrenamiento y el partido, con experiencia trasladando a la Vinotinto.</p>
+          <p>Clubes, selecciones y academias. Puntualidad para la concentración, el entrenamiento y el partido, y hoy prestamos servicio a la Federación Venezolana de Fútbol.</p>
           <ul><li>Fútbol</li><li>Concentraciones</li><li>Giras</li></ul>
           <a href="https://wa.me/584147658628?text=Hola%2C%20necesito%20transporte%20para%20un%20equipo%20deportivo" target="_blank" rel="noopener">Cotizar para tu equipo →</a>
         </article>
@@ -376,11 +406,11 @@ footer a:hover{color:var(--rojo)}
 
   <section class="vinotinto" id="vinotinto">
     <div class="wrap">
-      <figure class="vino-foto"><img src="img/vinotinto.jpg" alt="Microbuses de Transporte Maywill en caravana junto al autobús de la Vinotinto al atardecer" loading="lazy"><figcaption>Nuestras unidades en caravana con el autobús de la Selección</figcaption></figure>
+      <figure class="vino-foto"><img src="img/vinotinto.jpg" alt="Microbuses de Transporte Maywill junto al autobús de la Vinotinto al atardecer" loading="lazy"><figcaption>Nuestras unidades acompañando a la Selección</figcaption></figure>
       <div class="txt">
         <p class="eyebrow">Confianza al más alto nivel</p>
-        <h2>Llevamos a la Vinotinto</h2>
-        <p class="lead">Cuando la Selección necesitó moverse, confió en nuestras unidades y en nuestros conductores. Esa misma seriedad y puntualidad es la que ponemos en cada traslado de tu empresa, tu evento o tu equipo.</p>
+        <h2>Al servicio de la Federación Venezolana de Fútbol</h2>
+        <p class="lead">Actualmente prestamos servicio de transporte a la Federación Venezolana de Fútbol. La misma seriedad y puntualidad que exige la Vinotinto es la que ponemos en cada traslado de tu empresa, tu evento o tu equipo.</p>
       </div>
     </div>
   </section>
@@ -406,7 +436,7 @@ footer a:hover{color:var(--rojo)}
           <div class="info">
             <p class="tipo">Autobús</p>
             <h3>Hino · Incarven</h3>
-            <dl class="ficha"><dt>Ideal para</dt><dd>Personal y grupos grandes</dd><dt>Capacidad</dt><dd class="pend">[confirmar puestos]</dd></dl>
+            <dl class="ficha"><dt>Ideal para</dt><dd>Personal y grupos grandes</dd><dt>Capacidad</dt><dd><b>32 puestos</b></dd></dl>
           </div>
         </article>
         <article class="unidad">
@@ -422,7 +452,7 @@ footer a:hover{color:var(--rojo)}
           <div class="info">
             <p class="tipo">Minibús</p>
             <h3>Hino · Intercar</h3>
-            <dl class="ficha"><dt>Ideal para</dt><dd>Rutas de personal y eventos</dd><dt>Capacidad</dt><dd class="pend">[confirmar puestos]</dd></dl>
+            <dl class="ficha"><dt>Ideal para</dt><dd>Rutas de personal y eventos</dd><dt>Capacidad</dt><dd><b>28 puestos</b></dd></dl>
           </div>
         </article>
         <article class="unidad">
@@ -438,7 +468,7 @@ footer a:hover{color:var(--rojo)}
           <div class="info">
             <p class="tipo">Microbús ejecutivo</p>
             <h3>Toyota Coaster</h3>
-            <dl class="ficha"><dt>Ideal para</dt><dd>Ejecutivos, equipos y delegaciones</dd><dt>Capacidad</dt><dd class="pend">[confirmar puestos]</dd></dl>
+            <dl class="ficha"><dt>Ideal para</dt><dd>Ejecutivos, equipos y delegaciones</dd><dt>Capacidad</dt><dd><b>24 puestos</b></dd></dl>
           </div>
         </article>
         <article class="unidad">
@@ -454,9 +484,36 @@ footer a:hover{color:var(--rojo)}
           <div class="info">
             <p class="tipo">Microbús</p>
             <h3>Toyota Coaster · Grupos</h3>
-            <dl class="ficha"><dt>Ideal para</dt><dd>Rutas de personal y excursiones</dd><dt>Capacidad</dt><dd class="pend">[confirmar puestos]</dd></dl>
+            <dl class="ficha"><dt>Ideal para</dt><dd>Rutas de personal y excursiones</dd><dt>Capacidad</dt><dd><b>24 puestos</b></dd></dl>
           </div>
         </article>
+      </div>
+      <div class="flota-total">
+        <div class="ft-head">
+          <h3>Flota completa</h3>
+          <p>Todas nuestras unidades ejecutivas cuentan con aire acondicionado.</p>
+        </div>
+        <div class="ft-scroll">
+          <table>
+            <thead><tr><th>Unidad</th><th>Tipo</th><th class="num">Puestos</th></tr></thead>
+            <tbody>
+              <tr><td>Hino · Incarven</td><td>Autobús</td><td class="num">32</td></tr>
+              <tr><td>Mercedes-Benz · Incarven</td><td>Autobús</td><td class="num">30</td></tr>
+              <tr><td>Hino · Intercar</td><td>Minibús</td><td class="num">28</td></tr>
+              <tr><td>Marcopolo Senior</td><td>Minibús</td><td class="num">26</td></tr>
+              <tr><td>Toyota Coaster ×3</td><td>Microbús ejecutivo</td><td class="num">24 c/u</td></tr>
+            </tbody>
+            <tfoot><tr><td>7 unidades</td><td></td><td class="num">188 puestos</td></tr></tfoot>
+          </table>
+        </div>
+        <div class="grua">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 16h13V9h4l3 4v3h-2"/><path d="M15 9 6 5v4"/><circle cx="6" cy="17.5" r="2"/><circle cx="17.5" cy="17.5" r="2"/><path d="M8 16h7.5"/></svg>
+          <div>
+            <b>Grúa plataforma</b>
+            <span>Traslado de hasta 2 vehículos tipo sedán o de maquinaria pesada.</span>
+          </div>
+          <a class="btn btn-linea" href="https://wa.me/584147658628?text=Hola%2C%20necesito%20el%20servicio%20de%20gr%C3%BAa%20plataforma" target="_blank" rel="noopener">Cotizar grúa</a>
+        </div>
       </div>
       <div class="interior">
         <img src="img/interior.jpg" alt="Interior de microbús Toyota Coaster con asientos acolchados y cortinas" loading="lazy">
@@ -478,8 +535,8 @@ footer a:hover{color:var(--rojo)}
     <div class="wrap">
       <div class="sec-head">
         <p class="eyebrow">Cobertura</p>
-        <h2>Salimos hacia cualquier región del país</h2>
-        <p class="lead">Rutas fijas para empresas y viajes a medida entre ciudades. Si tu destino está en Venezuela, lo cotizamos.</p>
+        <h2>Base en Maturín, servicio a todo el país</h2>
+        <p class="lead">Desde nuestra base en Maturín, Monagas, tenemos capacidad operativa en todo el oriente del país y prestamos servicio a nivel nacional.</p>
       </div>
       <div class="mapa">
         <figure class="mapa-fig">
@@ -490,14 +547,13 @@ footer a:hover{color:var(--rojo)}
         <div class="mapa-rutas">
           <h3>Rutas frecuentes</h3>
           <ul>
-            <li><b>Oriente</b><span>Maturín · Barcelona · Cumaná · Puerto La Cruz</span></li>
+            <li><b>Oriente · capacidad operativa</b><span>Maturín · Barcelona · Puerto La Cruz · Cumaná · Ciudad Guayana</span></li>
             <li><b>Centro</b><span>Caracas · Maracay · Valencia</span></li>
             <li><b>Occidente</b><span>Barquisimeto · Maracaibo · Punto Fijo</span></li>
             <li><b>Andes</b><span>Mérida · San Cristóbal</span></li>
-            <li><b>Guayana</b><span>Ciudad Guayana · Puerto Ordaz</span></li>
-          </ul>
+                      </ul>
           <a class="btn btn-rojo" href="https://wa.me/584147658628?text=Hola%2C%20quiero%20cotizar%20una%20ruta" target="_blank" rel="noopener">Cotizar mi ruta</a>
-          <p class="mapa-nota">Mapa de ejemplo · rutas por confirmar con el cliente</p>
+          <p class="mapa-nota">Servicio a nivel nacional · cotizamos cualquier destino</p>
         </div>
       </div>
       <div class="tablero-scroll">
@@ -574,7 +630,7 @@ footer a:hover{color:var(--rojo)}
       <h4>Contacto</h4>
       <p>0414-765.86.28</p>
       <p><a href="https://www.instagram.com/transpmaywill.ca/" target="_blank" rel="noopener">@transpmaywill.ca</a></p>
-      <p class="pend">[ciudad base]</p>
+      <p style="color:var(--suave)">Carretera vía La Pica, galpón s/n, sector Pararisito, Maturín, Monagas</p>
     </div>
     <div>
       <h4>Empresa</h4>
