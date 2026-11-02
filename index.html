@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Transporte Maywill</title>
-<meta name="description" content="Transporte Maywill C.A. — transporte de personal, empresarial, eventos y equipos deportivos en autobuses ejecutivos en toda Venezuela. Más de 25 años de servicio.">
+<meta name="description" content="Transporte Maywill C.A. — servicio a la industria petrolera en área administrativa y operacional. También empresas, eventos y equipos deportivos en toda Venezuela. Más de 25 años de servicio.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;1,700;1,800&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
@@ -22,6 +22,7 @@
   --vinotinto:#6e1423;
   --vinotinto-2:#8c1d2f;
   --dorado:#d9b56b;
+  --tierra-oscura:#21120c;
   --f-display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
   --f-body:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;
   --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
@@ -292,6 +293,80 @@ footer a:hover{color:var(--rojo)}
 .legal{font-family:var(--f-mono);font-size:.82rem;color:var(--suave)}
 @media (max-width:760px){footer .wrap{grid-template-columns:1fr}}
 
+/* Área petrolera */
+.petro{padding-block:clamp(36px,5vw,64px) clamp(44px,6vw,76px);background:linear-gradient(180deg,var(--asfalto) 50%,var(--tierra-oscura))}
+.petro .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(28px,5vw,64px);align-items:center}
+.petro h1{font-size:clamp(3rem,6.6vw,5.4rem);font-style:italic;font-weight:800;text-transform:uppercase}
+.petro h1 em{font-style:inherit;color:var(--rojo)}
+.petro-txt{display:grid;gap:22px;min-width:0}
+.petro-txt .lead{font-size:1.12rem}
+.p-fotos{display:grid;grid-template-columns:1.25fr 1fr;gap:12px;align-items:start;min-width:0}
+.p-foto{position:relative;margin:0;border-radius:var(--r);overflow:hidden;min-width:0;aspect-ratio:3/4.5;max-width:100%}
+.p-foto img{width:100%;height:100%;object-fit:cover}
+.p-foto.noche{margin-top:clamp(28px,5vw,64px)}
+.p-foto figcaption{position:absolute;left:10px;bottom:10px;background:var(--asfalto);border:1px solid var(--linea);border-radius:8px;padding:5px 10px;font-family:var(--f-display);font-weight:600;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;line-height:1.2}
+@media (max-width:860px){.petro .wrap{grid-template-columns:minmax(0,1fr)}}
+
+.areas{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.area{display:grid;grid-template-rows:auto 1fr;border:1px solid var(--linea);border-radius:var(--r);overflow:hidden;background:var(--asfalto-2);min-width:0}
+.area>img{width:100%;aspect-ratio:3/2;object-fit:cover;object-position:center bottom}
+.area-txt{padding:clamp(22px,3vw,34px);display:grid;gap:16px;align-content:start;grid-template-rows:auto auto auto 1fr;min-width:0}
+.area h3{font-size:clamp(1.9rem,3.4vw,2.5rem);font-style:italic;text-transform:uppercase}
+.area-txt>p:not(.eyebrow){color:var(--suave)}
+.area .btn{justify-self:start;align-self:end}
+@media (max-width:760px){.areas{grid-template-columns:minmax(0,1fr)}}
+
+.plan-sec{background:var(--asfalto-2);border-block:1px solid var(--linea)}
+.plan{display:grid;grid-template-columns:1.1fr 1fr;gap:clamp(24px,4vw,48px);align-items:start}
+.calc{display:grid;gap:18px;padding:clamp(20px,3vw,32px);background:var(--asfalto);border:1px solid var(--linea);border-radius:var(--r);min-width:0}
+.calc-area{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:0;padding:4px;border:1px solid var(--linea);border-radius:12px;min-width:0}
+.calc-area legend{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.calc-area label{display:block;position:relative;text-align:center;cursor:pointer;min-width:0}
+.calc-area input{position:absolute;inset:0;width:100%;height:100%;margin:0;padding:0;opacity:0;cursor:pointer}
+.calc-area span{display:block;padding:10px 6px;border-radius:8px;color:var(--suave);font-weight:600;line-height:1.15}
+.calc-area input:checked+span{background:var(--rojo);color:#fff}
+.calc-area input:focus-visible+span{outline:3px solid var(--dorado);outline-offset:2px}
+.calc-fila{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.calc-fila output{font-family:var(--f-display);font-style:italic;font-weight:800;font-size:2.6rem;line-height:1;font-variant-numeric:tabular-nums}
+.calc input[type=range]{padding:0;border:0;background:none;height:32px;accent-color:var(--rojo);cursor:pointer}
+.calc input[type=range]:focus{outline:none}
+.calc input[type=range]:focus-visible{outline:3px solid var(--dorado);outline-offset:2px}
+.calc-total{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:baseline;border-top:1px solid var(--linea);padding-top:16px}
+.calc-total b{font-family:var(--f-display);font-style:italic;font-weight:800;font-size:1.8rem;text-transform:uppercase;line-height:1}
+.calc-total span{font-family:var(--f-mono);font-size:.88rem;color:var(--suave)}
+.calc-lista{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.calc-lista li{display:grid;gap:6px;min-width:0}
+.calc-lista .u{display:flex;justify-content:space-between;gap:10px;font-size:.95rem}
+.calc-lista .u i{font-style:normal;font-family:var(--f-mono);font-size:.82rem;color:var(--suave);white-space:nowrap}
+.asientos{display:flex;flex-wrap:wrap;gap:3px}
+.asientos s{width:8px;height:8px;border-radius:2px;background:var(--linea);text-decoration:none}
+.asientos s.on{background:var(--rojo)}
+.calc .btn{justify-content:center}
+.calc-nota{font-size:.85rem;color:var(--suave)}
+.plan-lado{display:grid;gap:22px;min-width:0}
+.plan-foto{margin:0;border-radius:var(--r);overflow:hidden;aspect-ratio:1/1;max-width:100%}
+.plan-foto img{width:100%;height:100%;object-fit:cover;object-position:center bottom}
+.razones{list-style:none;margin:0;padding:0;display:grid;gap:14px}
+.razones li{display:grid;gap:2px;padding-bottom:14px;border-bottom:1px solid var(--linea)}
+.razones li:last-child{border-bottom:0;padding-bottom:0}
+.razones b{font-family:var(--f-display);font-size:1.25rem;font-style:italic;font-weight:700;text-transform:uppercase;line-height:1.1}
+.razones span{color:var(--suave);font-size:.97rem}
+@media (max-width:860px){.plan{grid-template-columns:minmax(0,1fr)}}
+
+/* Resto de la página, en segundo plano */
+.hero h2{font-size:clamp(2rem,4.2vw,3rem)}
+.hero h2 em{font-style:inherit;color:var(--rojo)}
+.hero .hero-foto{aspect-ratio:16/10}
+#servicios{padding-top:0}
+.serv{padding:24px}
+.serv h3{font-size:1.6rem}
+.flota-patio{margin:0 0 18px;border-radius:var(--r);overflow:hidden;aspect-ratio:21/8;max-width:100%}
+.flota-patio img{width:100%;height:100%;object-fit:cover;object-position:center 55%}
+.unidad-ancha{grid-column:1/-1;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);grid-template-rows:auto}
+.unidad-ancha .info{align-content:center;padding:clamp(22px,3vw,40px)}
+.unidad-ancha .galeria{min-width:0}
+@media (max-width:760px){.flota-patio{aspect-ratio:16/9}.unidad-ancha{grid-template-columns:minmax(0,1fr)}}
+
 /* WhatsApp flotante */
 .wa-float{position:fixed;right:calc(18px + env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:70;width:62px;height:62px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 10px 30px rgba(0,0,0,.45);transition:transform .2s}
 .wa-float:hover{transform:scale(1.07)}
@@ -310,8 +385,8 @@ footer a:hover{color:var(--rojo)}
 <header class="top">
   <div class="wrap">
     <nav class="nav nav-izq" aria-label="Secciones">
+      <a href="#petrolero">Petrolero</a>
       <a href="#servicios">Servicios</a>
-      <a href="#vinotinto">Vinotinto</a>
       <a href="#flota">Flota</a>
     </nav>
     <a class="marca" href="#inicio" aria-label="Transporte Maywill, inicio">
@@ -326,27 +401,20 @@ footer a:hover{color:var(--rojo)}
 
 <main id="inicio">
   <div class="portada"><img src="img/portada.jpg?v=11" alt="Transporte Maywill C.A."></div>
-  <div class="fiscal">
+  <section class="petro" id="petrolero">
     <div class="wrap">
-      <span class="fiscal-rif">RIF J-30150173-0</span>
-      <span class="fiscal-dir">Carretera vía La Pica, galpón s/n, sector Pararisito · Maturín, Monagas</span>
-      <span class="fiscal-nac">Servicio a nivel nacional</span>
-    </div>
-  </div>
-  <section class="hero">
-    <div class="wrap">
-      <div class="hero-txt">
-        <p class="eyebrow">Transporte de personal · Unidades ejecutivas</p>
-        <h1>Tu gente llega. <em>Siempre a tiempo.</em></h1>
-        <p class="lead">Transporte privado en autobuses para empresas, eventos y equipos deportivos en toda Venezuela. Más de 25 años moviendo personas con responsabilidad y calidad.</p>
+      <div class="petro-txt">
+        <p class="eyebrow">Transporte de personal · Área administrativa y operacional</p>
+        <h1>Al servicio de la <em>industria petrolera</em></h1>
+        <p class="lead">Trasladamos al personal administrativo y operacional de la industria, desde nuestra base en Maturín hasta las oficinas, los campos y los taladros. Más de 25 años moviendo personas con responsabilidad y calidad.</p>
         <div class="ctas">
-          <a class="btn btn-rojo" href="https://wa.me/584147658628?text=Hola%20Transporte%20Maywill%2C%20quiero%20una%20cotizaci%C3%B3n" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Cotizar por WhatsApp</a>
-          <a class="btn btn-linea" href="#servicios">Ver servicios</a>
+          <a class="btn btn-rojo" href="https://wa.me/584147658628?text=Hola%20Transporte%20Maywill%2C%20quiero%20cotizar%20transporte%20de%20personal%20para%20la%20industria%20petrolera" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Cotizar por WhatsApp</a>
+          <a class="btn btn-linea" href="#areas">Ver las dos áreas</a>
         </div>
       </div>
-      <div class="hero-foto">
-        <img src="img/hero.jpg?v=11" alt="Microbús ejecutivo Toyota Coaster de Transporte Maywill">
-        <div class="placa"><i class="dot" aria-hidden="true"></i><span>Unidades disponibles · toda Venezuela</span></div>
+      <div class="p-fotos">
+        <figure class="p-foto"><img src="img/petro/taladro-dia.jpg?v=13" alt="Autobús blanco de Transporte Maywill estacionado frente a un taladro petrolero, de día"><figcaption>En el taladro</figcaption></figure>
+        <figure class="p-foto noche"><img src="img/petro/taladro-noche.jpg?v=13" alt="Autobús Hino de Transporte Maywill frente a un taladro iluminado, de noche"><figcaption>También de noche</figcaption></figure>
       </div>
     </div>
   </section>
@@ -354,21 +422,112 @@ footer a:hover{color:var(--rojo)}
   <div class="confianza">
     <div class="wrap">
       <div class="dato"><b>+25 <i>años</i></b><span>de servicio continuo</span></div>
-      <div class="dato"><b>FVF</b><span>al servicio de la Federación Venezolana de Fútbol</span></div>
-      <div class="dato"><b>Nacional</b><span>rutas entre regiones del país</span></div>
-      <div class="dato"><b>Ejecutivas</b><span>unidades con aire y asientos acolchados</span></div>
+      <div class="dato"><b>7 <i>unidades</i></b><span>autobuses, minibuses y microbuses</span></div>
+      <div class="dato"><b>188 <i>puestos</i></b><span>de capacidad total en la flota</span></div>
+      <div class="dato"><b>Maturín</b><span>base y patio de unidades, en Monagas</span></div>
     </div>
   </div>
 
-  <section id="servicios">
+  <div class="fiscal">
+    <div class="wrap">
+      <span class="fiscal-rif">RIF J-30150173-0</span>
+      <span class="fiscal-dir">Carretera vía La Pica, galpón s/n, sector Pararisito · Maturín, Monagas</span>
+      <span class="fiscal-nac">Servicio a nivel nacional</span>
+    </div>
+  </div>
+
+  <section id="areas">
     <div class="wrap">
       <div class="sec-head">
-        <p class="eyebrow">Servicios</p>
-        <h2>Un autobús para cada necesidad</h2>
-        <p class="lead">Desde la ruta diaria de tu personal hasta el traslado de un equipo profesional. Tú nos dices cuántos son y a dónde van; nosotros ponemos la unidad y el conductor.</p>
+        <p class="eyebrow">Industria petrolera</p>
+        <h2>Dos áreas, un mismo servicio</h2>
+        <p class="lead">Quien trabaja en el taladro y quien trabaja en la oficina necesitan traslados distintos. Atendemos a los dos.</p>
       </div>
+      <div class="areas">
+        <article class="area" id="operacional">
+          <img src="img/petro/taladro-operacion.jpg?v=13" alt="Autobús de Transporte Maywill junto a un taladro petrolero en operación, con personal en la locación" loading="lazy">
+          <div class="area-txt">
+            <p class="eyebrow">Área operacional</p>
+            <h3>Hasta el taladro y de regreso</h3>
+            <ul class="checks">
+              <li>Cambios de guardia</li>
+              <li>Traslado de cuadrillas a campos y locaciones</li>
+              <li>Rutas diarias por turnos</li>
+              <li>Salidas de día y de noche</li>
+            </ul>
+            <a class="btn btn-rojo" href="https://wa.me/584147658628?text=Hola%2C%20necesito%20transporte%20para%20personal%20operacional%20de%20la%20industria%20petrolera" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Cotizar área operacional</a>
+          </div>
+        </article>
+        <article class="area" id="administrativa">
+          <img src="img/petro/coaster-admin.jpg?v=13" alt="Dos microbuses Toyota Coaster blancos de Transporte Maywill en el patio" loading="lazy">
+          <div class="area-txt">
+            <p class="eyebrow">Área administrativa</p>
+            <h3>De la oficina a donde haga falta</h3>
+            <ul class="checks">
+              <li>Rutas diarias a oficinas y sedes</li>
+              <li>Gerentes, supervisores y visitantes</li>
+              <li>Traslados a reuniones y aeropuertos</li>
+              <li>Viajes de trabajo entre ciudades</li>
+            </ul>
+            <a class="btn btn-rojo" href="https://wa.me/584147658628?text=Hola%2C%20necesito%20transporte%20para%20personal%20administrativo%20de%20la%20industria%20petrolera" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Cotizar área administrativa</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="plan-sec" id="planificar">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Calcula tu traslado</p>
+        <h2>¿Cuántas personas hay que mover?</h2>
+        <p class="lead">Mueve el control y mira qué unidades de nuestra flota harían falta. Con un toque nos llega tu solicitud por WhatsApp.</p>
+      </div>
+      <div class="plan">
+        <div class="calc">
+          <fieldset class="calc-area">
+            <legend>Área</legend>
+            <label><input type="radio" name="calc-area" id="calc-op" value="operacional" checked><span>Operacional</span></label>
+            <label><input type="radio" name="calc-area" id="calc-ad" value="administrativa"><span>Administrativa</span></label>
+          </fieldset>
+          <div class="calc-fila"><label for="calc-n">Personas por traslado</label><output id="calc-salida" for="calc-n">44</output></div>
+          <input type="range" id="calc-n" min="8" max="188" value="44">
+          <p class="calc-total"><b id="calc-unidades">2 unidades</b><span id="calc-puestos">56 puestos</span></p>
+          <ul class="calc-lista" id="calc-lista"></ul>
+          <a class="btn btn-rojo" id="calc-wa" href="https://wa.me/584147658628?text=Hola%2C%20necesito%20transporte%20para%20la%20industria%20petrolera" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Pedir esta cotización</a>
+          <p class="calc-nota">Cálculo orientativo con nuestras 7 unidades. Confirmamos la disponibilidad al cotizar.</p>
+        </div>
+        <div class="plan-lado">
+          <figure class="plan-foto"><img src="img/petro/unidad-locacion.jpg?v=13" alt="Autobús de Transporte Maywill en una locación de tierra roja, con la torre de un taladro detrás" loading="lazy"></figure>
+          <ul class="razones">
+            <li><b>Base en Monagas</b><span>Salimos desde Maturín, con capacidad operativa en todo el oriente del país.</span></li>
+            <li><b>De 24 a 32 puestos por unidad</b><span>Combinamos las unidades según el tamaño de tu grupo.</span></li>
+            <li><b>Un responsable de contacto</b><span>Una sola persona coordina tus rutas, horarios y turnos.</span></li>
+            <li><b>Comodidad en el trayecto</b><span>Aire acondicionado, asientos acolchados y conductores profesionales.</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-txt">
+        <p class="eyebrow">Otros servicios</p>
+        <h2>Tu gente llega. <em>Siempre a tiempo.</em></h2>
+        <p class="lead">También ofrecemos transporte privado en autobuses para empresas, eventos y equipos deportivos en toda Venezuela.</p>
+      </div>
+      <div class="hero-foto">
+        <img src="img/hero.jpg?v=11" alt="Microbús ejecutivo Toyota Coaster de Transporte Maywill" loading="lazy">
+        <div class="placa"><i class="dot" aria-hidden="true"></i><span>Unidades disponibles · toda Venezuela</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="servicios">
+    <div class="wrap">
       <div class="servicios">
-        <article class="serv serv-dest">
+        <article class="serv">
           <div class="serv-top">
             <h3>Traslado de personal</h3>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="8" cy="7" r="3"/><circle cx="16.5" cy="8" r="2.5"/><path d="M2.5 20c0-3.3 2.5-6 5.5-6s5.5 2.7 5.5 6M13.5 14.3c.9-.5 1.9-.8 3-.8 2.8 0 5 2.3 5 5.5"/></svg>
@@ -424,8 +583,9 @@ footer a:hover{color:var(--rojo)}
       <div class="sec-head">
         <p class="eyebrow">Nuestra flota</p>
         <h2>Unidades reales, listas para salir</h2>
-        <p class="lead">Estas son nuestras unidades, fotografiadas en nuestro patio. Desliza cada una para ver su ficha y más fotos. Elegimos la más adecuada según el número de pasajeros y el tipo de viaje.</p>
+        <p class="lead">Estas son nuestras unidades, fotografiadas en nuestro patio. Desliza cada una para ver más fotos y su ficha, si la tiene. Elegimos la más adecuada según el número de pasajeros y el tipo de viaje.</p>
       </div>
+      <figure class="flota-patio"><img src="img/petro/patio.jpg?v=13" alt="Fila de unidades blancas de Transporte Maywill bajo el techo del patio" loading="lazy"></figure>
       <div class="flota">
         <article class="unidad">
           <div class="galeria">
@@ -491,6 +651,22 @@ footer a:hover{color:var(--rojo)}
             <dl class="ficha"><dt>Ideal para</dt><dd>Rutas de personal y excursiones</dd><dt>Capacidad</dt><dd><b>24 puestos</b></dd></dl>
           </div>
         </article>
+        <article class="unidad unidad-ancha">
+          <div class="galeria">
+            <div class="pista" tabindex="0" aria-label="Galería de Marcopolo Senior"><figure class="slide"><img src="img/g/b5-1.jpg?v=13" alt="Marcopolo Senior de Transporte Maywill, foto 1"></figure><figure class="slide"><img src="img/g/b5-2.jpg?v=13" alt="Marcopolo Senior de Transporte Maywill, foto 2" loading="lazy"></figure><figure class="slide"><img src="img/g/b5-3.jpg?v=13" alt="Marcopolo Senior de Transporte Maywill, foto 3" loading="lazy"></figure><figure class="slide"><img src="img/g/b5-4.jpg?v=13" alt="Marcopolo Senior de Transporte Maywill, foto 4" loading="lazy"></figure></div>
+            <button class="flecha prev" type="button" aria-label="Foto anterior">‹</button>
+            <button class="flecha next" type="button" aria-label="Foto siguiente">›</button>
+            <span class="contador">1 / 4</span>
+            <span class="pista-hint">Desliza →</span>
+            <span class="ampliar">Toca para ver la ficha</span>
+            <div class="puntos" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+          </div>
+          <div class="info">
+            <p class="tipo">Minibús · chasis Mercedes-Benz</p>
+            <h3>Marcopolo Senior</h3>
+            <dl class="ficha"><dt>Ideal para</dt><dd>Cuadrillas, delegaciones y rutas de personal</dd><dt>Capacidad</dt><dd><b>26 puestos</b></dd></dl>
+          </div>
+        </article>
       </div>
       <div class="flota-total">
         <div class="ft-head">
@@ -541,7 +717,7 @@ footer a:hover{color:var(--rojo)}
       <div class="sec-head">
         <p class="eyebrow">Cobertura</p>
         <h2>Base en Maturín, servicio a todo el país</h2>
-        <p class="lead">Desde nuestra base en Maturín, Monagas, tenemos capacidad operativa en todo el oriente del país y prestamos servicio a nivel nacional.</p>
+        <p class="lead">Desde nuestra base en Maturín, Monagas, tenemos capacidad operativa en todo el oriente del país, donde atendemos a la industria petrolera, y prestamos servicio a nivel nacional.</p>
       </div>
       <div class="mapa">
         <figure class="mapa-fig">
@@ -564,6 +740,8 @@ footer a:hover{color:var(--rojo)}
       <div class="tablero-scroll">
         <div class="tablero" role="table" aria-label="Tipos de salida">
           <div class="tab-head" role="row"><span role="columnheader">Servicio</span><span role="columnheader">Recorrido</span><span role="columnheader">Frecuencia</span><span role="columnheader">Estado</span></div>
+          <div class="tab-row" role="row"><b role="cell">Petrolero operacional</b><span role="cell">Base ↔ campo / taladro</span><span role="cell">Por guardia o turno</span><span role="cell" class="estado">Disponible</span></div>
+          <div class="tab-row" role="row"><b role="cell">Petrolero administrativo</b><span role="cell">Casa ↔ oficina / sede</span><span role="cell">Diaria</span><span role="cell" class="estado">Disponible</span></div>
           <div class="tab-row" role="row"><b role="cell">Personal</b><span role="cell">Casa → planta / oficina</span><span role="cell">Diaria</span><span role="cell" class="estado">Disponible</span></div>
           <div class="tab-row" role="row"><b role="cell">Ejecutivo</b><span role="cell">Aeropuerto ↔ hotel ↔ reunión</span><span role="cell">A demanda</span><span role="cell" class="estado">Disponible</span></div>
           <div class="tab-row" role="row"><b role="cell">Eventos</b><span role="cell">Punto de encuentro ↔ evento</span><span role="cell">Por fecha</span><span role="cell" class="estado">Disponible</span></div>
@@ -607,6 +785,8 @@ footer a:hover{color:var(--rojo)}
         <div class="campo"><label for="pasajeros">Pasajeros</label><input id="pasajeros" name="pasajeros" type="number" min="1" placeholder="Ej. 25"></div>
         <div class="campo full"><label for="servicio">Tipo de servicio</label>
           <select id="servicio" name="servicio">
+            <option>Petrolero · área operacional</option>
+            <option>Petrolero · área administrativa</option>
             <option>Traslado de personal</option>
             <option>Empresarial / ejecutivos</option>
             <option>Evento</option>
@@ -629,7 +809,7 @@ footer a:hover{color:var(--rojo)}
   <div class="wrap">
     <div>
       <a class="marca" href="#inicio"><img src="img/logo-maywill.jpg?v=11" alt="Transporte Maywill C.A." style="height:auto;width:220px;max-width:100%;border-radius:12px"></a>
-      <p style="margin-top:14px;color:var(--suave)">Responsabilidad y calidad, nuestro norte. Más de 25 años de servicio.</p>
+      <p style="margin-top:14px;color:var(--suave)">Responsabilidad y calidad, nuestro norte. Más de 25 años al servicio de la industria petrolera y de todo el país.</p>
     </div>
     <div>
       <h4>Contacto</h4>
@@ -682,6 +862,42 @@ document.querySelectorAll('.galeria').forEach(function(g){
   var t;p.addEventListener('scroll',function(){clearTimeout(t);t=setTimeout(upd,60);},{passive:true});
   upd();
 });
+</script>
+<script>
+(function(){
+  var flota=[{n:'Hino · Incarven',p:32},{n:'Mercedes-Benz · Incarven',p:30},{n:'Hino · Intercar',p:28},{n:'Marcopolo Senior',p:26},{n:'Toyota Coaster',p:24},{n:'Toyota Coaster',p:24},{n:'Toyota Coaster',p:24}];
+  var rango=document.getElementById('calc-n'),salida=document.getElementById('calc-salida'),lista=document.getElementById('calc-lista'),uni=document.getElementById('calc-unidades'),pue=document.getElementById('calc-puestos'),wa=document.getElementById('calc-wa');
+  function repartir(total){
+    var libres=flota.slice(),res=[],resta=total;
+    while(resta>0&&libres.length){
+      var i=-1;
+      for(var k=libres.length-1;k>=0;k--){if(libres[k].p>=resta){i=k;break;}}
+      if(i<0)i=0;
+      var u=libres.splice(i,1)[0],van=Math.min(u.p,resta);
+      res.push({n:u.n,p:u.p,van:van});resta-=van;
+    }
+    return res;
+  }
+  function pintar(){
+    var total=+rango.value,res=repartir(total),puestos=0,area=document.querySelector('input[name="calc-area"]:checked').value;
+    lista.innerHTML='';
+    res.forEach(function(u){
+      puestos+=u.p;
+      var li=document.createElement('li'),fila=document.createElement('div'),nom=document.createElement('span'),cant=document.createElement('i'),as=document.createElement('div');
+      fila.className='u';nom.textContent=u.n;cant.textContent=u.van+' / '+u.p;fila.appendChild(nom);fila.appendChild(cant);
+      as.className='asientos';as.setAttribute('aria-hidden','true');
+      for(var s=0;s<u.p;s++){var d=document.createElement('s');if(s<u.van)d.className='on';as.appendChild(d);}
+      li.appendChild(fila);li.appendChild(as);lista.appendChild(li);
+    });
+    salida.textContent=total;
+    uni.textContent=res.length+(res.length===1?' unidad':' unidades');
+    pue.textContent=puestos+' puestos';
+    wa.href='https://wa.me/584147658628?text='+encodeURIComponent('Hola Transporte Maywill, necesito transporte para la industria petrolera:\n• Área: '+area+'\n• Personas por traslado: '+total+'\n• Unidades sugeridas: '+res.map(function(u){return u.n;}).join(', '));
+  }
+  rango.addEventListener('input',pintar);
+  document.querySelectorAll('input[name="calc-area"]').forEach(function(r){r.addEventListener('change',pintar);});
+  pintar();
+})();
 </script>
 <script>
 (function(){
