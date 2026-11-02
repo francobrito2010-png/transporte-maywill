@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Transporte Maywill</title>
-<meta name="description" content="Transporte Maywill C.A. — servicio a la industria petrolera en área administrativa y operacional. También empresas, eventos y equipos deportivos en toda Venezuela. Más de 25 años de servicio.">
+<meta name="description" content="Transporte Maywill C.A.: transporte de personal para la industria petrolera en el oriente venezolano y la Faja del Orinoco. Cambios de guardia, operación en tres turnos y rutas en zonas de difícil acceso.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,500;0,600;0,700;1,700;1,800&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
@@ -23,6 +23,10 @@
   --vinotinto-2:#8c1d2f;
   --dorado:#d9b56b;
   --tierra-oscura:#21120c;
+  --papel:#f3f2ee;
+  --tinta:#17181a;
+  --tinta-suave:#55565a;
+  --linea-clara:#d6d5d0;
   --f-display:"Barlow Condensed","Arial Narrow",Arial,sans-serif;
   --f-body:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif;
   --f-mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
@@ -30,17 +34,17 @@
 }
 *{box-sizing:border-box}
 [hidden]{display:none!important}
-body{background:var(--asfalto);color:var(--texto);font-family:var(--f-body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+body{margin:0;background:var(--asfalto);color:var(--texto);font-family:var(--f-body);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
 body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--asfalto)}
 a{color:inherit}
 img{display:block;max-width:100%}
 .wrap{max-width:1180px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 h1,h2,h3{font-family:var(--f-display);font-weight:700;line-height:1.02;margin:0;text-wrap:balance}
-h2{font-size:clamp(2.2rem,5vw,3.4rem);font-style:italic;text-transform:uppercase;letter-spacing:.01em}
+h2{font-size:clamp(2.1rem,4.6vw,3.2rem);text-transform:uppercase;letter-spacing:.01em}
 p{margin:0}
 .eyebrow{font-family:var(--f-display);font-weight:600;text-transform:uppercase;letter-spacing:.16em;font-size:.82rem;color:var(--rojo)}
 .lead{color:var(--suave);max-width:60ch}
-section{padding-block:clamp(48px,7vw,88px)}
+section{padding-block:clamp(56px,8vw,104px)}
 .sec-head{display:grid;gap:14px;margin-bottom:44px;max-width:720px}
 
 /* Botones */
@@ -84,9 +88,6 @@ html{scroll-padding-top:calc(116px + env(safe-area-inset-top,0px))}
 .menu-panel a:hover{background:var(--linea)}
 .menu-panel a:focus-visible{outline:3px solid var(--dorado);outline-offset:-3px}
 .menu-panel a.activo{background:var(--rojo);color:#fff;font-weight:600}
-.menu-calc{display:flex;align-items:center;justify-content:center;width:100%;min-height:44px;padding:10px;border:0;border-radius:8px;background:var(--rojo);color:#fff;font-family:var(--f-display);font-weight:700;font-size:1rem;letter-spacing:.06em;text-transform:uppercase;cursor:pointer}
-.menu-calc:hover{background:var(--rojo-hover)}
-.menu-calc:focus-visible{outline:3px solid var(--dorado);outline-offset:2px}
 .area:target,.serv:target{border-color:var(--rojo);box-shadow:0 0 0 1px var(--rojo)}
 @media (max-width:860px){
   html{scroll-padding-top:calc(94px + env(safe-area-inset-top,0px))}
@@ -183,9 +184,6 @@ html{scroll-padding-top:calc(116px + env(safe-area-inset-top,0px))}
 .ficha dt{color:var(--suave)}
 .ficha dd{margin:0}
 @media (max-width:640px){.flota{grid-template-columns:1fr}}
-.flota-resto{margin-top:18px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 20px;padding-block:14px;border-block:1px solid var(--linea)}
-.flota-resto span{color:var(--suave);min-width:0}
-.flota-resto b{font-family:var(--f-mono);font-weight:500;font-size:.95rem}
 .grua{margin-top:18px;display:grid;grid-template-columns:1.3fr 1fr;border:1px solid var(--linea);border-radius:12px;overflow:hidden;background:var(--asfalto)}
 .grua-foto{width:100%;height:100%;min-height:240px;object-fit:cover}
 .grua-txt{padding:clamp(20px,3vw,32px);display:grid;gap:10px;align-content:center;min-width:0}
@@ -196,20 +194,23 @@ html{scroll-padding-top:calc(116px + env(safe-area-inset-top,0px))}
 .mapa{display:grid;grid-template-columns:1.7fr 1fr;gap:22px}
 .mapa-fig{margin:0;border:1px solid var(--linea);border-radius:var(--r);background:#0a0b0c;padding:14px;min-width:0}
 .mapa-svg{width:100%;height:auto;display:block}
-.tierra{fill:#1b1d21;stroke:#3a3d42;stroke-width:1.2}
-.ruta{fill:none;stroke:var(--rojo);stroke-width:2;stroke-dasharray:6 6;opacity:.85}
-.punto circle{fill:var(--texto)}
-.punto .halo{fill:rgba(242,240,236,.12)}
-.punto text,.sede text{fill:var(--texto);font-family:var(--f-display);font-weight:600;font-size:15px;letter-spacing:.03em}
-.sede circle{fill:var(--rojo)}
-.sede text{font-size:19px;font-weight:700;font-style:italic;text-transform:uppercase}
-.sede text.sub{font-size:12px;font-style:normal;font-weight:600;fill:var(--dorado);letter-spacing:.1em}
+.tierra{fill:#1b1d21;stroke:#3a3d42;stroke-width:.35}
+.m-faja{fill:rgba(217,181,107,.13);stroke:var(--dorado);stroke-width:.3;stroke-dasharray:1.6 1.2}
+.m-faja-t{fill:var(--dorado);font-family:var(--f-display);font-size:4px;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+.m-ruta{fill:none;stroke:var(--rojo);stroke-width:.55;stroke-dasharray:1.6 1.4;opacity:.85}
+.m-pto circle{fill:var(--texto)}
+.m-pto .h{fill:rgba(242,240,236,.14)}
+.m-pto text{fill:var(--texto);font-family:var(--f-display);font-size:4.4px;font-weight:600;letter-spacing:.02em}
+.m-base circle{fill:var(--rojo)}
+.m-base .h{fill:rgba(227,38,43,.28)}
+.m-base text{fill:var(--texto);font-family:var(--f-display);font-size:5.8px;font-weight:700;text-transform:uppercase}
+.m-base text.s{font-size:3.5px;font-weight:600;fill:var(--dorado);letter-spacing:.08em}
 .mapa-ley{display:flex;flex-wrap:wrap;gap:16px;margin-top:10px;font-size:.85rem;color:var(--suave)}
 .mapa-ley span{display:flex;align-items:center;gap:7px}
 .mapa-ley i{display:inline-block}
 .l-sede{width:11px;height:11px;border-radius:50%;background:var(--rojo)}
 .l-pto{width:9px;height:9px;border-radius:50%;background:var(--texto)}
-.l-ruta{width:22px;border-top:2px dashed var(--rojo)}
+.l-faja{width:22px;height:10px;background:rgba(217,181,107,.2);border:1px dashed var(--dorado)}
 .mapa-rutas{border:1px solid var(--linea);border-radius:var(--r);background:var(--asfalto);padding:24px;display:grid;gap:16px;align-content:start;min-width:0}
 .mapa-rutas h3{font-size:1.7rem;font-style:italic;text-transform:uppercase}
 .mapa-rutas ul{list-style:none;margin:0;padding:0;display:grid;gap:12px}
@@ -267,53 +268,91 @@ footer a:hover{color:var(--rojo)}
 .area .btn{justify-self:start;align-self:end}
 @media (max-width:760px){.areas{grid-template-columns:minmax(0,1fr)}}
 
-.calc{display:grid;gap:16px;padding:clamp(18px,3vw,28px)}
-.calc-area{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin:0;padding:4px;border:1px solid var(--linea);border-radius:12px;min-width:0}
-.calc-area legend{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
-.calc-area label{display:block;position:relative;text-align:center;cursor:pointer;min-width:0}
-.calc-area input{position:absolute;inset:0;width:100%;height:100%;margin:0;padding:0;opacity:0;cursor:pointer}
-.calc-area span{display:block;padding:10px 6px;border-radius:8px;color:var(--suave);font-weight:600;line-height:1.15}
-.calc-area input:checked+span{background:var(--rojo);color:#fff}
-.calc-area input:focus-visible+span{outline:3px solid var(--dorado);outline-offset:2px}
-.calc-fila{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
-.calc-fila input{width:96px;flex:none;padding:8px 10px;text-align:center;font-family:var(--f-mono);font-size:1.15rem;font-variant-numeric:tabular-nums}
-.calc input[type=range]{padding:0;border:0;background:none;height:32px;accent-color:var(--rojo);cursor:pointer}
-.calc input[type=range]:focus{outline:none}
-.calc input[type=range]:focus-visible{outline:3px solid var(--dorado);outline-offset:2px}
-.calc-total{display:flex;flex-wrap:wrap;gap:4px 14px;align-items:baseline;border-top:1px solid var(--linea);padding-top:16px}
-.calc-total b{font-family:var(--f-display);font-style:italic;font-weight:800;font-size:1.8rem;text-transform:uppercase;line-height:1}
-.calc-total span{font-family:var(--f-mono);font-size:.88rem;color:var(--suave)}
-.calc-lista{list-style:none;margin:0;padding:0;display:grid;gap:12px}
-.calc-lista li{display:grid;gap:6px;min-width:0}
-.calc-lista .u{display:flex;justify-content:space-between;gap:10px;font-size:.95rem}
-.calc-lista .u i{font-style:normal;font-family:var(--f-mono);font-size:.82rem;color:var(--suave);white-space:nowrap}
-.asientos{display:flex;flex-wrap:wrap;gap:3px}
-.asientos s{width:8px;height:8px;border-radius:2px;background:var(--linea);text-decoration:none}
-.asientos s.on{background:var(--rojo)}
-.calc .btn{justify-content:center}
-.calc-nota{font-size:.85rem;color:var(--suave)}
-.calc-ventana{width:min(480px,calc(100vw - 32px));max-height:calc(100vh - 32px);max-height:calc(100dvh - 32px);padding:0;overflow-y:auto;color:var(--texto);background:var(--asfalto-2);border:1px solid var(--linea);border-radius:var(--r);box-shadow:0 24px 60px rgba(0,0,0,.6)}
-.calc-ventana::backdrop{background:rgba(6,6,8,.8)}
-.calc-cab{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
-.calc-cab h2{font-size:1.9rem}
-.calc-cerrar{flex:none;width:44px;height:44px;border-radius:50%;border:1px solid var(--linea);background:var(--asfalto);color:var(--texto);font-size:1.4rem;line-height:1;cursor:pointer}
-.calc-cerrar:focus-visible{outline:3px solid var(--dorado);outline-offset:2px}
-
 /* Menos énfasis: la itálica queda solo en los titulares principales */
 .eyebrow{color:var(--suave)}
 .petro .eyebrow{color:var(--rojo)}
-.area h3,.serv h3,.unidad h3,.grua-txt b,.dato b,.mapa-rutas h3,.calc-total b{font-style:normal}
+.area h3,.serv h3,.unidad h3,.grua-txt b,.dato b,.mapa-rutas h3,.vino-txt h3,.flota-foto figcaption b{font-style:normal}
 .serv svg{color:var(--suave)}
 .serv{padding:24px}
 .serv h3{font-size:1.6rem}
 #otros-servicios{background:var(--asfalto-2);border-block:1px solid var(--linea)}
-@media (max-width:760px){.calc-fila{flex-wrap:wrap}}
+
+.mapa-rutas li.clave b{color:var(--dorado)}
+.mapa-rutas li.clave span{font-family:var(--f-display);font-size:1.45rem;font-weight:700;line-height:1.15;text-transform:uppercase}
+.mapa-rutas li:last-child{border-bottom:0;padding-bottom:0}
+
+/* Tipos de unidad */
+.tipos{list-style:none;margin:0 0 18px;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-block:1px solid var(--linea)}
+.tipos li{padding:20px clamp(12px,2vw,22px);display:grid;gap:4px;align-content:start;border-left:1px solid var(--linea);min-width:0}
+.tipos li:first-child{border-left:0;padding-left:0}
+.tipos b{font-family:var(--f-display);font-size:1.4rem;font-weight:700;line-height:1.1;text-transform:uppercase}
+.tipos span{color:var(--suave);font-size:.93rem}
+@media (max-width:760px){.tipos{grid-template-columns:repeat(2,minmax(0,1fr))}.tipos li:nth-child(odd){border-left:0;padding-left:0}.tipos li:nth-child(n+3){border-top:1px solid var(--linea)}}
+
+/* Secciones claras */
+.clara{background:var(--papel);color:var(--tinta)}
+.clara .eyebrow,.clara .lead{color:var(--tinta-suave)}
+.proceso{list-style:none;margin:0;padding:0;counter-reset:p;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:clamp(14px,2vw,24px)}
+.proceso li{counter-increment:p;display:grid;gap:8px;align-content:start;padding-top:16px;border-top:3px solid var(--rojo);min-width:0}
+.proceso li::before{content:"Paso " counter(p);font-family:var(--f-display);font-weight:600;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:var(--tinta-suave)}
+.proceso h3{font-size:1.45rem;text-transform:uppercase}
+.proceso p{color:var(--tinta-suave);font-size:.97rem}
+.cumple{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 clamp(24px,4vw,56px)}
+.cumple div{display:grid;gap:6px;padding-block:22px;border-top:1px solid var(--linea);min-width:0}
+.cumple h3{font-size:1.5rem;text-transform:uppercase}
+.cumple p{color:var(--suave)}
+@media (max-width:960px){.proceso{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:560px){.proceso,.cumple{grid-template-columns:minmax(0,1fr)}}
+
+/* Entrada */
+.ent{position:fixed;inset:0;z-index:100;overflow:hidden;background:#0e0f11;cursor:pointer;animation:ent-salida 2s both cubic-bezier(.65,0,.35,1)}
+.ent *{animation-duration:2s;animation-fill-mode:both;animation-timing-function:linear}
+@keyframes ent-salida{0%,86%{opacity:1;visibility:visible}100%{opacity:0;visibility:hidden}}
+.ent-escena{position:absolute;inset:0;animation-name:ent-escena}
+@keyframes ent-escena{0%,44%{opacity:1}70%,100%{opacity:0}}
+.ent-suelo{position:absolute;left:0;right:0;bottom:0;height:42%;background:linear-gradient(180deg,#1b1d21,#0a0b0c);border-top:1px solid #33363b}
+.ent-carril{position:absolute;left:-200px;right:-200px;bottom:17%;height:4px;background:repeating-linear-gradient(90deg,#f2f0ec 0 90px,transparent 90px 190px);opacity:.5;animation-name:ent-carril}
+@keyframes ent-carril{from{transform:translateX(0)}to{transform:translateX(-380px)}}
+.ent-movil{position:absolute;left:0;bottom:calc(42% - clamp(14px,3vw,30px));width:clamp(300px,52vw,720px);animation-name:ent-bus;animation-timing-function:cubic-bezier(.25,.15,.55,1)}
+@keyframes ent-bus{0%{transform:translateX(calc(-100% - 8vw))}46%,100%{transform:translateX(calc(100vw + 8vw))}}
+.ent-movil svg{display:block;width:100%;height:auto;overflow:visible;filter:drop-shadow(0 14px 18px rgba(0,0,0,.65))}
+.ent-reflejo{position:absolute;left:0;top:96%;width:100%;transform:scaleY(-.55);transform-origin:top;opacity:.18;filter:blur(3px)!important}
+.ent-estela{position:absolute;right:97%;height:clamp(2px,.4vw,5px);width:140vw;border-radius:3px;background:linear-gradient(90deg,transparent,#e3262b 55%,#ff8f92)}
+.ent-estela.a{top:52%}
+.ent-estela.b{top:60%;opacity:.55;height:clamp(1px,.2vw,3px)}
+.ent-estela.c{top:72%;background:linear-gradient(90deg,transparent,rgba(242,240,236,.75));height:clamp(1px,.2vw,3px)}
+.ent-haz{position:absolute;left:96%;top:50%;width:46%;height:26%;background:linear-gradient(90deg,rgba(255,244,214,.75),transparent);clip-path:polygon(0 42%,100% 0,100% 100%,0 58%)}
+.ent-rayos{position:absolute;inset:-30%;transform:rotate(-17deg);animation-name:ent-rayos}
+@keyframes ent-rayos{0%,30%{opacity:0}52%{opacity:1}100%{opacity:.8}}
+.ent-rayos i{position:absolute;left:0;right:0;height:2px;border-radius:2px;transform-origin:left center;background:linear-gradient(90deg,transparent,#e3262b 30%,#ff7a7e 52%,#e3262b 72%,transparent);animation-name:ent-rayo;animation-timing-function:cubic-bezier(.2,.7,.2,1)}
+@keyframes ent-rayo{0%,30%{transform:scaleX(0)}56%,100%{transform:scaleX(1)}}
+.ent-rayos i:nth-child(1){top:27%;opacity:.35}
+.ent-rayos i:nth-child(2){top:34%;opacity:.7;height:3px}
+.ent-rayos i:nth-child(3){top:39%;opacity:.22}
+.ent-rayos i:nth-child(4){top:61%;opacity:.25}
+.ent-rayos i:nth-child(5){top:66%;opacity:.75;height:3px}
+.ent-rayos i:nth-child(6){top:73%;opacity:.3}
+.ent-marca{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none}
+.ent-halo{position:absolute;width:min(130vw,1200px);aspect-ratio:1.5;background:radial-gradient(closest-side,rgba(227,38,43,.34),rgba(227,38,43,.1) 55%,transparent);animation-name:ent-halo}
+@keyframes ent-halo{0%,32%{opacity:0;transform:scale(.8)}56%{opacity:1;transform:scale(1)}100%{opacity:.85;transform:scale(1.03)}}
+.ent-logo{position:relative;width:min(76vw,560px);-webkit-mask-image:linear-gradient(100deg,#000 44%,transparent 56%);mask-image:linear-gradient(100deg,#000 44%,transparent 56%);-webkit-mask-size:300% 100%;mask-size:300% 100%;animation-name:ent-logo;animation-timing-function:cubic-bezier(.2,.7,.2,1)}
+@keyframes ent-logo{0%,30%{opacity:0;-webkit-mask-position:100% 0;mask-position:100% 0;transform:scale(1.05);filter:blur(7px)}56%{opacity:1;-webkit-mask-position:0 0;mask-position:0 0;transform:scale(1);filter:blur(0)}86%{opacity:1;-webkit-mask-position:0 0;mask-position:0 0;transform:scale(1);filter:blur(0)}100%{opacity:1;-webkit-mask-position:0 0;mask-position:0 0;transform:scale(1.04);filter:blur(0)}}
+.ent-logo img{display:block;width:100%;height:auto;filter:drop-shadow(0 0 22px rgba(227,38,43,.5)) drop-shadow(0 6px 16px rgba(0,0,0,.6))}
+.ent-brillo{position:absolute;inset:0;overflow:hidden;-webkit-mask:url(img/logo-alfa.png) center/100% 100% no-repeat;mask:url(img/logo-alfa.png) center/100% 100% no-repeat}
+.ent-brillo::before{content:"";position:absolute;top:-20%;bottom:-20%;left:-30%;width:24%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.85),rgba(217,181,107,.4),transparent);transform:skewX(-18deg);animation:ent-brillo 2s both linear}
+@keyframes ent-brillo{0%,60%{left:-30%}82%,100%{left:115%}}
+.ent-filo{position:absolute;inset:-5% auto -5% 0;width:12vw;background:linear-gradient(90deg,transparent,rgba(227,38,43,.85),transparent);transform:translateX(calc(-100% - 30vh)) skewX(-17deg);animation-name:ent-filo;animation-timing-function:cubic-bezier(.65,0,.35,1)}
+@keyframes ent-filo{0%,84%{transform:translateX(calc(-100% - 30vh)) skewX(-17deg)}100%{transform:translateX(calc(100vw + 30vh)) skewX(-17deg)}}
+.ent-saltar{position:absolute;right:calc(14px + env(safe-area-inset-right,0px));bottom:calc(14px + env(safe-area-inset-bottom,0px));font:600 .85rem "Barlow Condensed","Arial Narrow",Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase;color:#a6a8ab;background:rgba(14,15,17,.7);border:1px solid #2a2d31;border-radius:999px;padding:7px 14px;cursor:pointer}
+.ent-saltar:focus-visible{outline:3px solid #d9b56b;outline-offset:2px}
+@media (prefers-reduced-motion:reduce){.ent-escena,.ent-rayos,.ent-filo,.ent-brillo{display:none}}
 
 /* WhatsApp flotante */
-.wa-float{position:fixed;right:calc(18px + env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:70;width:62px;height:62px;border-radius:50%;background:#25d366;display:grid;place-items:center;box-shadow:0 10px 30px rgba(0,0,0,.45);transition:transform .2s}
+.wa-float{position:fixed;right:calc(18px + env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:70;min-width:62px;height:62px;padding-inline:17px;border-radius:999px;background:#128c4a;color:#fff;display:flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;font-family:var(--f-display);font-weight:700;font-size:1.02rem;letter-spacing:.04em;text-transform:uppercase;box-shadow:0 10px 30px rgba(0,0,0,.45);transition:transform .2s}
 .wa-float:hover{transform:scale(1.07)}
 .wa-float:focus-visible{outline:3px solid var(--dorado);outline-offset:3px}
-.wa-float svg{width:32px;height:32px;color:#fff}
+.wa-float svg{width:28px;height:28px;flex:none;color:#fff}
+@media (max-width:560px){.wa-float span{display:none}}
 
 @media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
 </style>
@@ -323,6 +362,54 @@ footer a:hover{color:var(--rojo)}
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91C21.95 6.45 17.5 2 12.04 2Zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24 4.54 0 8.24 3.7 8.24 8.24 0 4.54-3.69 8.24-8.23 8.24Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.12-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.1-.22-.16-.47-.28Z"/></symbol>
 </svg>
+
+<div class="ent" id="ent" role="img" aria-label="Autobús de Transporte Maywill cruzando la carretera de noche y logo de la empresa">
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <linearGradient id="ent-carro" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffffff"/><stop offset=".62" stop-color="#e9e8e4"/><stop offset="1" stop-color="#a9a9a6"/></linearGradient>
+      <linearGradient id="ent-vidrio" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a2f36"/><stop offset="1" stop-color="#0c0e11"/></linearGradient>
+    </defs>
+    <symbol id="ent-autobus" viewBox="0 0 620 196">
+      <path fill="url(#ent-carro)" d="M22 42Q24 18 52 16H498Q534 16 554 50L602 112Q612 124 610 140V156Q610 168 596 168H22Q10 168 10 156V60Q10 46 22 42Z"/>
+      <path fill="url(#ent-vidrio)" d="M34 44H150V96H34ZM158 44H274V96H158ZM282 44H398V96H282ZM406 44H462V96H406Z"/>
+      <path fill="url(#ent-vidrio)" d="M470 42H506Q526 42 540 62L574 106H470Z"/>
+      <path fill="none" stroke="#b9b9b5" stroke-width="2" d="M462 36V164M406 104V164"/>
+      <rect x="10" y="118" width="596" height="8" fill="#e3262b"/>
+      <rect x="12" y="82" width="10" height="26" rx="3" fill="#ff2a30"/>
+      <path fill="#fff4d6" d="M590 128H610V146H594Q590 146 590 142Z"/>
+      <path fill="#0c0d0f" d="M72 168A46 46 0 0 1 164 168ZM462 168A46 46 0 0 1 554 168Z"/>
+      <g><circle cx="118" cy="162" r="32" fill="#0b0c0e"/><circle cx="118" cy="162" r="15" fill="#6f7277"/><circle cx="118" cy="162" r="5" fill="#16181b"/></g>
+      <g><circle cx="508" cy="162" r="32" fill="#0b0c0e"/><circle cx="508" cy="162" r="15" fill="#6f7277"/><circle cx="508" cy="162" r="5" fill="#16181b"/></g>
+    </symbol>
+  </svg>
+  <div class="ent-escena">
+    <div class="ent-suelo"></div>
+    <div class="ent-carril"></div>
+    <div class="ent-movil">
+      <span class="ent-estela a"></span><span class="ent-estela b"></span><span class="ent-estela c"></span>
+      <span class="ent-haz"></span>
+      <svg viewBox="0 0 620 196" aria-hidden="true"><use href="#ent-autobus"/></svg>
+      <svg class="ent-reflejo" viewBox="0 0 620 196" aria-hidden="true"><use href="#ent-autobus"/></svg>
+    </div>
+  </div>
+  <div class="ent-rayos"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+  <div class="ent-marca">
+    <div class="ent-halo"></div>
+    <div class="ent-logo"><img src="img/logo-alfa.png" alt=""><span class="ent-brillo"></span></div>
+  </div>
+  <span class="ent-filo" id="ent-filo-1"></span>
+  <button class="ent-saltar" type="button">Saltar</button>
+</div>
+<script>
+(function(){
+  var e=document.getElementById('ent'),visto=false,r;
+  try{visto=sessionStorage.getItem('maywill-entrada')==='1';sessionStorage.setItem('maywill-entrada','1');}catch(x){}
+  function fin(){clearTimeout(r);if(e.parentNode)e.parentNode.removeChild(e);}
+  if(visto){fin();return;}
+  r=setTimeout(fin,2050);
+  e.addEventListener('click',fin);
+})();
+</script>
 
 <header class="top">
   <div class="wrap">
@@ -341,9 +428,11 @@ footer a:hover{color:var(--rojo)}
         <a href="#administrativa" data-area="Área administrativa" data-tarjeta>Área administrativa</a>
       </div>
       <div class="menu-grupo">
-        <span>Flota y cobertura</span>
-        <a href="#flota" data-area="Catálogo">Ver catálogo de unidades</a>
+        <span>Operaciones</span>
         <a href="#cobertura" data-area="Cobertura">Cobertura</a>
+        <a href="#flota" data-area="Flota">Nuestra flota</a>
+        <a href="#como-trabajamos" data-area="Cómo trabajamos">Cómo trabajamos</a>
+        <a href="#seguridad" data-area="Seguridad">Seguridad y cumplimiento</a>
       </div>
       <div class="menu-grupo">
         <span>Otros servicios</span>
@@ -355,8 +444,7 @@ footer a:hover{color:var(--rojo)}
       </div>
       <div class="menu-grupo">
         <span>Contacto</span>
-        <a href="#cotizar" data-area="Cotizar">Cotizar</a>
-        <button class="menu-calc" id="calc-abrir" type="button">Calcular puestos</button>
+        <a href="#cotizar" data-area="Cotizar">Solicitar cotización corporativa</a>
       </div>
     </nav>
   </div>
@@ -369,9 +457,9 @@ footer a:hover{color:var(--rojo)}
       <div class="petro-txt">
         <p class="eyebrow">Transporte de personal · Área administrativa y operacional</p>
         <h1>Al servicio de la <em>industria petrolera</em></h1>
-        <p class="lead">Trasladamos al personal administrativo y operacional de la industria, desde Maturín hasta oficinas, campos y taladros.</p>
+        <p class="lead">Transporte de personal administrativo y operacional en el oriente venezolano y la Faja del Orinoco: cambios de guardia en taladros, operación en tres turnos y rutas en zonas de difícil acceso.</p>
         <div class="ctas">
-          <a class="btn btn-rojo" href="https://wa.me/584147658628?text=Hola%20Transporte%20Maywill%2C%20quiero%20cotizar%20transporte%20de%20personal%20para%20la%20industria%20petrolera" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Cotizar por WhatsApp</a>
+          <a class="btn btn-rojo" href="#cotizar">Solicitar cotización corporativa</a>
         </div>
       </div>
       <figure class="p-foto"><img src="img/petro/taladro-dia.jpg?v=13" alt="Autobús blanco de Transporte Maywill estacionado frente a un taladro petrolero"></figure>
@@ -380,10 +468,10 @@ footer a:hover{color:var(--rojo)}
 
   <div class="confianza">
     <div class="wrap">
-      <div class="dato"><b>+25 <i>años</i></b><span>de servicio continuo</span></div>
-      <div class="dato"><b>7 <i>unidades</i></b><span>autobuses, minibuses y microbuses</span></div>
-      <div class="dato"><b>188 <i>puestos</i></b><span>de capacidad total en la flota</span></div>
-      <div class="dato"><b>Maturín</b><span>base y patio de unidades, en Monagas</span></div>
+      <div class="dato"><b>+25 <i>años</i></b><span>de trayectoria en el transporte de personal</span></div>
+      <div class="dato"><b>3 <i>turnos</i></b><span>mañana, tarde y noche</span></div>
+      <div class="dato"><b>Respaldo</b><span>unidad de respaldo en cada servicio</span></div>
+      <div class="dato"><b>Faja</b><span>presencia en el oriente y la Faja del Orinoco</span></div>
     </div>
   </div>
 
@@ -392,7 +480,7 @@ footer a:hover{color:var(--rojo)}
       <div class="sec-head">
         <p class="eyebrow">Industria petrolera</p>
         <h2>Dos áreas, un mismo servicio</h2>
-        <p class="lead">Quien trabaja en el taladro y quien trabaja en la oficina necesitan traslados distintos. Atendemos a los dos.</p>
+        <p class="lead">Atendemos al personal de campo y de oficina con la misma coordinación logística.</p>
       </div>
       <div class="areas">
         <article class="area" id="operacional">
@@ -401,10 +489,10 @@ footer a:hover{color:var(--rojo)}
             <p class="eyebrow">Área operacional</p>
             <h3>Hasta el taladro y de regreso</h3>
             <ul class="checks">
-              <li>Cambios de guardia</li>
-              <li>Traslado de cuadrillas a campos y locaciones</li>
-              <li>Rutas diarias por turnos</li>
-              <li>Salidas de día y de noche</li>
+              <li>Cambios de guardia en taladros</li>
+              <li>Operación en 3 turnos: mañana, tarde y noche</li>
+              <li>Unidad de respaldo en cada servicio</li>
+              <li>Rutas de tierra en zonas de difícil acceso</li>
             </ul>
             <a class="btn btn-rojo" href="https://wa.me/584147658628?text=Hola%2C%20necesito%20transporte%20para%20personal%20operacional%20de%20la%20industria%20petrolera" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Cotizar área operacional</a>
           </div>
@@ -427,21 +515,54 @@ footer a:hover{color:var(--rojo)}
     </div>
   </section>
 
+  <section id="cobertura" style="background:var(--asfalto-2);border-block:1px solid var(--linea)">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Cobertura</p>
+        <h2>Presencia operativa en el oriente y la Faja del Orinoco</h2>
+        <p class="lead">Nuestras bases y puntos de salida nos permiten responder donde se concentra la operación petrolera.</p>
+      </div>
+      <div class="mapa">
+        <figure class="mapa-fig">
+          <svg class="mapa-svg" viewBox="450 104 172 128" role="img" aria-labelledby="mapa-tit"><title id="mapa-tit">Mapa esquemático del oriente venezolano y la Faja del Orinoco con las bases y puntos de salida de Transporte Maywill</title>
+<path class="tierra" d="M679.255,169.556L673.511,171.171L673.511,169.896L675.078,167.601L678.036,167.006L679.255,166.155L681.169,165.645L682.213,165.73L683.432,166.411L680.647,167.686ZM532.883,71.76L534.45,78.174L533.927,79.371L529.576,83.73L525.921,83.987L522.963,83.901L520.7,83.046L517.741,80.226L514.957,81.081L507.995,80.055L506.08,79.114L508.691,75.609L513.564,74.24L515.305,73.898L516.697,76.036L520.178,77.917L524.181,78.088L525.225,74.839L530.795,69.964ZM466.92,82.79L464.31,83.901L459.61,82.79L457.174,81.252L458.74,79.456L462.569,79.456L466.224,81.593ZM670.727,182.812L667.768,183.831L667.246,178.904L668.116,177.63L673.337,173.636L674.73,172.956L675.774,173.721L675.426,174.826L677.862,176.61L677.34,178.819L674.556,181.283ZM718.067,198.435L727.117,210.313L727.291,211.585L726.247,213.112L720.677,215.91L719.459,217.352L717.37,222.608L710.409,225.574L705.535,229.133L702.229,232.353L700.488,233.624L694.049,234.386L691.96,236.335L689.523,242.432L687.609,244.888L684.128,247.851L684.128,249.714L688.827,256.316L689.697,258.346L688.131,261.477L688.305,263.761L690.742,266.384L693.7,266.976L696.485,265.876L699.966,265.961L702.229,266.722L703.273,267.483L703.447,269.513L701.881,273.826L699.792,276.701L690.568,280.928L686.565,283.464L684.302,285.323L679.255,284.309L676.644,284.393L674.73,285.83L673.511,287.013L670.204,287.351L665.505,288.027L663.591,288.873L662.024,290.985L660.806,294.027L661.85,297.659L663.243,300.954L663.243,303.909L664.287,312.269L662.895,314.21L659.762,316.405L655.933,320.288L651.756,325.604L652.452,327.207L662.546,338.511L672.815,349.979L683.084,361.443L684.476,361.949L686.391,363.297L688.305,367.257L689.697,371.47L689.697,373.66L688.653,376.44L686.042,379.641L683.084,382.168L678.733,384.357L675.078,386.463L672.293,391.852L670.378,393.788L668.812,394.546L665.679,395.303L660.458,395.135L656.977,394.63L652.8,398.755L647.405,400.27L643.75,405.741L630.87,410.202L618.339,413.568L614.858,414.998L602.327,412.137L599.368,412.979L595.887,415.671L592.754,417.69L590.144,417.775L587.881,418.868L586.489,422.654L585.271,435.608L580.745,439.392L575.35,439.392L571.695,434.935L567.344,431.571L559.686,423.496L557.597,422.486L555.509,422.486L548.373,424.841L545.066,423.832L542.282,422.57L537.756,422.991L529.75,423.075L524.529,423.159L522.092,420.972L519.656,416.513L518.089,414.914L516.175,413.568L513.216,412.894L500.163,412.979L497.726,412.979L495.812,412.053L493.375,408.266L490.59,406.415L487.457,406.33L486.065,408.434L491.635,415.419L493.201,419.121L498.074,424.589L512.172,436.112L514.782,439.728L514.608,444.353L514.434,451.5L514.957,458.225L518.611,467.891L523.659,477.807L525.051,484.025L524.181,488.646L523.137,491.166L523.311,492.258L524.355,493.266L529.228,494.694L539.497,495.534L545.588,495.534L555.161,496.626L555.857,500.07L554.813,505.782L553.072,509.057L551.506,509.981L546.285,510.737L540.889,514.264L533.057,517.708L528.532,518.127L526.792,518.799L525.225,519.891L523.833,521.151L522.266,527.616L520.004,535.005L515.653,539.287L510.779,542.897L505.906,543.317L502.077,543.065L500.163,544.073L497.378,547.011L493.375,550.705L490.242,552.636L486.065,552.468L481.54,554.315L475.971,557.253L472.142,559.687L469.009,563.884L464.484,568.249L459.784,571.271L457.522,575.048L454.389,579.832L450.386,580L450.038,577.146L451.952,572.53L449.864,568.501L446.035,566.318L444.294,565.731L442.554,565.983L438.029,567.913L432.459,571.523L428.978,574.125L426.02,575.3L419.58,576.391L414.359,576.894L412.096,576.139L408.093,573.537L398.869,565.311L386.512,554.147L385.641,550.873L386.163,547.599L383.901,542.729L382.509,537.608L381.464,535.845L381.116,532.067L378.331,525.097L376.243,519.471L374.154,516.532L375.025,514.096L374.154,511.661L372.588,509.645L370.151,503.262L371.022,500.49L370.325,497.718L368.237,495.786L365.452,493.77L361.623,489.486L356.924,485.453L354.661,483.773L353.095,483.185L351.703,479.319L350.658,478.143L348.222,477.807L343.522,476.21L338.997,478.143L338.823,475.202L340.216,473.353L355.706,459.066L363.364,452.509L364.234,451.584L364.93,450.071L365.452,448.053L363.712,445.699L356.402,434.683L353.791,432.664L351.355,430.898L348.57,426.272L345.089,415.503L342.652,410.117L341.956,405.994L342.13,401.28L341.086,397.661L339.171,395.135L339.171,387.473L341.086,374.587L341.608,364.814L340.564,358.072L342.478,353.014L347.003,349.474L349.44,344.077L349.962,336.825L352.747,330.751L357.62,326.026L359.361,321.385L357.794,316.827L357.272,313.873L353.095,310.918L345.437,308.807L338.997,308.554L335.168,310.918L325.248,313.029L309.41,315.055L296.53,315.055L286.784,313.029L279.474,313.704L274.427,317.08L270.946,317.84L268.857,315.983L266.595,315.477L263.114,316.658L262.592,316.068L255.108,307.034L248.146,298.588L240.14,288.619L230.916,277.039L229.175,276.278L226.39,276.363L222.561,276.532L216.818,275.348L212.815,273.657L209.508,272.05L203.765,269.936L199.762,269.598L196.281,270.19L186.534,274.249L180.965,274.672L176.614,274.756L164.953,272.727L157.121,272.388L147.896,273.741L144.067,274.502L138.498,272.388L134.669,269.259L131.188,261.816L128.751,255.977L124.4,254.792L119.701,253.777L117.438,251.83L116.046,248.444L115.698,244.126L116.046,237.012L116.568,234.556L117.264,226.93L119.875,222.947L121.441,220.997L121.267,217.775L119.875,211.246L118.657,206.581L113.435,201.32L106.648,194.615L103.689,183.746L100.208,171.001L97.597,169.726L94.987,170.406L92.376,169.726L89.939,164.625L87.677,163.69L83.848,165.475L81.063,166.836L74.101,168.111L72.709,166.836L73.231,165.22L76.19,160.628L79.671,154.673L83.674,149.227L87.329,143.609L90.113,137.649L92.028,125.891L93.246,117.707L96.727,103.204L102.993,91.591L105.429,86.294L111.173,79.285L113.784,75.523L117.264,72.53L126.837,68.509L138.15,48.475L140.76,45.305L152.421,42.305L161.298,39.99L167.737,37.59L170,36.218L171.74,35.617L170.174,38.018L167.041,40.933L163.56,42.733L145.112,47.276L143.197,48.218L140.934,50.103L140.934,54.386L141.283,57.725L146.852,68.766L148.941,71.503L156.076,77.49L154.51,78.345L151.725,78.43L153.814,86.294L158.165,91.676L158.339,95.007L155.032,105.508L148.766,111.822L144.415,119.157L140.934,122.055L133.277,136.371L139.194,144.971L139.89,149.227L144.938,155.439L148.244,157.396L150.333,159.948L149.289,164.115L151.377,169.811L153.988,172.786L157.121,173.976L161.124,173.976L172.785,170.236L175.395,168.536L177.136,165.475L183.053,159.267L183.401,151.355L184.62,141.736L183.227,135.519L177.136,126.658L174.525,120.265L168.434,114.381L164.779,104.313L163.212,101.155L162.168,96.801L160.776,89.028L164.779,86.294L164.431,79.969L174.351,78.174L195.759,67.91L209.16,65.258L224.302,59.78L227.783,57.04L230.742,52.587L233.178,51.987L241.01,56.27L244.839,54.814L246.406,51.473L244.317,45.048L239.792,45.048L226.216,47.361L224.824,44.619L224.824,42.133L221.691,34.502L223.606,28.669L225.694,23.949L229.523,22.06L235.267,20L239.618,23.176L242.228,26.18L243.621,29.012L244.665,36.904L246.928,44.876L249.364,50.36L253.367,54.557L256.326,54.214L258.415,53.529L272.512,52.587L281.214,55.413L292.179,56.869L302.448,62.947L312.891,70.22L315.501,75.609L316.546,80.653L318.982,84.072L316.546,87.576L317.764,93.47L320.897,99.362L325.422,103.118L338.301,104.143L352.399,101.582L374.154,99.277L381.116,97.313L416.969,96.288L423.757,99.106L424.453,101.923L424.453,104.143L436.114,114.722L445.513,116.087L453.519,119.498L461.873,121.373L470.923,123.931L476.145,123.59L479.974,122.652L484.499,122.482L516.523,104.825L533.579,105.337L536.19,104.143L538.453,102.606L532.187,99.874L517.915,98.85L513.564,100.643L511.128,96.118L515.827,96.288L531.665,94.751L549.94,95.691L564.733,92.445L572.217,91.933L576.394,92.616L588.229,90.48L610.507,92.958L628.086,90.908L625.997,93.812L620.254,95.605L611.029,96.203L603.893,100.472L588.751,99.704L578.135,101.24L581.442,102.435L581.442,106.788L583.008,107.727L584.4,107.727L588.055,110.969L589.1,113.102L590.318,117.622L588.577,122.396L586.489,124.613L590.84,123.846L593.277,121.629L592.929,119.327L593.277,116.684L595.713,117.537L597.28,118.73L602.849,131.345L606.678,137.989L607.722,137.734L608.593,137.478L609.811,136.201L611.551,133.134L613.118,135.093L613.988,135.86L614.858,136.116L613.988,133.219L615.032,129.641L614.684,128.363L616.425,128.107L618.513,128.533L621.472,129.556L626.693,133.731L630.174,138.075L630.348,140.459L631.741,141.821L633.829,143.184L635.047,145.397L635.221,141.907L633.829,139.352L633.481,136.456L640.443,136.371L642.183,132.538L645.838,134.838L655.585,145.312L659.24,147.1L670.03,149.142L676.644,154.163L680.647,158.672L678.21,163.434L671.945,165.815L669.508,168.791L667.942,171.681L667.942,174.656L666.027,178.055L665.853,179.244L664.635,184.001L662.024,189.776L658.717,195.889L640.617,196.058L645.142,198.52L649.145,200.387L655.933,205.223L661.154,201.405L668.812,201.151L677.166,196.992L680.299,196.313L695.615,198.52L699.444,195.464L702.403,194.53L710.757,195.125Z"/><path class="m-faja" d="M447 176Q500 164 560 172T622 178V214Q560 224 500 218T447 214Z"/><text class="m-faja-t" x="566" y="212">Faja del Orinoco</text><path class="m-ruta" d="M491.3 183.6Q525 150 565.2 139.6"/><path class="m-ruta" d="M491.3 183.6L506 205"/><path class="m-ruta" d="M491.3 183.6L513.5 181.2"/><path class="m-ruta" d="M491.3 183.6Q490 165 502.9 155"/><path class="m-ruta" d="M565.2 139.6Q570 160 570.5 183"/><path class="m-ruta" d="M565.2 139.6Q585 155 591.8 176"/><g class="m-pto"><circle class="h" cx="513.5" cy="181.2" r="2.8"/><circle cx="513.5" cy="181.2" r="1.4"/><text x="518" y="179" text-anchor="start">El Tigre</text></g><g class="m-pto"><circle class="h" cx="502.9" cy="155" r="2.8"/><circle cx="502.9" cy="155" r="1.4"/><text x="498" y="153" text-anchor="end">Anaco</text></g><g class="m-pto"><circle class="h" cx="591.8" cy="176" r="2.8"/><circle cx="591.8" cy="176" r="1.4"/><text x="596" y="174.5" text-anchor="start">Temblador</text></g><g class="m-pto"><circle class="h" cx="570.5" cy="183" r="2.8"/><circle cx="570.5" cy="183" r="1.4"/><text x="566" y="190" text-anchor="end">Morichal</text></g><g class="m-base"><circle class="h" cx="565.2" cy="139.6" r="5"/><circle cx="565.2" cy="139.6" r="2.4"/><text x="571" y="134" text-anchor="start">Maturín</text><text class="s" x="571" y="138.8" text-anchor="start">Sede principal</text></g><g class="m-base"><circle class="h" cx="491.3" cy="183.6" r="5"/><circle cx="491.3" cy="183.6" r="2.4"/><text x="485" y="183" text-anchor="end">Pariaguán</text><text class="s" x="485" y="187.8" text-anchor="end">Base operativa</text></g><g class="m-base"><circle class="h" cx="506" cy="205" r="5"/><circle cx="506" cy="205" r="2.4"/><text x="512" y="204" text-anchor="start">Zuata</text><text class="s" x="512" y="208.8" text-anchor="start">Zona de operación</text></g></svg>
+          <figcaption class="mapa-ley"><span><i class="l-sede"></i>Sede, base y zona principal</span><span><i class="l-pto"></i>Punto de salida</span><span><i class="l-faja"></i>Faja del Orinoco</span></figcaption>
+        </figure>
+        <div class="mapa-rutas">
+          <ul>
+            <li class="clave"><b>Base operativa</b><span>Pariaguán</span>Patio propio y coordinación de la operación en la Faja.</li>
+            <li class="clave"><b>Zona de operación</b><span>Zuata y zona circundante</span>Donde se concentra hoy nuestra operación.</li>
+            <li><b>Sede principal</b><span>Maturín, estado Monagas</span></li>
+            <li><b>Zonas de cobertura y puntos de salida</b><span>El Tigre · Anaco · Temblador · Morichal</span></li>
+          </ul>
+          <a class="btn btn-rojo" href="https://wa.me/584147658628?text=Hola%2C%20quiero%20cotizar%20una%20ruta%20para%20mi%20operaci%C3%B3n" target="_blank" rel="noopener">Cotizar una ruta</a>
+          <p class="mapa-nota">Mapa esquemático. También atendemos servicios a nivel nacional.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="flota">
     <div class="wrap">
       <div class="sec-head">
         <p class="eyebrow">Nuestra flota</p>
-        <h2>Unidades reales, listas para salir</h2>
-        <p class="lead">Fotos reales de nuestras unidades ejecutivas, todas con aire acondicionado. Elegimos la más adecuada según el número de personas y el tipo de viaje.</p>
+        <h2>Flota diversificada para cada tipo de operación</h2>
+        <p class="lead">Unidades robustas, preparadas para zonas de difícil acceso y carreteras de tierra. Nuestra coordinación logística asigna la más adecuada a cada servicio.</p>
       </div>
+      <ul class="tipos">
+        <li><b>Autobuses Hino</b><span>Para operaciones de campo y rutas de personal</span></li>
+        <li><b>Autobuses Encava</b><span>Para rutas de personal y traslados regionales</span></li>
+        <li><b>Toyota Coaster</b><span>Para supervisión, delegaciones y ejecutivos</span></li>
+        <li><b>Grúa plataforma</b><span>Para el traslado de vehículos y maquinaria</span></li>
+      </ul>
       <figure class="flota-foto" id="flota-completa">
         <img src="img/petro/patio.jpg?v=13" alt="Fila de autobuses y microbuses blancos de Transporte Maywill estacionados en el patio" loading="lazy">
-        <figcaption><b>Nuestra flota</b><span>7 unidades · 188 puestos</span></figcaption>
+        <figcaption><b>Nuestra flota</b><span>Capacidad de respuesta para operaciones continuas</span></figcaption>
       </figure>
       <div class="flota">
         <article class="unidad">
           <div class="galeria">
-            <div class="pista" tabindex="0" aria-label="Galería de Hino · Incarven"><figure class="slide"><img src="img/g/b1-1.jpg?v=11" alt="Hino · Incarven de Transporte Maywill, foto 1"></figure><figure class="slide ficha-slide"><img src="img/g/b1-2.jpg?v=11" alt="Ficha técnica de la unidad Hino · Incarven" loading="lazy"></figure><figure class="slide"><img src="img/g/b1-3.jpg?v=11" alt="Hino · Incarven de Transporte Maywill, foto 3" loading="lazy"></figure><figure class="slide"><img src="img/g/b1-4.jpg?v=11" alt="Hino · Incarven de Transporte Maywill, foto 4" loading="lazy"></figure><figure class="slide"><img src="img/g/b1-5.jpg?v=11" alt="Hino · Incarven de Transporte Maywill, foto 5" loading="lazy"></figure><figure class="slide"><img src="img/g/b1-6.jpg?v=11" alt="Hino · Incarven de Transporte Maywill, foto 6" loading="lazy"></figure></div>
+            <div class="pista" tabindex="0" aria-label="Galería de Hino · Incarven"><figure class="slide"><img src="img/g/b1-1.jpg?v=11" alt="Hino · Incarven de Transporte Maywill, foto 1"></figure><figure class="slide ficha-slide"><img src="img/g/b1-2.jpg?v=15" alt="Ficha técnica de la unidad Hino · Incarven" loading="lazy"></figure><figure class="slide"><img src="img/g/b1-3.jpg?v=11" alt="Hino · Incarven de Transporte Maywill, foto 3" loading="lazy"></figure><figure class="slide"><img src="img/g/b1-4.jpg?v=11" alt="Hino · Incarven de Transporte Maywill, foto 4" loading="lazy"></figure><figure class="slide"><img src="img/g/b1-5.jpg?v=11" alt="Hino · Incarven de Transporte Maywill, foto 5" loading="lazy"></figure><figure class="slide"><img src="img/g/b1-6.jpg?v=11" alt="Hino · Incarven de Transporte Maywill, foto 6" loading="lazy"></figure></div>
             <button class="flecha prev" type="button" aria-label="Foto anterior">‹</button>
             <button class="flecha next" type="button" aria-label="Foto siguiente">›</button>
             <span class="contador">1 / 6</span>
@@ -450,12 +571,12 @@ footer a:hover{color:var(--rojo)}
           <div class="info">
             <p class="tipo">Autobús</p>
             <h3>Hino · Incarven</h3>
-            <dl class="ficha"><dt>Ideal para</dt><dd>Personal y grupos grandes</dd><dt>Capacidad</dt><dd><b>32 puestos</b></dd></dl>
+            <dl class="ficha"><dt>Ideal para</dt><dd>Personal y operaciones de campo</dd></dl>
           </div>
         </article>
         <article class="unidad">
           <div class="galeria">
-            <div class="pista" tabindex="0" aria-label="Galería de Hino · Intercar"><figure class="slide"><img src="img/g/b2-1.jpg?v=11" alt="Hino · Intercar de Transporte Maywill, foto 1"></figure><figure class="slide ficha-slide"><img src="img/g/b2-2.jpg?v=11" alt="Ficha técnica de la unidad Hino · Intercar" loading="lazy"></figure><figure class="slide"><img src="img/g/b2-3.jpg?v=11" alt="Hino · Intercar de Transporte Maywill, foto 3" loading="lazy"></figure><figure class="slide"><img src="img/g/b2-4.jpg?v=11" alt="Hino · Intercar de Transporte Maywill, foto 4" loading="lazy"></figure><figure class="slide"><img src="img/g/b2-5.jpg?v=11" alt="Hino · Intercar de Transporte Maywill, foto 5" loading="lazy"></figure><figure class="slide"><img src="img/g/b2-6.jpg?v=11" alt="Hino · Intercar de Transporte Maywill, foto 6" loading="lazy"></figure></div>
+            <div class="pista" tabindex="0" aria-label="Galería de Hino · Intercar"><figure class="slide"><img src="img/g/b2-1.jpg?v=11" alt="Hino · Intercar de Transporte Maywill, foto 1"></figure><figure class="slide ficha-slide"><img src="img/g/b2-2.jpg?v=15" alt="Ficha técnica de la unidad Hino · Intercar" loading="lazy"></figure><figure class="slide"><img src="img/g/b2-3.jpg?v=11" alt="Hino · Intercar de Transporte Maywill, foto 3" loading="lazy"></figure><figure class="slide"><img src="img/g/b2-4.jpg?v=11" alt="Hino · Intercar de Transporte Maywill, foto 4" loading="lazy"></figure><figure class="slide"><img src="img/g/b2-5.jpg?v=11" alt="Hino · Intercar de Transporte Maywill, foto 5" loading="lazy"></figure><figure class="slide"><img src="img/g/b2-6.jpg?v=11" alt="Hino · Intercar de Transporte Maywill, foto 6" loading="lazy"></figure></div>
             <button class="flecha prev" type="button" aria-label="Foto anterior">‹</button>
             <button class="flecha next" type="button" aria-label="Foto siguiente">›</button>
             <span class="contador">1 / 6</span>
@@ -464,12 +585,12 @@ footer a:hover{color:var(--rojo)}
           <div class="info">
             <p class="tipo">Minibús</p>
             <h3>Hino · Intercar</h3>
-            <dl class="ficha"><dt>Ideal para</dt><dd>Rutas de personal y eventos</dd><dt>Capacidad</dt><dd><b>28 puestos</b></dd></dl>
+            <dl class="ficha"><dt>Ideal para</dt><dd>Rutas de personal y eventos</dd></dl>
           </div>
         </article>
         <article class="unidad">
           <div class="galeria">
-            <div class="pista" tabindex="0" aria-label="Galería de Toyota Coaster"><figure class="slide"><img src="img/g/b3-1.jpg?v=11" alt="Toyota Coaster de Transporte Maywill, foto 1"></figure><figure class="slide ficha-slide"><img src="img/g/b3-2.jpg?v=11" alt="Ficha técnica de la Toyota Coaster" loading="lazy"></figure><figure class="slide"><img src="img/interior.jpg?v=11" alt="Interior de la Toyota Coaster con asientos acolchados y cortinas" loading="lazy"></figure><figure class="slide"><img src="img/g/b3-3.jpg?v=11" alt="Toyota Coaster de Transporte Maywill, foto 3" loading="lazy"></figure><figure class="slide"><img src="img/g/b3-4.jpg?v=11" alt="Toyota Coaster de Transporte Maywill, foto 4" loading="lazy"></figure><figure class="slide"><img src="img/g/b3-5.jpg?v=11" alt="Toyota Coaster de Transporte Maywill, foto 5" loading="lazy"></figure><figure class="slide"><img src="img/g/b3-6.jpg?v=11" alt="Toyota Coaster de Transporte Maywill, foto 6" loading="lazy"></figure><figure class="slide"><img src="img/g/b3-7.jpg?v=11" alt="Toyota Coaster de Transporte Maywill, foto 7" loading="lazy"></figure><figure class="slide"><img src="img/g/b3-8.jpg?v=11" alt="Toyota Coaster de Transporte Maywill, foto 8" loading="lazy"></figure></div>
+            <div class="pista" tabindex="0" aria-label="Galería de Toyota Coaster"><figure class="slide"><img src="img/g/b3-1.jpg?v=11" alt="Toyota Coaster de Transporte Maywill, foto 1"></figure><figure class="slide ficha-slide"><img src="img/g/b3-2.jpg?v=15" alt="Ficha técnica de la Toyota Coaster" loading="lazy"></figure><figure class="slide"><img src="img/interior.jpg?v=11" alt="Interior de la Toyota Coaster con asientos acolchados y cortinas" loading="lazy"></figure><figure class="slide"><img src="img/g/b3-3.jpg?v=11" alt="Toyota Coaster de Transporte Maywill, foto 3" loading="lazy"></figure><figure class="slide"><img src="img/g/b3-4.jpg?v=11" alt="Toyota Coaster de Transporte Maywill, foto 4" loading="lazy"></figure><figure class="slide"><img src="img/g/b3-5.jpg?v=11" alt="Toyota Coaster de Transporte Maywill, foto 5" loading="lazy"></figure><figure class="slide"><img src="img/g/b3-6.jpg?v=11" alt="Toyota Coaster de Transporte Maywill, foto 6" loading="lazy"></figure><figure class="slide"><img src="img/g/b3-7.jpg?v=11" alt="Toyota Coaster de Transporte Maywill, foto 7" loading="lazy"></figure><figure class="slide"><img src="img/g/b3-8.jpg?v=11" alt="Toyota Coaster de Transporte Maywill, foto 8" loading="lazy"></figure></div>
             <button class="flecha prev" type="button" aria-label="Foto anterior">‹</button>
             <button class="flecha next" type="button" aria-label="Foto siguiente">›</button>
             <span class="contador">1 / 9</span>
@@ -478,12 +599,12 @@ footer a:hover{color:var(--rojo)}
           <div class="info">
             <p class="tipo">Microbús ejecutivo</p>
             <h3>Toyota Coaster</h3>
-            <dl class="ficha"><dt>Ideal para</dt><dd>Ejecutivos, equipos y delegaciones</dd><dt>Unidades</dt><dd>3</dd><dt>Capacidad</dt><dd><b>24 puestos cada una</b></dd></dl>
+            <dl class="ficha"><dt>Ideal para</dt><dd>Ejecutivos, equipos y delegaciones</dd></dl>
           </div>
         </article>
         <article class="unidad">
           <div class="galeria">
-            <div class="pista" tabindex="0" aria-label="Galería de Marcopolo Senior"><figure class="slide"><img src="img/g/b5-1.jpg?v=13" alt="Marcopolo Senior de Transporte Maywill, foto 1"></figure><figure class="slide ficha-slide"><img src="img/g/b5-ficha.jpg?v=14" alt="Ficha técnica de la unidad Marcopolo Senior" loading="lazy"></figure><figure class="slide"><img src="img/g/b5-2.jpg?v=13" alt="Marcopolo Senior de Transporte Maywill, foto 2" loading="lazy"></figure><figure class="slide"><img src="img/g/b5-3.jpg?v=13" alt="Marcopolo Senior de Transporte Maywill, foto 3" loading="lazy"></figure><figure class="slide"><img src="img/g/b5-4.jpg?v=13" alt="Marcopolo Senior de Transporte Maywill, foto 4" loading="lazy"></figure></div>
+            <div class="pista" tabindex="0" aria-label="Galería de Marcopolo Senior"><figure class="slide"><img src="img/g/b5-1.jpg?v=13" alt="Marcopolo Senior de Transporte Maywill, foto 1"></figure><figure class="slide ficha-slide"><img src="img/g/b5-ficha.jpg?v=15" alt="Ficha técnica de la unidad Marcopolo Senior" loading="lazy"></figure><figure class="slide"><img src="img/g/b5-2.jpg?v=13" alt="Marcopolo Senior de Transporte Maywill, foto 2" loading="lazy"></figure><figure class="slide"><img src="img/g/b5-3.jpg?v=13" alt="Marcopolo Senior de Transporte Maywill, foto 3" loading="lazy"></figure><figure class="slide"><img src="img/g/b5-4.jpg?v=13" alt="Marcopolo Senior de Transporte Maywill, foto 4" loading="lazy"></figure></div>
             <button class="flecha prev" type="button" aria-label="Foto anterior">‹</button>
             <button class="flecha next" type="button" aria-label="Foto siguiente">›</button>
             <span class="contador">1 / 5</span>
@@ -492,46 +613,48 @@ footer a:hover{color:var(--rojo)}
           <div class="info">
             <p class="tipo">Minibús · chasis Mercedes-Benz</p>
             <h3>Marcopolo Senior</h3>
-            <dl class="ficha"><dt>Ideal para</dt><dd>Cuadrillas, delegaciones y rutas de personal</dd><dt>Capacidad</dt><dd><b>26 puestos</b></dd></dl>
+            <dl class="ficha"><dt>Ideal para</dt><dd>Cuadrillas, delegaciones y rutas de personal</dd></dl>
           </div>
         </article>
       </div>
-      <p class="flota-resto"><span>También: Mercedes-Benz · Incarven, autobús de 30 puestos</span></p>
       <div class="grua">
         <img class="grua-foto" src="img/grua.jpg?v=12" alt="Grúa plataforma roja de Transporte Maywill trasladando dos camionetas" loading="lazy">
         <div class="grua-txt">
                     <b>Grúa plataforma</b>
-          <span>Traslado de hasta 2 vehículos tipo sedán o de maquinaria pesada, en el oriente y a nivel nacional.</span>
+          <span>Traslado de vehículos y maquinaria pesada, en el oriente y a nivel nacional.</span>
           <a class="btn btn-rojo" href="https://wa.me/584147658628?text=Hola%2C%20necesito%20el%20servicio%20de%20gr%C3%BAa%20plataforma" target="_blank" rel="noopener">Cotizar grúa</a>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="cobertura" style="background:var(--asfalto-2);border-block:1px solid var(--linea)">
+  <section class="clara" id="como-trabajamos">
     <div class="wrap">
       <div class="sec-head">
-        <p class="eyebrow">Cobertura</p>
-        <h2>Base en Maturín, servicio a todo el país</h2>
-        <p class="lead">Desde nuestra base en Maturín, Monagas, tenemos capacidad operativa en todo el oriente del país, donde atendemos a la industria petrolera, y prestamos servicio a nivel nacional.</p>
+        <p class="eyebrow">Cómo trabajamos</p>
+        <h2>Un proceso claro en cada servicio</h2>
       </div>
-      <div class="mapa">
-        <figure class="mapa-fig">
-          <svg class="mapa-svg" viewBox="0 0 800 600" role="img" aria-labelledby="mapa-tit"><title id="mapa-tit">Mapa de Venezuela con las rutas de Transporte Maywill</title>
-<path class="tierra" d="M679.255,169.556L673.511,171.171L673.511,169.896L675.078,167.601L678.036,167.006L679.255,166.155L681.169,165.645L682.213,165.73L683.432,166.411L680.647,167.686ZM532.883,71.76L534.45,78.174L533.927,79.371L529.576,83.73L525.921,83.987L522.963,83.901L520.7,83.046L517.741,80.226L514.957,81.081L507.995,80.055L506.08,79.114L508.691,75.609L513.564,74.24L515.305,73.898L516.697,76.036L520.178,77.917L524.181,78.088L525.225,74.839L530.795,69.964ZM466.92,82.79L464.31,83.901L459.61,82.79L457.174,81.252L458.74,79.456L462.569,79.456L466.224,81.593ZM670.727,182.812L667.768,183.831L667.246,178.904L668.116,177.63L673.337,173.636L674.73,172.956L675.774,173.721L675.426,174.826L677.862,176.61L677.34,178.819L674.556,181.283ZM718.067,198.435L727.117,210.313L727.291,211.585L726.247,213.112L720.677,215.91L719.459,217.352L717.37,222.608L710.409,225.574L705.535,229.133L702.229,232.353L700.488,233.624L694.049,234.386L691.96,236.335L689.523,242.432L687.609,244.888L684.128,247.851L684.128,249.714L688.827,256.316L689.697,258.346L688.131,261.477L688.305,263.761L690.742,266.384L693.7,266.976L696.485,265.876L699.966,265.961L702.229,266.722L703.273,267.483L703.447,269.513L701.881,273.826L699.792,276.701L690.568,280.928L686.565,283.464L684.302,285.323L679.255,284.309L676.644,284.393L674.73,285.83L673.511,287.013L670.204,287.351L665.505,288.027L663.591,288.873L662.024,290.985L660.806,294.027L661.85,297.659L663.243,300.954L663.243,303.909L664.287,312.269L662.895,314.21L659.762,316.405L655.933,320.288L651.756,325.604L652.452,327.207L662.546,338.511L672.815,349.979L683.084,361.443L684.476,361.949L686.391,363.297L688.305,367.257L689.697,371.47L689.697,373.66L688.653,376.44L686.042,379.641L683.084,382.168L678.733,384.357L675.078,386.463L672.293,391.852L670.378,393.788L668.812,394.546L665.679,395.303L660.458,395.135L656.977,394.63L652.8,398.755L647.405,400.27L643.75,405.741L630.87,410.202L618.339,413.568L614.858,414.998L602.327,412.137L599.368,412.979L595.887,415.671L592.754,417.69L590.144,417.775L587.881,418.868L586.489,422.654L585.271,435.608L580.745,439.392L575.35,439.392L571.695,434.935L567.344,431.571L559.686,423.496L557.597,422.486L555.509,422.486L548.373,424.841L545.066,423.832L542.282,422.57L537.756,422.991L529.75,423.075L524.529,423.159L522.092,420.972L519.656,416.513L518.089,414.914L516.175,413.568L513.216,412.894L500.163,412.979L497.726,412.979L495.812,412.053L493.375,408.266L490.59,406.415L487.457,406.33L486.065,408.434L491.635,415.419L493.201,419.121L498.074,424.589L512.172,436.112L514.782,439.728L514.608,444.353L514.434,451.5L514.957,458.225L518.611,467.891L523.659,477.807L525.051,484.025L524.181,488.646L523.137,491.166L523.311,492.258L524.355,493.266L529.228,494.694L539.497,495.534L545.588,495.534L555.161,496.626L555.857,500.07L554.813,505.782L553.072,509.057L551.506,509.981L546.285,510.737L540.889,514.264L533.057,517.708L528.532,518.127L526.792,518.799L525.225,519.891L523.833,521.151L522.266,527.616L520.004,535.005L515.653,539.287L510.779,542.897L505.906,543.317L502.077,543.065L500.163,544.073L497.378,547.011L493.375,550.705L490.242,552.636L486.065,552.468L481.54,554.315L475.971,557.253L472.142,559.687L469.009,563.884L464.484,568.249L459.784,571.271L457.522,575.048L454.389,579.832L450.386,580L450.038,577.146L451.952,572.53L449.864,568.501L446.035,566.318L444.294,565.731L442.554,565.983L438.029,567.913L432.459,571.523L428.978,574.125L426.02,575.3L419.58,576.391L414.359,576.894L412.096,576.139L408.093,573.537L398.869,565.311L386.512,554.147L385.641,550.873L386.163,547.599L383.901,542.729L382.509,537.608L381.464,535.845L381.116,532.067L378.331,525.097L376.243,519.471L374.154,516.532L375.025,514.096L374.154,511.661L372.588,509.645L370.151,503.262L371.022,500.49L370.325,497.718L368.237,495.786L365.452,493.77L361.623,489.486L356.924,485.453L354.661,483.773L353.095,483.185L351.703,479.319L350.658,478.143L348.222,477.807L343.522,476.21L338.997,478.143L338.823,475.202L340.216,473.353L355.706,459.066L363.364,452.509L364.234,451.584L364.93,450.071L365.452,448.053L363.712,445.699L356.402,434.683L353.791,432.664L351.355,430.898L348.57,426.272L345.089,415.503L342.652,410.117L341.956,405.994L342.13,401.28L341.086,397.661L339.171,395.135L339.171,387.473L341.086,374.587L341.608,364.814L340.564,358.072L342.478,353.014L347.003,349.474L349.44,344.077L349.962,336.825L352.747,330.751L357.62,326.026L359.361,321.385L357.794,316.827L357.272,313.873L353.095,310.918L345.437,308.807L338.997,308.554L335.168,310.918L325.248,313.029L309.41,315.055L296.53,315.055L286.784,313.029L279.474,313.704L274.427,317.08L270.946,317.84L268.857,315.983L266.595,315.477L263.114,316.658L262.592,316.068L255.108,307.034L248.146,298.588L240.14,288.619L230.916,277.039L229.175,276.278L226.39,276.363L222.561,276.532L216.818,275.348L212.815,273.657L209.508,272.05L203.765,269.936L199.762,269.598L196.281,270.19L186.534,274.249L180.965,274.672L176.614,274.756L164.953,272.727L157.121,272.388L147.896,273.741L144.067,274.502L138.498,272.388L134.669,269.259L131.188,261.816L128.751,255.977L124.4,254.792L119.701,253.777L117.438,251.83L116.046,248.444L115.698,244.126L116.046,237.012L116.568,234.556L117.264,226.93L119.875,222.947L121.441,220.997L121.267,217.775L119.875,211.246L118.657,206.581L113.435,201.32L106.648,194.615L103.689,183.746L100.208,171.001L97.597,169.726L94.987,170.406L92.376,169.726L89.939,164.625L87.677,163.69L83.848,165.475L81.063,166.836L74.101,168.111L72.709,166.836L73.231,165.22L76.19,160.628L79.671,154.673L83.674,149.227L87.329,143.609L90.113,137.649L92.028,125.891L93.246,117.707L96.727,103.204L102.993,91.591L105.429,86.294L111.173,79.285L113.784,75.523L117.264,72.53L126.837,68.509L138.15,48.475L140.76,45.305L152.421,42.305L161.298,39.99L167.737,37.59L170,36.218L171.74,35.617L170.174,38.018L167.041,40.933L163.56,42.733L145.112,47.276L143.197,48.218L140.934,50.103L140.934,54.386L141.283,57.725L146.852,68.766L148.941,71.503L156.076,77.49L154.51,78.345L151.725,78.43L153.814,86.294L158.165,91.676L158.339,95.007L155.032,105.508L148.766,111.822L144.415,119.157L140.934,122.055L133.277,136.371L139.194,144.971L139.89,149.227L144.938,155.439L148.244,157.396L150.333,159.948L149.289,164.115L151.377,169.811L153.988,172.786L157.121,173.976L161.124,173.976L172.785,170.236L175.395,168.536L177.136,165.475L183.053,159.267L183.401,151.355L184.62,141.736L183.227,135.519L177.136,126.658L174.525,120.265L168.434,114.381L164.779,104.313L163.212,101.155L162.168,96.801L160.776,89.028L164.779,86.294L164.431,79.969L174.351,78.174L195.759,67.91L209.16,65.258L224.302,59.78L227.783,57.04L230.742,52.587L233.178,51.987L241.01,56.27L244.839,54.814L246.406,51.473L244.317,45.048L239.792,45.048L226.216,47.361L224.824,44.619L224.824,42.133L221.691,34.502L223.606,28.669L225.694,23.949L229.523,22.06L235.267,20L239.618,23.176L242.228,26.18L243.621,29.012L244.665,36.904L246.928,44.876L249.364,50.36L253.367,54.557L256.326,54.214L258.415,53.529L272.512,52.587L281.214,55.413L292.179,56.869L302.448,62.947L312.891,70.22L315.501,75.609L316.546,80.653L318.982,84.072L316.546,87.576L317.764,93.47L320.897,99.362L325.422,103.118L338.301,104.143L352.399,101.582L374.154,99.277L381.116,97.313L416.969,96.288L423.757,99.106L424.453,101.923L424.453,104.143L436.114,114.722L445.513,116.087L453.519,119.498L461.873,121.373L470.923,123.931L476.145,123.59L479.974,122.652L484.499,122.482L516.523,104.825L533.579,105.337L536.19,104.143L538.453,102.606L532.187,99.874L517.915,98.85L513.564,100.643L511.128,96.118L515.827,96.288L531.665,94.751L549.94,95.691L564.733,92.445L572.217,91.933L576.394,92.616L588.229,90.48L610.507,92.958L628.086,90.908L625.997,93.812L620.254,95.605L611.029,96.203L603.893,100.472L588.751,99.704L578.135,101.24L581.442,102.435L581.442,106.788L583.008,107.727L584.4,107.727L588.055,110.969L589.1,113.102L590.318,117.622L588.577,122.396L586.489,124.613L590.84,123.846L593.277,121.629L592.929,119.327L593.277,116.684L595.713,117.537L597.28,118.73L602.849,131.345L606.678,137.989L607.722,137.734L608.593,137.478L609.811,136.201L611.551,133.134L613.118,135.093L613.988,135.86L614.858,136.116L613.988,133.219L615.032,129.641L614.684,128.363L616.425,128.107L618.513,128.533L621.472,129.556L626.693,133.731L630.174,138.075L630.348,140.459L631.741,141.821L633.829,143.184L635.047,145.397L635.221,141.907L633.829,139.352L633.481,136.456L640.443,136.371L642.183,132.538L645.838,134.838L655.585,145.312L659.24,147.1L670.03,149.142L676.644,154.163L680.647,158.672L678.21,163.434L671.945,165.815L669.508,168.791L667.942,171.681L667.942,174.656L666.027,178.055L665.853,179.244L664.635,184.001L662.024,189.776L658.717,195.889L640.617,196.058L645.142,198.52L649.145,200.387L655.933,205.223L661.154,201.405L668.812,201.151L677.166,196.992L680.299,196.313L695.615,198.52L699.444,195.464L702.403,194.53L710.757,195.125Z"/><path class="ruta" d="M565.2 139.6 Q481.7 89.3 385.4 103.8"/><path class="ruta" d="M565.2 139.6 Q532.0 117.2 492.2 121"/><path class="ruta" d="M565.2 139.6 Q547.4 113.8 517.3 105.2"/><path class="ruta" d="M565.2 139.6 Q563.5 179.1 587.4 210.6"/><path class="ruta" d="M385.4 103.8 Q356.0 102.1 332.2 119.5"/><path class="ruta" d="M332.2 119.5 Q299.5 110.2 268.4 123.9"/><path class="ruta" d="M268.4 123.9 Q217.4 89.5 156.2 95.4"/><path class="ruta" d="M268.4 123.9 Q211.3 144.3 180.4 196.4"/><path class="ruta" d="M180.4 196.4 Q147.1 207.1 128.2 236.5"/><path class="ruta" d="M156.2 95.4 Q200.6 82.2 226.3 43.7"/><g class="punto"><circle class="halo" cx="385.4" cy="103.8" r="9"/><circle cx="385.4" cy="103.8" r="4.5"/><text x="385.4" y="89.8" text-anchor="middle">Caracas</text></g><g class="punto"><circle class="halo" cx="332.2" cy="119.5" r="9"/><circle cx="332.2" cy="119.5" r="4.5"/><text x="332.2" y="105.5" text-anchor="middle">Valencia</text></g><g class="punto"><circle class="halo" cx="268.4" cy="123.9" r="9"/><circle cx="268.4" cy="123.9" r="4.5"/><text x="268.4" y="147.9" text-anchor="middle">Barquisimeto</text></g><g class="punto"><circle class="halo" cx="156.2" cy="95.4" r="9"/><circle cx="156.2" cy="95.4" r="4.5"/><text x="145.2" y="100.4" text-anchor="end">Maracaibo</text></g><g class="punto"><circle class="halo" cx="492.2" cy="121" r="9"/><circle cx="492.2" cy="121" r="4.5"/><text x="492.2" y="146" text-anchor="middle">Barcelona</text></g><g class="punto"><circle class="halo" cx="517.3" cy="105.2" r="9"/><circle cx="517.3" cy="105.2" r="4.5"/><text x="517.3" y="91.2" text-anchor="middle">Cumaná</text></g><g class="punto"><circle class="halo" cx="587.4" cy="210.6" r="9"/><circle cx="587.4" cy="210.6" r="4.5"/><text x="599.4" y="215.6" text-anchor="start">Ciudad Guayana</text></g><g class="punto"><circle class="halo" cx="180.4" cy="196.4" r="9"/><circle cx="180.4" cy="196.4" r="4.5"/><text x="169.4" y="201.4" text-anchor="end">Mérida</text></g><g class="punto"><circle class="halo" cx="128.2" cy="236.5" r="9"/><circle cx="128.2" cy="236.5" r="4.5"/><text x="117.19999999999999" y="241.5" text-anchor="end">San Cristóbal</text></g><g class="punto"><circle class="halo" cx="226.3" cy="43.7" r="9"/><circle cx="226.3" cy="43.7" r="4.5"/><text x="237.3" y="48.7" text-anchor="start">Punto Fijo</text></g><g class="sede"><circle cx="565.2" cy="139.6" r="8"/><text x="581.2" y="145.6">Maturín</text><text class="sub" x="581.2" y="163.6">Sede · patio de unidades</text></g></svg>
-          <figcaption class="mapa-ley"><span><i class="l-sede"></i>Sede</span><span><i class="l-pto"></i>Destino frecuente</span><span><i class="l-ruta"></i>Ruta</span></figcaption>
-        </figure>
-        <div class="mapa-rutas">
-          <h3>Rutas frecuentes</h3>
-          <ul>
-            <li><b>Oriente · capacidad operativa</b><span>Maturín · Barcelona · Puerto La Cruz · Cumaná · Ciudad Guayana</span></li>
-            <li><b>Centro</b><span>Caracas · Maracay · Valencia</span></li>
-            <li><b>Occidente</b><span>Barquisimeto · Maracaibo · Punto Fijo</span></li>
-            <li><b>Andes</b><span>Mérida · San Cristóbal</span></li>
-                      </ul>
-          <a class="btn btn-rojo" href="https://wa.me/584147658628?text=Hola%2C%20quiero%20cotizar%20una%20ruta" target="_blank" rel="noopener">Cotizar mi ruta</a>
-          <p class="mapa-nota">Si tu destino no aparece, también lo cotizamos.</p>
-        </div>
+      <ol class="proceso">
+        <li><h3>Solicitud</h3><p>Recibimos su requerimiento: personal, turnos, zona y fechas.</p></li>
+        <li><h3>Planificación de ruta</h3><p>Nuestra coordinación logística define la ruta según los accesos y el estado de las vías.</p></li>
+        <li><h3>Asignación</h3><p>Asignamos la unidad adecuada y su unidad de respaldo.</p></li>
+        <li><h3>Ejecución y seguimiento</h3><p>Nuestro departamento de operaciones da seguimiento al servicio durante el trayecto.</p></li>
+        <li><h3>Cierre del servicio</h3><p>Confirmamos la finalización y dejamos todo listo para el siguiente turno.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section id="seguridad">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Seguridad y cumplimiento</p>
+        <h2>Operamos con las exigencias del sector</h2>
+      </div>
+      <div class="cumple">
+        <div><h3>Mantenimiento preventivo</h3><p>Nuestras unidades reciben mantenimiento planificado para operar de forma continua.</p></div>
+        <div><h3>Conductores con experiencia</h3><p>Conductores con experiencia en zonas petroleras y en rutas de difícil acceso.</p></div>
+        <div><h3>Protocolos de seguridad</h3><p>Aplicamos protocolos de seguridad en cada traslado de personal.</p></div>
+        <div><h3>Documentación al día</h3><p>Mantenemos al día la documentación de nuestras unidades y conductores.</p></div>
       </div>
     </div>
   </section>
@@ -540,8 +663,8 @@ footer a:hover{color:var(--rojo)}
     <div class="wrap">
       <div class="sec-head">
         <p class="eyebrow">Otros servicios</p>
-        <h2>Tu gente llega. Siempre a tiempo.</h2>
-        <p class="lead">También ofrecemos transporte privado en autobuses para empresas, eventos y equipos deportivos en toda Venezuela.</p>
+        <h2>Su personal llega. Siempre a tiempo.</h2>
+        <p class="lead">También prestamos transporte privado a empresas, eventos y equipos deportivos en toda Venezuela.</p>
       </div>
       <div class="servicios">
         <article class="serv" id="personal">
@@ -549,7 +672,7 @@ footer a:hover{color:var(--rojo)}
             <h3>Traslado de personal</h3>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="8" cy="7" r="3"/><circle cx="16.5" cy="8" r="2.5"/><path d="M2.5 20c0-3.3 2.5-6 5.5-6s5.5 2.7 5.5 6M13.5 14.3c.9-.5 1.9-.8 3-.8 2.8 0 5 2.3 5 5.5"/></svg>
           </div>
-          <p>Rutas fijas diarias para que tus empleados lleguen a la planta, la oficina o la obra. Contratos mensuales, horarios por turnos y un responsable de contacto.</p>
+          <p>Rutas fijas diarias hacia planta, oficina u obra, con contratos mensuales y horarios por turnos.</p>
           <a href="https://wa.me/584147658628?text=Hola%2C%20necesito%20transporte%20de%20personal%20para%20mi%20empresa" target="_blank" rel="noopener">Cotizar ruta de personal →</a>
         </article>
         <article class="serv" id="ejecutivos">
@@ -565,7 +688,7 @@ footer a:hover{color:var(--rojo)}
             <h3>Eventos</h3>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4M8 15h3"/></svg>
           </div>
-          <p>Bodas, congresos, conciertos, excursiones y actividades corporativas. Coordinamos ida y vuelta para que tus invitados no tengan que preocuparse por nada.</p>
+          <p>Bodas, congresos, conciertos, excursiones y actividades corporativas. Coordinamos los traslados de ida y vuelta de sus invitados.</p>
           <a href="https://wa.me/584147658628?text=Hola%2C%20necesito%20transporte%20para%20un%20evento" target="_blank" rel="noopener">Cotizar evento →</a>
         </article>
         <article class="serv" id="deportivos">
@@ -574,7 +697,7 @@ footer a:hover{color:var(--rojo)}
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m12 7 4 3-1.5 4.5h-5L8 10l4-3ZM12 3v4M21 10.5l-5-.5M18 19l-3.5-4.5M6 19l3.5-4.5M3 10.5l5-.5"/></svg>
           </div>
           <p>Clubes, selecciones y academias. Puntualidad para la concentración, el entrenamiento y el partido, y hoy prestamos servicio a la Federación Venezolana de Fútbol.</p>
-          <a href="https://wa.me/584147658628?text=Hola%2C%20necesito%20transporte%20para%20un%20equipo%20deportivo" target="_blank" rel="noopener">Cotizar para tu equipo →</a>
+          <a href="https://wa.me/584147658628?text=Hola%2C%20necesito%20transporte%20para%20un%20equipo%20deportivo" target="_blank" rel="noopener">Cotizar para equipos →</a>
         </article>
       </div>
       <div class="vinotinto" id="vinotinto">
@@ -591,11 +714,11 @@ footer a:hover{color:var(--rojo)}
   <section class="cotizar" id="cotizar">
     <div class="wrap">
       <div class="txt">
-        <p class="eyebrow">Cotización</p>
-        <h2>¿A dónde vamos?</h2>
-        <p class="lead">Rellena los datos y se abre WhatsApp con tu mensaje listo para enviar. Si prefieres, escríbenos o llámanos directamente.</p>
+        <p class="eyebrow">Contacto corporativo</p>
+        <h2>Solicitar cotización corporativa</h2>
+        <p class="lead">Complete los datos y se abrirá WhatsApp con su solicitud lista para enviar a nuestro Departamento de Operaciones.</p>
         <div class="contacto">
-          <span>WhatsApp y teléfono</span>
+          <span>Departamento de Operaciones · WhatsApp y teléfono</span>
           <strong>0414-765.86.28</strong>
           <span>Instagram: @transpmaywill.ca</span>
         </div>
@@ -606,11 +729,11 @@ footer a:hover{color:var(--rojo)}
         <div class="campo"><label for="origen">Origen</label><input id="origen" name="origen" placeholder="Ciudad o dirección" required></div>
         <div class="campo"><label for="destino">Destino</label><input id="destino" name="destino" placeholder="Ciudad o dirección" required></div>
         <div class="campo"><label for="fecha">Fecha</label><input id="fecha" name="fecha" type="date"></div>
-        <div class="campo"><label for="pasajeros">Pasajeros</label><input id="pasajeros" name="pasajeros" type="number" min="1" placeholder="Ej. 25"></div>
+        <div class="campo"><label for="pasajeros">Personal a trasladar</label><input id="pasajeros" name="pasajeros" type="text" placeholder="Cantidad aproximada"></div>
         <div class="campo full"><label for="servicio">Tipo de servicio</label>
           <select id="servicio" name="servicio">
-            <option>Petrolero · área operacional</option>
-            <option>Petrolero · área administrativa</option>
+            <option>Industria petrolera · área operacional</option>
+            <option>Industria petrolera · área administrativa</option>
             <option>Traslado de personal</option>
             <option>Empresarial / ejecutivos</option>
             <option>Evento</option>
@@ -625,9 +748,9 @@ footer a:hover{color:var(--rojo)}
           </select>
         </div>
         <div class="campo full"><label for="nota">Detalles (opcional)</label><textarea id="nota" name="nota" placeholder="Hora de salida, ida y vuelta, paradas…"></textarea></div>
-        <button class="btn btn-rojo" type="submit"><svg aria-hidden="true"><use href="#i-wa"/></svg>Preparar mensaje de WhatsApp</button>
+        <button class="btn btn-rojo" type="submit"><svg aria-hidden="true"><use href="#i-wa"/></svg>Solicitar cotización corporativa</button>
         <div class="resultado" id="resultado" hidden>
-          <p>Tu mensaje está listo. Toca el botón para abrirlo en WhatsApp y enviarlo.</p>
+          <p>Su solicitud está lista. Toque el botón para abrirla en WhatsApp y enviarla.</p>
           <a class="btn btn-rojo" id="wa-link" href="#" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Abrir WhatsApp</a>
         </div>
       </form>
@@ -642,10 +765,11 @@ footer a:hover{color:var(--rojo)}
       <p style="margin-top:14px;color:var(--suave)">Responsabilidad y calidad, nuestro norte.</p>
     </div>
     <div>
-      <h4>Contacto</h4>
+      <h4>Departamento de Operaciones</h4>
       <p>0414-765.86.28</p>
       <p><a href="https://www.instagram.com/transpmaywill.ca/" target="_blank" rel="noopener">@transpmaywill.ca</a></p>
-      <p style="color:var(--suave)">Carretera vía La Pica, galpón s/n, sector Pararisito, Maturín, Monagas</p>
+      <p style="color:var(--suave)">Sede principal: carretera vía La Pica, galpón s/n, sector Pararisito, Maturín, Monagas</p>
+      <p style="color:var(--suave)">Base operativa: Pariaguán</p>
     </div>
     <div>
       <h4>Empresa</h4>
@@ -654,26 +778,6 @@ footer a:hover{color:var(--rojo)}
   </div>
 </footer>
 
-<dialog class="calc-ventana" id="calc-ventana" aria-labelledby="calc-titulo">
-  <div class="calc">
-    <div class="calc-cab">
-      <h2 id="calc-titulo">Calcular puestos</h2>
-      <button class="calc-cerrar" id="calc-cerrar" type="button" aria-label="Cerrar calculadora">×</button>
-    </div>
-    <fieldset class="calc-area">
-      <legend>Área</legend>
-      <label><input type="radio" name="calc-area" id="calc-op" value="operacional" checked><span>Operacional</span></label>
-      <label><input type="radio" name="calc-area" id="calc-ad" value="administrativa"><span>Administrativa</span></label>
-    </fieldset>
-    <div class="calc-fila"><label for="calc-num">Puestos que necesitas</label><input type="number" id="calc-num" min="1" max="188" value="30" inputmode="numeric"></div>
-    <input type="range" id="calc-n" min="1" max="188" value="30" aria-label="Puestos que necesitas">
-    <p class="calc-total"><b id="calc-unidades">1 unidad</b><span id="calc-puestos">30 puestos</span></p>
-    <ul class="calc-lista" id="calc-lista"></ul>
-    <a class="btn btn-rojo" id="calc-wa" href="https://wa.me/584147658628?text=Hola%2C%20quiero%20preguntar%20por%20disponibilidad%20de%20puestos" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Preguntar por estos puestos</a>
-    <p class="calc-nota">Cálculo orientativo con nuestras 7 unidades, que suman 188 puestos. Si necesitas más, indícalo en tu mensaje.</p>
-  </div>
-</dialog>
-
 <div class="visor" id="visor" hidden role="dialog" aria-modal="true" aria-label="Fotos ampliadas">
   <div class="visor-top"><span id="visor-cont">1 / 1</span><button class="visor-cerrar" id="visor-cerrar" type="button" aria-label="Cerrar">×</button></div>
   <div class="visor-pista" id="visor-pista"></div>
@@ -681,7 +785,7 @@ footer a:hover{color:var(--rojo)}
   <button class="flecha next" id="visor-next" type="button" aria-label="Foto siguiente">›</button>
 </div>
 
-<a class="wa-float" href="https://wa.me/584147658628?text=Hola%20Transporte%20Maywill%2C%20quiero%20una%20cotizaci%C3%B3n" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><svg aria-hidden="true"><use href="#i-wa"/></svg></a>
+<a class="wa-float" href="https://wa.me/584147658628?text=Hola%20Departamento%20de%20Operaciones%20de%20Transporte%20Maywill%2C%20quiero%20solicitar%20una%20cotizaci%C3%B3n" target="_blank" rel="noopener" aria-label="WhatsApp del Departamento de Operaciones"><svg aria-hidden="true"><use href="#i-wa"/></svg><span>Departamento de Operaciones</span></a>
 
 <script>
 var visor=document.getElementById('visor'),vp=document.getElementById('visor-pista'),vc=document.getElementById('visor-cont'),vprev=document.getElementById('visor-prev'),vnext=document.getElementById('visor-next'),vlast=null;
@@ -764,50 +868,6 @@ document.querySelectorAll('.galeria').forEach(function(g){
 </script>
 <script>
 (function(){
-  var flota=[{n:'Hino · Incarven',p:32},{n:'Mercedes-Benz · Incarven',p:30},{n:'Hino · Intercar',p:28},{n:'Marcopolo Senior',p:26},{n:'Toyota Coaster',p:24},{n:'Toyota Coaster',p:24},{n:'Toyota Coaster',p:24}];
-  var ventana=document.getElementById('calc-ventana'),abrir=document.getElementById('calc-abrir'),cerrar=document.getElementById('calc-cerrar'),num=document.getElementById('calc-num'),rango=document.getElementById('calc-n'),lista=document.getElementById('calc-lista'),uni=document.getElementById('calc-unidades'),pue=document.getElementById('calc-puestos'),wa=document.getElementById('calc-wa');
-  function repartir(total){
-    var libres=flota.slice(),res=[],resta=total;
-    while(resta>0&&libres.length){
-      var i=-1;
-      for(var k=libres.length-1;k>=0;k--){if(libres[k].p>=resta){i=k;break;}}
-      if(i<0)i=0;
-      var u=libres.splice(i,1)[0],van=Math.min(u.p,resta);
-      res.push({n:u.n,p:u.p,van:van});resta-=van;
-    }
-    return res;
-  }
-  function pintar(){
-    var total=acotar(rango.value),res=repartir(total),puestos=0,area=document.querySelector('input[name="calc-area"]:checked').value;
-    lista.innerHTML='';
-    res.forEach(function(u){
-      puestos+=u.p;
-      var li=document.createElement('li'),fila=document.createElement('div'),nom=document.createElement('span'),cant=document.createElement('i'),as=document.createElement('div');
-      fila.className='u';nom.textContent=u.n;cant.textContent=u.van+' / '+u.p;fila.appendChild(nom);fila.appendChild(cant);
-      as.className='asientos';as.setAttribute('aria-hidden','true');
-      for(var s=0;s<u.p;s++){var d=document.createElement('s');if(s<u.van)d.className='on';as.appendChild(d);}
-      li.appendChild(fila);li.appendChild(as);lista.appendChild(li);
-    });
-    uni.textContent=res.length+(res.length===1?' unidad':' unidades');
-    pue.textContent=puestos+' puestos';
-    wa.href='https://wa.me/584147658628?text='+encodeURIComponent('Hola Transporte Maywill, quiero preguntar por disponibilidad:\n• Área: '+area+'\n• Puestos: '+total+'\n• Unidades sugeridas: '+res.map(function(u){return u.n;}).join(', '));
-  }
-  function acotar(v){v=Math.round(+v)||1;return Math.max(1,Math.min(188,v));}
-  rango.addEventListener('input',function(){num.value=rango.value;pintar();});
-  num.addEventListener('input',function(){if(num.value==='')return;rango.value=acotar(num.value);pintar();});
-  num.addEventListener('change',function(){num.value=acotar(num.value);rango.value=num.value;pintar();});
-  function verVentana(){ventana.showModal();document.body.style.overflow='hidden';num.focus();num.select();}
-  abrir.addEventListener('click',function(){document.getElementById('menu-btn').click();verVentana();});
-  cerrar.addEventListener('click',function(){ventana.close();});
-  ventana.addEventListener('close',function(){document.body.style.overflow='';document.getElementById('menu-btn').focus();});
-  ventana.addEventListener('click',function(e){if(e.target===ventana)ventana.close();});
-  if(location.hash==='#calculadora')verVentana();
-  document.querySelectorAll('input[name="calc-area"]').forEach(function(r){r.addEventListener('change',pintar);});
-  pintar();
-})();
-</script>
-<script>
-(function(){
   var form=document.getElementById('form-cotizar');
   var res=document.getElementById('resultado');
   var link=document.getElementById('wa-link');
@@ -826,7 +886,7 @@ document.querySelectorAll('.galeria').forEach(function(g){
       '• Origen: '+v('origen')+'\n'+
       '• Destino: '+v('destino')+'\n'+
       (v('fecha')?'• Fecha: '+v('fecha')+'\n':'')+
-      (v('pasajeros')?'• Pasajeros: '+v('pasajeros')+'\n':'')+
+      (v('pasajeros')?'• Personal a trasladar: '+v('pasajeros')+'\n':'')+
       (v('nota')?'• Detalles: '+v('nota'):'');
     link.href='https://wa.me/584147658628?text='+encodeURIComponent(msg);
     res.hidden=false;

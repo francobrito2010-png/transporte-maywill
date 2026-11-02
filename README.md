@@ -1,6 +1,6 @@
 # Transporte Maywill C.A. — Web
 
-Servicio a la industria petrolera en área administrativa y operacional. También empresas, eventos y equipos deportivos. Base en Maturín, Monagas; servicio a nivel nacional.
+Transporte de personal para la industria petrolera en el oriente venezolano y la Faja del Orinoco. Sede principal en Maturín, Monagas; base operativa en Pariaguán.
 
 **Ver la web:** https://francobrito2010-png.github.io/transporte-maywill/
 
