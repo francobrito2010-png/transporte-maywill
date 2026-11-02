@@ -358,6 +358,19 @@ footer a:hover{color:var(--rojo)}
 .ent-saltar:focus-visible{outline:3px solid #d9b56b;outline-offset:2px}
 @media (prefers-reduced-motion:reduce){.ent-escena,.ent-rayos,.ent-filo,.ent-brillo{display:none}}
 
+/* Correo */
+.correo-fila{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin-top:8px;padding-top:12px;border-top:1px solid var(--linea)}
+.correo-fila a{font-family:var(--f-mono);font-size:1rem;color:var(--texto);overflow-wrap:anywhere}
+.correo-fila a:hover{color:var(--rojo-hover)}
+.correo-copiar{font-family:var(--f-display);font-weight:600;font-size:.85rem;letter-spacing:.08em;text-transform:uppercase;padding:5px 12px;border:1px solid var(--linea);border-radius:999px;background:none;color:var(--suave);cursor:pointer}
+.correo-copiar:hover{color:var(--texto);border-color:var(--texto)}
+.correo-copiar:focus-visible{outline:3px solid var(--dorado);outline-offset:2px}
+.resultado-botones{display:flex;flex-wrap:wrap;gap:10px}
+.resultado-botones .btn{grid-column:auto;flex:1 1 200px;justify-content:center}
+.pie-sec{color:var(--suave);font-size:.88rem;margin-top:8px}
+/* Instituciones educativas */
+.serv-ancha{grid-column:1/-1}
+
 /* WhatsApp flotante */
 .wa-float{position:fixed;right:calc(18px + env(safe-area-inset-right,0px));bottom:calc(18px + env(safe-area-inset-bottom,0px));z-index:70;min-width:62px;height:62px;padding-inline:17px;border-radius:999px;background:#128c4a;color:#fff;display:flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;font-family:var(--f-display);font-weight:700;font-size:1.02rem;letter-spacing:.04em;text-transform:uppercase;box-shadow:0 10px 30px rgba(0,0,0,.45);transition:transform .2s}
 .wa-float:hover{transform:scale(1.07)}
@@ -462,6 +475,7 @@ footer a:hover{color:var(--rojo)}
         <a href="#ejecutivos" data-area="Ejecutivos" data-tarjeta>Empresarial y ejecutivos</a>
         <a href="#eventos" data-area="Eventos" data-tarjeta>Eventos</a>
         <a href="#deportivos" data-area="Deportivos" data-tarjeta>Equipos deportivos</a>
+        <a href="#educativas" data-area="Educativas" data-tarjeta>Instituciones educativas</a>
         <a href="#vinotinto" data-area="Vinotinto">Vinotinto</a>
       </div>
       <div class="menu-grupo">
@@ -687,7 +701,7 @@ footer a:hover{color:var(--rojo)}
       <div class="sec-head">
         <p class="eyebrow">Otros servicios</p>
         <h2>Su personal llega. Siempre a tiempo.</h2>
-        <p class="lead">También prestamos transporte privado a empresas, eventos y equipos deportivos en toda Venezuela.</p>
+        <p class="lead">También prestamos transporte privado a empresas, eventos, equipos deportivos e instituciones educativas en toda Venezuela.</p>
       </div>
       <div class="servicios">
         <article class="serv" id="personal">
@@ -722,6 +736,14 @@ footer a:hover{color:var(--rojo)}
           <p>Clubes, selecciones y academias. Puntualidad para la concentración, el entrenamiento y el partido, y hoy prestamos servicio a la Federación Venezolana de Fútbol.</p>
           <a href="https://wa.me/584147658628?text=Hola%2C%20necesito%20transporte%20para%20un%20equipo%20deportivo" target="_blank" rel="noopener">Cotizar para equipos →</a>
         </article>
+        <article class="serv serv-ancha" id="educativas">
+          <div class="serv-top">
+            <h3>Instituciones educativas</h3>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 9.5 12 5l10 4.5L12 14 2 9.5Z"/><path d="M6 11.5V16c0 1.5 2.7 3 6 3s6-1.5 6-3v-4.5M22 9.5V15"/></svg>
+          </div>
+          <p>Llevamos a los niños y a sus docentes a excursiones, paseos escolares y viajes de vacaciones. Coordinamos con cada institución la ruta, los horarios y el regreso.</p>
+          <a href="https://wa.me/584147658628?text=Hola%2C%20quiero%20cotizar%20transporte%20para%20una%20instituci%C3%B3n%20educativa" target="_blank" rel="noopener">Cotizar para instituciones →</a>
+        </article>
       </div>
       <div class="vinotinto" id="vinotinto">
         <figure class="vino-foto"><img src="img/vinotinto.jpg?v=11" alt="Microbuses de Transporte Maywill junto al autobús de la Vinotinto al atardecer" loading="lazy"><figcaption>Nuestras unidades acompañando a la Selección</figcaption></figure>
@@ -744,6 +766,10 @@ footer a:hover{color:var(--rojo)}
           <span>Departamento de Operaciones · WhatsApp y teléfono</span>
           <strong>0414-765.86.28</strong>
           <span>Instagram: @transpmaywill.ca</span>
+          <div class="correo-fila">
+            <a href="mailto:maywill.ca@gmail.com?subject=Solicitud%20de%20cotizaci%C3%B3n%20corporativa&body=Hola%20Transporte%20Maywill%2C%0A%0AQuiero%20solicitar%20una%20cotizaci%C3%B3n%3A%0A%0A%E2%80%A2%20Empresa%3A%0A%E2%80%A2%20Servicio%3A%0A%E2%80%A2%20Origen%20y%20destino%3A%0A%E2%80%A2%20Fecha%3A%0A%E2%80%A2%20Personal%20a%20trasladar%3A%0A">maywill.ca@gmail.com</a>
+            <button class="correo-copiar" id="correo-copiar" type="button">Copiar correo</button>
+          </div>
         </div>
       </div>
       <form id="form-cotizar" novalidate>
@@ -761,6 +787,7 @@ footer a:hover{color:var(--rojo)}
             <option>Empresarial / ejecutivos</option>
             <option>Evento</option>
             <option>Equipo deportivo</option>
+            <option>Institución educativa</option>
             <option>Otro</option>
           </select>
         </div>
@@ -773,8 +800,11 @@ footer a:hover{color:var(--rojo)}
         <div class="campo full"><label for="nota">Detalles (opcional)</label><textarea id="nota" name="nota" placeholder="Hora de salida, ida y vuelta, paradas…"></textarea></div>
         <button class="btn btn-rojo" type="submit"><svg aria-hidden="true"><use href="#i-wa"/></svg>Solicitar cotización corporativa</button>
         <div class="resultado" id="resultado" hidden>
-          <p>Su solicitud está lista. Toque el botón para abrirla en WhatsApp y enviarla.</p>
+          <p>Su solicitud está lista. Elija cómo enviarla.</p>
+          <div class="resultado-botones">
           <a class="btn btn-rojo" id="wa-link" href="#" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg>Abrir WhatsApp</a>
+          <a class="btn btn-linea" id="mail-link" href="mailto:maywill.ca@gmail.com?subject=Solicitud%20de%20cotizaci%C3%B3n%20corporativa&body=Hola%20Transporte%20Maywill%2C%0A%0AQuiero%20solicitar%20una%20cotizaci%C3%B3n%3A%0A%0A%E2%80%A2%20Empresa%3A%0A%E2%80%A2%20Servicio%3A%0A%E2%80%A2%20Origen%20y%20destino%3A%0A%E2%80%A2%20Fecha%3A%0A%E2%80%A2%20Personal%20a%20trasladar%3A%0A">Enviar por correo</a>
+          </div>
         </div>
       </form>
     </div>
@@ -790,6 +820,10 @@ footer a:hover{color:var(--rojo)}
     <div>
       <h4>Departamento de Operaciones</h4>
       <p>0414-765.86.28</p>
+      <p class="pie-sec">Administración, si no hay respuesta:</p>
+      <p><a href="https://wa.me/584166910048" target="_blank" rel="noopener">0416-691.00.48</a></p>
+      <p class="pie-sec">Correo:</p>
+      <p><a href="mailto:maywill.ca@gmail.com?subject=Solicitud%20de%20cotizaci%C3%B3n%20corporativa&body=Hola%20Transporte%20Maywill%2C%0A%0AQuiero%20solicitar%20una%20cotizaci%C3%B3n%3A%0A%0A%E2%80%A2%20Empresa%3A%0A%E2%80%A2%20Servicio%3A%0A%E2%80%A2%20Origen%20y%20destino%3A%0A%E2%80%A2%20Fecha%3A%0A%E2%80%A2%20Personal%20a%20trasladar%3A%0A">maywill.ca@gmail.com</a></p>
       <p><a href="https://www.instagram.com/transpmaywill.ca/" target="_blank" rel="noopener">@transpmaywill.ca</a></p>
       <p style="color:var(--suave)">Sede principal: carretera vía La Pica, galpón s/n, sector Pararisito, Maturín, Monagas</p>
       <p style="color:var(--suave)">Base operativa: Pariaguán</p>
@@ -894,6 +928,12 @@ document.querySelectorAll('.galeria').forEach(function(g){
   var form=document.getElementById('form-cotizar');
   var res=document.getElementById('resultado');
   var link=document.getElementById('wa-link');
+  var copiar=document.getElementById('correo-copiar');
+  copiar.addEventListener('click',function(){
+    function hecho(){copiar.textContent='Correo copiado';}
+    function seleccionar(){var s=window.getSelection(),r=document.createRange();r.selectNodeContents(copiar.previousElementSibling);s.removeAllRanges();s.addRange(r);copiar.textContent='Selecciónelo y cópielo';}
+    if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText('maywill.ca@gmail.com').then(hecho,seleccionar);else seleccionar();
+  });
   form.addEventListener('submit',function(e){
     e.preventDefault();
     var v=function(id){return (document.getElementById(id).value||'').trim();};
@@ -912,6 +952,7 @@ document.querySelectorAll('.galeria').forEach(function(g){
       (v('pasajeros')?'• Personal a trasladar: '+v('pasajeros')+'\n':'')+
       (v('nota')?'• Detalles: '+v('nota'):'');
     link.href='https://wa.me/584147658628?text='+encodeURIComponent(msg);
+    document.getElementById('mail-link').href='mailto:maywill.ca@gmail.com?subject='+encodeURIComponent('Solicitud de cotización corporativa'+(v('empresa')?' · '+v('empresa'):''))+'&body='+encodeURIComponent(msg);
     res.hidden=false;
     link.focus();
   });
