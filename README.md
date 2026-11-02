@@ -1,6 +1,6 @@
 # Transporte Maywill C.A. — Web
 
-Transporte de personal, empresarial, eventos y equipos deportivos. Base en Maturín, Monagas; servicio a nivel nacional.
+Servicio a la industria petrolera en área administrativa y operacional. También empresas, eventos y equipos deportivos. Base en Maturín, Monagas; servicio a nivel nacional.
 
 **Ver la web:** https://francobrito2010-png.github.io/transporte-maywill/
 
